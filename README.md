@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+## FTC11587 Engineering Notebook
+This code branch contains the electronic documents required to produce the team Engineering Notebook.  The notebook will use the GNU [groff] (https://www.gnu.org/software/groff/) software and supporting libraries to generate the final product.
 
-You can use the [editor on GitHub](https://github.com/FTCTeam11587/Engineering_Notebook/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Introduction to groff
+GNU troff, or groff, is an open-source software tool designed to quickly produce well-formatted, indexed documentation.  It allows the user to focus on content over formatting, leading to rapid, yet efficient development of complex techincal documentation.  groff relies on *macros* to generate output in an appropriate/desired format.  This project will use the groff -ms macro set.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Using additional GNU tools, groff can easily handle complex content such as tables, images, and even engineering equations with ease, making groff a popular choice for documentation of graduate theses, dissertations, engineering manuals and the like.
 
-### Markdown
+### Methodology
+Using GitHub, updates to the Engineering Notebook can be tracked in real time, with 100% accountability for commits.  The Team Project Manager will have primary responsibility for maintaining the Engineering Notebook, and others may commit changes as directed by the Project Manager.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Directory and File Structure
+The Engineering Notebook branch will utilize the following directory structure to make builds a simple process:
+- `/main`:  Contains the .ms file which holds the text content of the Engineering Notebook
+- `/main/images`:  Contains any image content used in the Engineering Notebook.  Files placed in this directory should have descriptive file names to identify their content.
+- `/main/output`:  This directory should be used to store the output of a groff run.  The preferred output for the Notebook is .pdf format.
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/FTCTeam11587/Engineering_Notebook/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
