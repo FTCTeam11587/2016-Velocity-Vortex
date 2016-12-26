@@ -1,0 +1,24 @@
+\# Cover Page Information
+
+.TITLE      "FTC Team #11587 Engineering Notebook"
+.SUBTITLE   "IDA Starry Knights"
+.AUTHOR     "Starry Knights Project Management Team"
+.COPYRIGHT  "2017 Team 11587"
+.MISC       "Current As Of:" "\*[IT]December 25, 2017\*[PREV]"
+
+\# Docstyle macros
+
+.DOCTYPE    DEFAULT
+.COPYSTYLE  FINAL
+
+\# Additional style macros
+
+.PRINTSTYLE TYPSET
+.L_MARGIN   6P
+.R_MARGIN   4P+6p
+.PT_SIZE    10p
+.RW         .1
+.AUTOLEAD   1.5
+
+
+
