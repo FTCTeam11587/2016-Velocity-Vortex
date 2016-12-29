@@ -53,7 +53,7 @@ Welcome to the Engineering Notebook for FTC Team #11587!  This book documents th
 The \fIStarry Knights\fP organized in September 2016 at Imago Dei Academy in Alamogordo, New Mexico under the guidance of Head Coach Deneen Black.  Imago Dei Academy is a private classical Christian school with an academic focus that traditionally has been strong in liberal arts education.  In 2016 the school board decided to increase the school's focus on STEM activities to develop more well-rounded graduates.  The \fIKnights\fP organized and quickly expanded our membership to include not only IDA students, but also students from local public and homeschools.
 
 .PP
-When the team initially formed, none of our members had any experience in robotics or computer programming.  For the first two months, our learning curve was very steep!  In late October 2016 we reached the point of having a basic functioning robot, leaving us approximately six weeks before our first competition to develop OpModes and Driver code.  We settled on a strategy of simple, basic maneuvers during the Autonomous period, and focused on Driver skill in accomplishing Beacon claims during the Driver period of a match.  This approach resulted in a 2nd place finish at the Alamogordo FTC Competition in mid-December.  We could not have succeeded at the Alamogordo competition without the help of the FTC R\*{2\*}D\*{2\*} Team from Alamogordo, who graciously supplied us with tool boxes, shared work space, and plenty of encouragement as we prepared for our first competition.  Thank you R\*{2\*}D\*{2\*} Team!  We were able to "pay it forward" by taking the opportunity to support and mentor two First Lego League teams at our school during the fall season.
+When the team initially formed, none of our members had any experience in robotics or computer programming.  For the first two months, our learning curve was very steep!  In late October 2016 we reached the point of having a basic functioning robot, leaving us approximately six weeks before our first competition to develop OpModes and Driver code.  We settled on a strategy of simple, basic maneuvers during the Autonomous period, and focused on Driver skill in accomplishing Beacon claims during the Driver period of a match.  This approach resulted in a 2nd place finish at the Alamogordo FTC Competition in mid-December.  We could not have succeeded at the Alamogordo competition without the help of the FTC R\*{2\*}D\*{2\*} Team from Alamogordo, who graciously supplied us with tool boxes, shared work space, and plenty of encouragement as we prepared for our first competition.  Thank you R\*{2\*}D\*{2\*} Team!  We were able to "pay it forward" by taking the opportunity to support and mentor two FIRST\[rg] Lego League teams at our school during the fall season.
 
 .PP
 Our 2nd place finish at Alamogordo secured us a spot at the Arizona/New Mexico Championship being held at Flagstaff in February 2017.  We quickly realized we needed to step up our game significantly to be competitive at that match.  We reorganized, went back to the drawing board, and identified three target tasks for our robot to allow us to remain competitive at the inter-state match.  Under the guidance of our new Head Coach, Kurt Kochendarfer, we tore our robot all the way down to the basic drivetrain and started a rebuild to meet our target goals.
@@ -87,13 +87,13 @@ Emmet Burks
 Emmet is a junior at Imago Dei Academy.  He joined FTC for entertainment, and has found his time on the Build Team a good experience which has broadened his horizons.  Emmet plans to pursue a college degree in criminal justice and a follow-on career in law enforcement.  He also enjoys hunting, shooting, and martial arts.
 .KE
 
+.KS
 .NH 3
 Programming Team
 .XS
 Programming Team
 .XE
 
-.KS
 .NH 4
 Coach Michael Hitchcock - Programming Team Lead
 
@@ -214,6 +214,21 @@ Engineering Section
 .XE
 
 .NH 2
+Engineering Overview
+.XS
+Engineering Overview
+.XE
+
+.NH 2
+Scissor Lift Design
+.XS
+Scissor Lift Design
+.XE
+
+.PP
+To accomplish our objective of executing the cap ball lift into the Center Vortex during End Game, the Build Team decided to utilize a scissor lift mechanism to raise the cap ball into the Center Vortex.  While several other designs were considered, including a cascading pulley lift, the Build Team favored the scissor lift for its simplicity and strength.
+
+.NH 2
 Engineering Logbook
 .XS
 Engineering Logbook
@@ -237,5 +252,7 @@ At this meeting the Build Team deconstructed the existing robot to the drivetrai
 
 
 \fIStardate 20161227\fP
+
+\fIStardate 20161228\fP
 
 .TC
