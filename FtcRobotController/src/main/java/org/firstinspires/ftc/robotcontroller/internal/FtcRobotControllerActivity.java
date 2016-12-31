@@ -97,6 +97,7 @@ import java.io.File;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+
 public class FtcRobotControllerActivity extends Activity {
 
   public static final String TAG = "RCActivity";
@@ -248,7 +249,7 @@ public class FtcRobotControllerActivity extends Activity {
 
     PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-    WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+    WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     wifiLock = wifiManager.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "");
 
     hittingMenuButtonBrightensScreen();

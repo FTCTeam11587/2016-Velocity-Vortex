@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.team11587;
 
+import android.content.Context;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -8,52 +10,51 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp(name="Tank Drive with Claw", group="Linear Opmode")
 
 public class TankDriveClaw extends LinearOpMode {
-
-    DcMotor leftmotor;
-    DcMotor rightmotor;
-    DcMotor armmotor;
-    Servo leftClaw;
-    Servo rightClaw;
-    double leftmotorpower;
-    double rightmotorpower;
+    DcMotor port_motor;
+    DcMotor stbd_motor;
+    DcMotor arm_motor;
+    Servo port_claw;
+    Servo stbd_claw;
+    double port_motorpower;
+    double stbd_motorpower;
 
     double clawPosition = 0.5;            // Servo mid position
     final double CLAW_SPEED = 0.02;   // Sets rate to move servo
 
     @Override
     public void runOpMode() throws InterruptedException {
-        leftmotor = hardwareMap.dcMotor.get("left motor");
-        rightmotor = hardwareMap.dcMotor.get("right motor");
-        armmotor = hardwareMap.dcMotor.get("arm");
-        leftClaw = hardwareMap.servo.get("left claw");
-        rightClaw = hardwareMap.servo.get("right claw");
-        rightmotor.setDirection(DcMotor.Direction.REVERSE);
-        leftClaw.setPosition(clawPosition);
-        rightClaw.setPosition(clawPosition);
+        port_motor = hardwareMap.dcMotor.get("port_motor");	    // build config profile
+        stbd_motor = hardwareMap.dcMotor.get("stbd_motor");     // build config profile
+        arm_motor = hardwareMap.dcMotor.get("arm_motor");       // build config profile
+        port_claw = hardwareMap.servo.get("port_claw");	        // build config profile
+        stbd_claw = hardwareMap.servo.get("stbd_claw");	        // build config profile
+        stbd_motor.setDirection(DcMotor.Direction.REVERSE);
+        port_claw.setPosition(clawPosition);
+        stbd_claw.setPosition(clawPosition);
         waitForStart();
 
         while (opModeIsActive()){
 
-            leftmotorpower = -gamepad1.left_stick_y;
-            rightmotorpower = -gamepad1.right_stick_y;
+            port_motorpower = -gamepad1.left_stick_y;
+            stbd_motorpower = -gamepad1.right_stick_y;
 
-            leftmotor.setPower(leftmotorpower);
-            rightmotor.setPower(rightmotorpower);
+            port_motor.setPower(port_motorpower);
+            stbd_motor.setPower(stbd_motorpower);
 
             if(gamepad1.right_trigger != 0)
-                armmotor.setPower(-gamepad1.right_trigger*0.25);
+                arm_motor.setPower(-gamepad1.right_trigger*0.25);
             else if(gamepad1.left_trigger != 0)
-                armmotor.setPower(gamepad1.left_trigger*0.25);
+                arm_motor.setPower(gamepad1.left_trigger*0.25);
             else if(gamepad1.left_trigger == 0 && gamepad2.right_trigger == 0)
-                armmotor.setPower(0);
+                arm_motor.setPower(0);
 
             if (gamepad1.left_bumper)
                 clawPosition += CLAW_SPEED;
             else if(gamepad1.right_bumper)
                 clawPosition -= CLAW_SPEED;
 
-            rightClaw.setPosition(1-clawPosition);
-            leftClaw.setPosition(clawPosition);
+            stbd_claw.setPosition(1-clawPosition);
+            port_claw.setPosition(clawPosition);
 
             idle();
         }
