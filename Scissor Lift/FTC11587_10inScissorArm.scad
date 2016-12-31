@@ -1,8 +1,11 @@
 /*
 Robot scissor lift components for FTC Team #11587
+10 inch Scissor Lift Arm
 Kurt Kochendarfer
 January 2017
 */
+
+/*Initial scissor lift arm design.  Dimensionally restricted to 10" for printing on a 3D print bed.*/
 
 
 module makeLowerFlange() {
