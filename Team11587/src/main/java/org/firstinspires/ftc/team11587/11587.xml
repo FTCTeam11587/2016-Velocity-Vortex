@@ -2,7 +2,7 @@
 <Robot type="FirstInspires-FTC">
     <DeviceInterfaceModule name="DEV_IF_MOD_1" serialNumber="AI02RM9V">
         <DigitalDevice name="fwd_xdcr_rx" port="6" />
-        <DigitalDevice name="fwd_xdcr_tx" port="7" />
+        <PulseWidthDevice name="xdcr_tx" port="1" />
     </DeviceInterfaceModule>
     <MotorController name="MTR_CNTRLLR_1" serialNumber="AH03EU0K">
         <Motor name="port_motor" port="2" />

@@ -9,4 +9,4 @@ arm_motor	Motor				1				MTR_CNTRLLR_2
 port_claw	Servo				2				SRV_CNTRLLR_1
 stbd_claw	Servo				1				SRV_CNTRLLR_1
 fwd_xdcr_rx	DigitalDevice		6				DEV_IF_MOD_1
-fwd_xdcr_tx	DigitalDevice		7				DEV_IF_MOD_1
+xdcr_tx		PulseWidthDevice	1				DEV_IF_MOD_1

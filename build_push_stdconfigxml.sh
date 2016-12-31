@@ -69,7 +69,7 @@ cat $OPMODES_DIR/PORTNAMES.tmp|awk '{print $3}'|sed -e 's/(/ /g'|sed -e 's/)//g'
 sed -i '' -e 's/dcMotor/Motor/g' ./VARIABLES
 sed -i '' -e 's/servo/Servo/g' ./VARIABLES
 sed -i '' -e 's/digitalChannel/DigitalDevice/g' ./VARIABLES
-sed -i '' -e 's/PWMOutput/PulseWidthDevice/g' ./VARIABLES
+sed -i '' -e 's/pwmOutput/PulseWidthDevice/g' ./VARIABLES
 cat ./VARIABLES
 cat ./VARIABLES|awk '{print $1}'>./TYPES
 cat ./VARIABLES|awk '{print $2}'>./NAMES
@@ -93,7 +93,6 @@ for (( i=0; i < ${#TYPE_insrc[@]}; i++)); do
 	fi
 done
 cat ./xml.tmp
-
 declare -a PARENT_NAME
 PARENT_NAME=( $(cat ./xml.tmp|awk '{print $2}'|sort|uniq) )
 echo -e "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>" > $OUR_CONFIG
@@ -118,7 +117,7 @@ done
 echo -e "</Robot>" >> $OUR_CONFIG
 
 OUR_CONFIG=$(echo $OUR_CONFIG|tr -d '\r')
-OUR_REMOTE_CONFIG=${ANDROID_FIRST_DIRECTORY}/STANDARD.xml
+OUR_REMOTE_CONFIG=${ANDROID_FIRST_DIRECTORY}/${TEAMNUMBER}.xml
 OUR_REMOTE_CONFG=$(echo ${OUR_REMOTE_CONFG}|tr -d '\r')
 echo adb push $OUR_CONFIG $OUR_REMOTE_CONFIG
 adb push "$OUR_CONFIG" "$OUR_REMOTE_CONFIG"

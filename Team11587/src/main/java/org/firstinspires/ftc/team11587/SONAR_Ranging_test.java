@@ -8,8 +8,10 @@ import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.DigitalChannelController;
 //import com.qualcomm.robotcore.hardware.PWMOutput;
+import com.qualcomm.robotcore.hardware.PWMOutput;
 import com.qualcomm.robotcore.hardware.PWMOutputController;
 import com.qualcomm.robotcore.hardware.PWMOutputControllerEx;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 import java.util.concurrent.TimeUnit;
@@ -26,9 +28,11 @@ public class SONAR_Ranging_test extends LinearOpMode {
 	final int BLUE_LED_CHANNEL = 0;
 
 	boolean					HIGH;				// Input State
+	private ElapsedTime runtime = new ElapsedTime();
 	DeviceInterfaceModule   DEV_IF_MOD_1;			// Device Object
-	DigitalChannel			fwd_xdcr_tx;			// Device Object
+	PWMOutput				xdcr_tx;			// Device Object
 	DigitalChannel			fwd_xdcr_rx;
+	long PW_Rolling = -1;
 	//PWMOutputControllerEx fwd_xdcr_tx;
 
 
@@ -37,63 +41,54 @@ public class SONAR_Ranging_test extends LinearOpMode {
 
 		// get a reference to a Modern Robotics DIM, and IO channels.
 		DEV_IF_MOD_1 = hardwareMap.deviceInterfaceModule.get("DEV_IF_MOD_1");	// build config profile
-		fwd_xdcr_tx  = hardwareMap.digitalChannel.get("fwd_xdcr_tx");			// build config profile
-		//fwd_xdcr_tx = hardwareMap.pwmOutput.get("fwd_xdcr_tx");				// build config profile
+		xdcr_tx = hardwareMap.pwmOutput.get("xdcr_tx");							// build config profile
 		fwd_xdcr_rx  = hardwareMap.digitalChannel.get("fwd_xdcr_rx");			// build config profile
-		fwd_xdcr_tx.setMode(DigitalChannelController.Mode.OUTPUT);
-		//fwd_xdcr_tx.resetDeviceConfigurationForOpMode();
-		//fwd_xdcr_tx.setPulseWidthOutputTime(10);
-		//fwd_xdcr_tx.setPulseWidthPeriod(1000);
+
+		xdcr_tx.setPulseWidthOutputTime(10);
+		xdcr_tx.setPulseWidthPeriod(100000);
 		fwd_xdcr_rx.setMode(DigitalChannelController.Mode.INPUT);		  // Set the direction of each channel
 
 	// wait for the start button to be pressed.
 	//telemetry.addData(">", "Press play, and then user X button to set DigOut");
 	//telemetry.update();
 	//waitForStart();
+	  waitForStart();
+	  runtime.reset();
 
-	//while (opModeIsActive())  {
-	while (true) {
-		//outputPin = gamepad1.x ;		//  Set the output pin based on x button
-		//digOut.setState(outputPin);
-
+	while (opModeIsActive()) {
 
 
+		HIGH = fwd_xdcr_rx.getState();    //  Read the input pin
 		long STARTTIME = System.nanoTime();
-		long PULSEWIDTH = 0;
-		fwd_xdcr_tx.setState(true);
-		while (PULSEWIDTH / 1000 < 8) {
+		long SPACE_WIDTH = 0;
+		while (HIGH) {
+			HIGH = fwd_xdcr_rx.getState();
+			// We're not measuring in the middle of a sample, that's Crazy!
+		}
+		while (!HIGH && SPACE_WIDTH < 100000) {
 			long NEWTIME = System.nanoTime();
-			PULSEWIDTH = NEWTIME - STARTTIME;
+			SPACE_WIDTH = NEWTIME - STARTTIME;
+			HIGH = fwd_xdcr_rx.getState();
 		}
-		fwd_xdcr_tx.setState(false);
-		for ( int i = 0; i < 450; i += 50) {
-			TimeUnit.MICROSECONDS.sleep(50);
-		}
-
-		HIGH = fwd_xdcr_rx.getState();	//  Read the input pin
-
-		// Display input pin state on LEDs
-		if (HIGH) {
-			//while (HIGH) {
+		STARTTIME = System.nanoTime();
+		long PULSEWIDTH = 0;
+		while (HIGH) {
 				HIGH = fwd_xdcr_rx.getState();
 				long NEWTIME = System.nanoTime();
 				PULSEWIDTH = NEWTIME - STARTTIME;
-			//}
-			PULSEWIDTH = (PULSEWIDTH / 1000) - 60;
-			DEV_IF_MOD_1.setLED(RED_LED_CHANNEL, true);
-			DEV_IF_MOD_1.setLED(BLUE_LED_CHANNEL, false);
-
+				PULSEWIDTH = (PULSEWIDTH / 1000);
 		}
-
-		else {
-			DEV_IF_MOD_1.setLED(BLUE_LED_CHANNEL, true);
-			DEV_IF_MOD_1.setLED(RED_LED_CHANNEL, false);
+		if (PULSEWIDTH > 0) {
+			if (PW_Rolling < 0) {
+				PW_Rolling = PULSEWIDTH;
+			}
+			else {
+				PW_Rolling = PW_Rolling + ((PULSEWIDTH - PW_Rolling)/100);
+			}
+			telemetry.addData("PULSEWIDTH", PULSEWIDTH);
+			telemetry.addData("Rolling_Avg", PW_Rolling);
+			telemetry.update();
 		}
-		//TimeUnit.MICROSECONDS.sleep(100000);
-		//telemetry.addData("PULSEWIDTH", PULSEWIDTH );
-		//telemetry.addData("LED",   HIGH ? "Red" : "Blue" );
-		//telemetry.update();
-		sleep(100);
 	}
   }
 }
