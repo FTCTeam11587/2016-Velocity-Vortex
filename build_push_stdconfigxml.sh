@@ -70,6 +70,7 @@ sed -i '' -e 's/dcMotor/Motor/g' ./VARIABLES
 sed -i '' -e 's/servo/Servo/g' ./VARIABLES
 sed -i '' -e 's/digitalChannel/DigitalDevice/g' ./VARIABLES
 sed -i '' -e 's/pwmOutput/PulseWidthDevice/g' ./VARIABLES
+sed -i '' -e 's/analogInput/AnalogInput/g' ./VARIABLES
 cat ./VARIABLES
 cat ./VARIABLES|awk '{print $1}'>./TYPES
 cat ./VARIABLES|awk '{print $2}'>./NAMES
