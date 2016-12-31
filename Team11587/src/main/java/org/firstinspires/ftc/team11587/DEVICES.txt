@@ -1,0 +1,12 @@
+# Use this file to name the devices connected to
+# the Core Device named in CORE_DEVICE_NAMES.txt
+# Use lower case, no spaces, for these device names
+#
+# Name		Type				PORT_NUMBER		Parent_Device_Name
+stbd_motor	Motor				1				MTR_CNTRLLR_1
+port_motor	Motor				2				MTR_CNTRLLR_1
+arm_motor	Motor				1				MTR_CNTRLLR_2
+port_claw	Servo				2				SRV_CNTRLLR_1
+stbd_claw	Servo				1				SRV_CNTRLLR_1
+fwd_xdcr_rx	DigitalDevice		6				DEV_IF_MOD_1
+fwd_xdcr_tx	DigitalDevice		7				DEV_IF_MOD_1
