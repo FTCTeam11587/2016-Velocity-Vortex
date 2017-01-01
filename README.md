@@ -13,6 +13,6 @@ Using GitHub, updates to the Engineering Notebook can be tracked in real time, w
 The Engineering Notebook branch will utilize the following directory structure to make builds a simple process:
 - `/main`:  Contains the .ms file which holds the text content of the Engineering Notebook
 - `/main/images`:  Contains any image content used in the Engineering Notebook.  Files placed in this directory should have descriptive file names to identify their content.
-- `/main/output`:  This directory should be used to store the output of a groff run.  The preferred output for the Notebook is .pdf format.
+- `/main/output`:  This directory should be used to store the output of a groff run.  The preferred output for the Notebook is .ps format.
 
 
