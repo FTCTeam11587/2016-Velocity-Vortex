@@ -1,7 +1,7 @@
 .RP
 
 .TL
-FTC Team #11587 Engineering Notebook
+FIRST\[rg] Tech Challenge Team #11587 Engineering Notebook
 
 .AU
 Starry Knights
@@ -32,7 +32,7 @@ Team Overview
 .XE
 
 .PP
-Welcome to the Engineering Notebook for FTC Team #11587!  This book documents the development process for our team's robot for the 2016-2017 competition season.
+Welcome to the Engineering Notebook for FIRST\[rg] Tech Challenge Team #11587!  This book documents the development process for our team's robot for the 2016-2017 competition season.
 
 .PSPIC ./images/FTC11587TeamPic.eps
 .PS
@@ -64,7 +64,7 @@ When the team initially formed, none of our members had any experience in roboti
  We were able to "pay it forward" by taking the opportunity to support and mentor two FIRST\[rg] Lego League teams at our school during the fall season.
 
 .PP
-Our 2nd place finish at Alamogordo secured us a spot at the Arizona/New Mexico Championship being held at Flagstaff in February 2017.  We quickly realized we needed to step up our game significantly to be competitive at that match.  We reorganized, went back to the drawing board, and identified three target tasks for our robot to allow us to remain competitive at the inter-state match.  Under the guidance of our new Head Coach, Kurt Kochendarfer, we tore our robot all the way down to the basic drivetrain and started a rebuild to meet our target goals.
+Our 2nd place finish at Alamogordo secured us a spot at the Arizona/New Mexico Championship being held at Flagstaff in February 2017.  We quickly realized we needed to step up our game significantly to be competitive at that match.  We reorganized, went back to the drawing board, and identified three target tasks for our robot to allow us to remain competitive at the inter-state match.  Under the guidance of our new Head Coach, Kurt Kochendarfer, we tore our robot all the way down to the basic drivetrain and started a rebuild to meet our target goals.  During this time our team also branched out to accomplish an increased focus on community outreach, fundraising/support, and Team spirit!  Along the journey we've had lots of opportunities to learn, to teach, and to grow in our understanding of and appreciation for science, technology, engineering, and mathematics.  FIRST\[rg] Tech Challenge has allowed us to meet and exceed our School Board's expectations for STEM development.  The credit for all of this goes, first and foremost, to God.
 
 .NH 2
 Team Biographies
@@ -114,7 +114,7 @@ Brandon McLaughlin is a 9th grader at Imago Dei Academy.  He joined FTC for a ch
 Joshua Bryant
 
 .LP
-/*.PSPIC ./images/JoshuaBryantBio.eps*/
+.PSPIC ./images/JoshuaBryantBio.eps
 .PS
 "\fIJoshua Bryant\fP";
 .PE
@@ -300,7 +300,7 @@ Teena is Registered Dental Hygienist, and the organizing force behind anything C
 Coach Deneen Black
 
 .LP
-.PSPIC ./images/CoachMrsBlack.eps
+.PSPIC ./images/CoachMrsBlackBio.eps
 .PS
 "\fICoach Deneen Black\fP";
 .PE
@@ -314,24 +314,25 @@ Mentor Steven James
 .NH 4
 Mentor Elizabeth James
 
+.KS
 .NH 4
 Mentor Chris Black
 
 .LP
-.PSPIC ./images/MentorMrCBlack.eps
+.PSPIC ./images/MentorMrCBlackBio.eps
 .PS
 "\fIMentor Chris Black\fP";
 .PE
 
 .LP
 Mentor Chris Black is a college student pursuing his Masters Degree in Electrical Engineering from New Mexico State University.  He has assisted this team primarily with programming.  He will work for the Department of Defense-Air Force when he graduates in May 2017.  He hopes to continue mentoring young people in STEM disciplines.  His interests also include softball, basketball, and hunting.
-
+.KE
 
 .KS
 .NH 4
 Mentor Roger Black
 .LP
-.PSPIC ./images/MentorMrRBlack.eps
+.PSPIC ./images/MentorMrRBlackBio.eps
 .PS
 "\fIMentor Roger Black\fP";
 .PE
@@ -345,7 +346,7 @@ Mentor Roger Black is a Veterinarian.  He also spent many years in construction 
 Mentor Erin Steckler
 
 .LP
-/*.PSPIC ./images/MentorMrsSteckler.eps*/
+.PSPIC ./images/MentorMrsStecklerBio.eps
 .PS
 "\fIMentor Erin Steckler\fP";
 .PE
@@ -444,18 +445,13 @@ To accomplish our objective of executing the cap ball lift into the Center Vorte
 .PP
 Significant engineering research was required to ensure that components in the scissor lift would safely support the load of both the cap ball and the grapple assembly.  The sketch at Figure X is a component diagram of the structural assembly with factor variables denoted.  Assuming the grapple assembly would be attached at two points at the top of the scissor mechanism, two equations were used to calculate the loads imposed on the lifting structure:
 
-.PS
-
-"\fBFigure X.\fP" "\fIScissor Assembly Load Calculations\fP";
-.PE
-
 .EQ
 L sub y sub 1 = L sub y sub 2 = W over 2
 .EN
 
-
-
-
+.PS
+"\fBFigure X.\fP" "\fIScissor Assembly Load Calculations\fP";
+.PE
 
 .KS
 .PP
