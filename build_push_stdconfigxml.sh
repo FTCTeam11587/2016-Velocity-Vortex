@@ -1,5 +1,38 @@
 #!/bin/bash
 
+function get_adb_device_str() {
+	GOODSTR=ZX1D52R96G
+	if [ -f ./CURRENT_DEVICE ]; then
+		. ./CURRENT_DEVICE
+		adb connect $(echo $DEVICE|tr -d '\r') > /dev/null
+	fi
+	declare -a DEVICE_Array
+	adb devices|grep -vi attached|awk '{print $1}' > /tmp/adb.devices
+	DEVICE_Array=( $(cat /tmp/adb.devices|grep -v attached|awk '{print $1}') )
+	DEVICE_grepd=$(cat /tmp/adb.devices|grep "${GOODSTR}")
+	if [ -z "$DEVICE_grepd" ]; then
+		for (( i=0; i < ${#DEVICE_Array[@]}; i++)); do
+			DEVICE=$(echo ${DEVICE_Array[i]}|tr -d '\r')
+			adb -s $DEVICE shell "cat /sys/class/android_usb/f_accessory/device/iSerial" > /tmp/DEV.SER
+			DEVSERIAL=$(cat /tmp/DEV.SER|tr -d '\r')
+			if [ "$DEVSERIAL" == "$GOODSTR" ]; then
+				RETURN_STR=${DEVICE_Array[i]}
+			fi
+		done
+	else
+		RETURNSTR=$GOODSTR
+	fi
+	echo $RETURNSTR
+}
+
+
+PHONE=$(get_adb_device_str)
+if [ -z "$PHONE" ]; then
+	. ./CURRENT_DEVICE
+	PHONE=$DEVICE
+fi
+echo Phone: $PHONE
+
 ANDROID_FIRST_DIRECTORY=/storage/emulated/0/FIRST
 
 THIS_DIR=$(cd "$(dirname "$0")" ; pwd -P)
@@ -12,10 +45,10 @@ OUR_CONFIG=$OPMODES_DIR/${TEAMNUMBER}.xml
 CURRENT_DIR=$(pwd)
 mkdir -p ${CURRENT_DIR}/.tmp
 cd ${CURRENT_DIR}/.tmp/
-adb shell "ls ${ANDROID_FIRST_DIRECTORY}/*.xml"|tr -d '\r' > ./LISTING
+adb -s "$PHONE" shell "ls ${ANDROID_FIRST_DIRECTORY}/*.xml"|tr -d '\r' > ./LISTING
 while read REMOTE_CONFIG; do
 	REMOTE_CONFIG=$(echo $REMOTE_CONFIG|tr -d '\r')
-	adb pull "$REMOTE_CONFIG"
+	adb -s "$PHONE" pull "$REMOTE_CONFIG"
 done <./LISTING
 rm -f ./LISTING
 cat ./*.xml > ./XMLCOMBO
@@ -71,6 +104,7 @@ sed -i '' -e 's/servo/Servo/g' ./VARIABLES
 sed -i '' -e 's/digitalChannel/DigitalDevice/g' ./VARIABLES
 sed -i '' -e 's/pwmOutput/PulseWidthDevice/g' ./VARIABLES
 sed -i '' -e 's/analogInput/AnalogInput/g' ./VARIABLES
+sed -i '' -e 's/opticalDistanceSensor/OpticalDistanceSensor/g' ./VARIABLES
 cat ./VARIABLES
 cat ./VARIABLES|awk '{print $1}'>./TYPES
 cat ./VARIABLES|awk '{print $2}'>./NAMES
@@ -120,8 +154,12 @@ echo -e "</Robot>" >> $OUR_CONFIG
 OUR_CONFIG=$(echo $OUR_CONFIG|tr -d '\r')
 OUR_REMOTE_CONFIG=${ANDROID_FIRST_DIRECTORY}/${TEAMNUMBER}.xml
 OUR_REMOTE_CONFG=$(echo ${OUR_REMOTE_CONFG}|tr -d '\r')
-echo adb push $OUR_CONFIG $OUR_REMOTE_CONFIG
-adb push "$OUR_CONFIG" "$OUR_REMOTE_CONFIG"
+if [ -z "$PHONE" ]; then
+	. ./CURRENT_DEVICE
+	PHONE=$(echo $DEVICE|tr -d '\r')
+fi
+echo adb -s "$PHONE" push $OUR_CONFIG $OUR_REMOTE_CONFIG
+adb -s "$PHONE" push "$OUR_CONFIG" "$OUR_REMOTE_CONFIG"
 
 rm -f ./xml.tmp
 rm -f ./TYPES
