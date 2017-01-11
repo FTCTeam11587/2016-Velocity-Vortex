@@ -477,7 +477,7 @@ Engineering Logbook
 .LP
 \fIStardate 20161226\fP
 
-Attendance:  Emmet  Burks, Brandon MacLaughlin, Alyssa Kochendarfer, Coach Michael Hitchcock, Coach Kurt Kochendarfer
+Attendance:  Emmet  Burks, Brandon McLaughlin, Alyssa Kochendarfer, Coach Michael Hitchcock, Coach Kurt Kochendarfer
 
 In preparation for the Flagstaff competition in February, the Project Manager in conjunction with the coaches decided to take the robot down to the basic drivetrain and rebuild it to accomplish the following specific objectives:
 .IP \[bu] 2
@@ -493,6 +493,11 @@ At this meeting the Build Team deconstructed the existing robot to the drivetrai
 
 \fIStardate 20161227\fP
 
+Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer, Coach Micheal Hitchcock, Coach Kurt Kochendarfer
+
+We started out meeting by updating our team members on what each team was doing and what there tasks were. Then the build team talked about how they were rebuilding the robot in order to add the batters, motors, and servo boards. While the project management team edited the engineering notebook and documented everything they were doing. The programing team got on the software Github on their  computers and started working on the beacon reorganization.
+
 \fIStardate 20161228\fP
+
 
 .TC
