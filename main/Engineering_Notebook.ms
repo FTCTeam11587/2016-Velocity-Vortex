@@ -493,11 +493,23 @@ At this meeting the Build Team deconstructed the existing robot to the drivetrai
 
 \fIStardate 20161227\fP
 
-Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer, Coach Micheal Hitchcock, Coach Kurt Kochendarfer
+Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer, Coach Michael Hitchcock, Coach Kurt Kochendarfer
 
 We started out meeting by updating our team members on what each team was doing and what there tasks were. Then the build team talked about how they were rebuilding the robot in order to add the batters, motors, and servo boards. While the project management team edited the engineering notebook and documented everything they were doing. The programing team got on the software Github on their  computers and started working on the beacon reorganization.
 
+
 \fIStardate 20161228\fP
+
+Attendance: Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Micheal Hitchcock, Coach Kurt Kochendarfer
+
+We started the meeting off by a signing everyone their jobs and tasks afterward we separated. The build team is starting reorganizing their parts in all the boxes. Afterward, they continued to fame the robot and come up with their finalized plan for the Cap Ball, Particle Shooter, and Beacon changer. The build team also planed where each thing was going and got measurements. The programing team op-tested the sonar ranging and op-mode, for our autonomous mode. The project management worked on uploading the engineering notebook to the Github website. They also made sure everyone was staying on top of their job.
+
+
+\fIStardate 201712
+
+Attendance: Dale James, Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. Kochendarfer, Coaches Mr. and Mrs. James
+
+The build team striated the structured and clarified the designs for the core controllers and maintained the controllers. They also descended the design for where the controllers.    The programing team installed the robot controls and worked on the sonar. Fund-raising worked on how much we need to fundraise for Flagstaff. They also talked about what businesses we could ask for donations or to let us fundraise there.
 
 
 .TC
