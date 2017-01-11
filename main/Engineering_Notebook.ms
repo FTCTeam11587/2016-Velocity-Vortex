@@ -245,7 +245,7 @@ Alyssa Kochendarfer - Lead Project Manager
 "\fIAlyssa Kochendarfer\fP";
 .PE
 
-Alyssa splits her time between being a part-time junior at Imago Dei Academy and a home-school student.  She decided to join the Project Management Team both as a way to see the various areas of Team 11587, and as a way to use her organizational skills to benefit the Team.  Alyssa is a 4th generation licensed amateur radio operator and plans on studying engineering in college.  She is interested in a career in radio engineering and broadcasting.
+Alyssa splits her time between being a part-time sophomore at Imago Dei Academy and a home-school student.  She decided to join the Project Management Team both as a way to see the various areas of Team 11587, and as a way to use her organizational skills to benefit the Team.  Alyssa is a 4th generation licensed amateur radio operator and plans on studying engineering in college.  She is interested in a career in radio engineering and broadcasting.
 .KE
 
 .KS
@@ -510,6 +510,20 @@ We started the meeting off by a signing everyone their jobs and tasks afterward 
 Attendance: Dale James, Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. Kochendarfer, Coaches Mr. and Mrs. James
 
 The build team striated the structured and clarified the designs for the core controllers and maintained the controllers. They also descended the design for where the controllers.    The programing team installed the robot controls and worked on the sonar. Fund-raising worked on how much we need to fundraise for Flagstaff. They also talked about what businesses we could ask for donations or to let us fundraise there.
+
+
+\fiStardate 201713
+
+Attendance: Emmet Burks, Josh Bryant, Brandon Mclaughlin, Michael Wooldrige, Araya Blaylock, Dale James, AlyssaKochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. James, Mr. and Mrs. Kochendarfer
+
+We started the meeting off by talking about whatever ones tasks. The build team was to discus the robot design. They came up with three main ideas for the Cap Ball, Particle shooter,  Beacon Changer. And voted on which one would benefit us the furthest. Weather that being a claw of four, three, or two claws. The fund-raising team talked about transportation to Socorro and Flagstaff, hotels, and who all was going. We sent out emails to everyone asking who would be travailing with their parents and which dates they would be going to. The Fundraising Team also email the head administrative for the PTSG (Parent Teacher Support Group). To ask if we could present and ask for a donation. The Community Outreach set up a Facebook account in-order to set up a page. Programing started to downloaded more software and helped build team decide which design would benefit. 
+
+
+\fiStardate 201714
+
+Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Dale James, Michael Wooldrige, Josh Bryant, Coaches Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Coach Michael Hitchcock
+
+We stared the meeting of by talking about our schedule the project management team created. We talked about our pictures Monday the 9th at 1pm. Then we talked about the out reach, of helping the IDA teachers move desks, tables, and other stuff into the new building. The PM team tasked the build team to finalized their design for the Cap Ball, Particle shooter and Beacon Changer. The programming team was getting the beacon program together. They figured out how to get the camera to recolonize the colors blue and red. The community outreach came up with ideas on outreach and started costumes ideas. They have decided to do a presentation at the Alamogordo Library, Help at the elderly nursing homes, and at the CDC (Child Development Centaur). 
 
 
 .TC
