@@ -34,6 +34,7 @@ fi
 echo Phone: $PHONE
 
 ANDROID_FIRST_DIRECTORY=/storage/emulated/0/FIRST
+ANDROID_FIRST_DIRECTORY1=/storage/emulated/legacy/FIRST
 
 THIS_DIR=$(cd "$(dirname "$0")" ; pwd -P)
 TEAM_DIR=$(ls $THIS_DIR|grep -i Team)
@@ -45,11 +46,14 @@ OUR_CONFIG=$OPMODES_DIR/${TEAMNUMBER}.xml
 CURRENT_DIR=$(pwd)
 mkdir -p ${CURRENT_DIR}/.tmp
 cd ${CURRENT_DIR}/.tmp/
-adb -s "$PHONE" shell "ls ${ANDROID_FIRST_DIRECTORY}/*.xml"|tr -d '\r' > ./LISTING
+adb -s "$PHONE" shell "ls ${ANDROID_FIRST_DIRECTORY}/*.xml"|tr -d '\r'|grep -vi "no such file" > ./LISTING
+adb -s "$PHONE" shell "ls ${ANDROID_FIRST_DIRECTORY1}/*.xml"|tr -d '\r'|grep -vi "no such file" >> ./LISTING
+
 while read REMOTE_CONFIG; do
 	REMOTE_CONFIG=$(echo $REMOTE_CONFIG|tr -d '\r')
 	adb -s "$PHONE" pull "$REMOTE_CONFIG"
 done <./LISTING
+cat ./LISTING
 rm -f ./LISTING
 cat ./*.xml > ./XMLCOMBO
 declare -a TYPE
@@ -153,13 +157,17 @@ echo -e "</Robot>" >> $OUR_CONFIG
 
 OUR_CONFIG=$(echo $OUR_CONFIG|tr -d '\r')
 OUR_REMOTE_CONFIG=${ANDROID_FIRST_DIRECTORY}/${TEAMNUMBER}.xml
+OUR_REMOTE_CONFIG1=${ANDROID_FIRST_DIRECTORY1}/${TEAMNUMBER}.xml
+
 OUR_REMOTE_CONFG=$(echo ${OUR_REMOTE_CONFG}|tr -d '\r')
+OUR_REMOTE_CONFIG1=$(echo ${OUR_REMOTE_CONFG1}|tr -d '\r')
 if [ -z "$PHONE" ]; then
 	. ./CURRENT_DEVICE
 	PHONE=$(echo $DEVICE|tr -d '\r')
 fi
 echo adb -s "$PHONE" push $OUR_CONFIG $OUR_REMOTE_CONFIG
-adb -s "$PHONE" push "$OUR_CONFIG" "$OUR_REMOTE_CONFIG"
+adb -s "$PHONE" push "$OUR_CONFIG" "$OUR_REMOTE_CONFIG" > /dev/null
+adb -s "$PHONE" push "$OUR_CONFIG" "$OUR_REMOTE_CONFIG1" > /dev/null
 
 rm -f ./xml.tmp
 rm -f ./TYPES

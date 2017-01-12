@@ -1,7 +1,13 @@
 #!/bin/bash
 
 function get_adb_device_str() {
-        GOODSTR=ZX1D52R96G
+	. ./SERIAL
+	if [ -z "$SERIAL" ]; then
+		echo -e "SERIAL=ZX1D52R96G">./SERIAL
+        	GOODSTR=ZX1D52R96G
+	else
+		GOODSTR=$SERIAL
+	fi
         if [ -f ./CURRENT_DEVICE ]; then
                 . ./CURRENT_DEVICE
                 adb connect $(echo $DEVICE|tr -d '\r') > /dev/null
@@ -51,6 +57,12 @@ else
 	DEV_IP=$(adb shell 'ifconfig bt-pan|grep "net addr"')
 	DEV_IP=$(echo $DEV_IP|awk '{print $2}'|sed -e 's/[a-zA-Z\:]//g')
 	DEV_IP=$(echo $DEV_IP|tr -d '\r');
+	if [ -z "$DEV_IP" ]; then
+		echo Device IP was blank
+		DEV_IP=$(adb shell 'busybox ifconfig bt-pan|grep "net addr"')
+	        DEV_IP=$(echo $DEV_IP|awk '{print $2}'|sed -e 's/[a-zA-Z\:]//g')
+	        DEV_IP=$(echo $DEV_IP|tr -d '\r');
+	fi
 
 	DEV_BCST=$(adb shell 'ifconfig bt-pan|grep "net addr"')
 	DEV_BCST=$(echo $DEV_BCST|awk '{print $3}'|sed -e 's/a-zA-Z\://g')
@@ -68,8 +80,8 @@ else
 		sudo ifconfig "${IF}" "${MY_IP_SB}" up
 	fi
 		
-	
-	adb -s "ZX1D52R96G" shell 'echo "setprop service.adb.tcp.port 5555;stop adbd;start adbd;exit"|su - root'
+	. ./SERIAL
+	adb -s "$SERIAL" shell 'echo "setprop service.adb.tcp.port 5555;stop adbd;start adbd;exit"|su - root'
 	adb kill-server
 	adb tcpip 5555
 	adb connect "$DEV_IP":5555
