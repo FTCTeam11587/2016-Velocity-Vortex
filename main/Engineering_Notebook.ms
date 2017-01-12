@@ -449,6 +449,10 @@ Significant engineering research was required to ensure that components in the s
 L sub y sub 1 = L sub y sub 2 = W over 2
 .EN
 
+.EQ
+L sub x sub 1 = L sub x sub 2 = W over {tan theta}
+.EN
+
 .PS
 "\fBFigure X.\fP" "\fIScissor Assembly Load Calculations\fP";
 .PE
@@ -466,7 +470,32 @@ The arms used in our scissor lift were designed with the OpenSCAD software, whic
 
 .KE
 
+.NH 2
+Programming Overview
+.XS
+Programming Overview
+.XE
 
+.NH 3
+Software Installation
+.XS
+Software Installation
+.XE
+
+.PP
+The Programming Team committed early in the process to using Android Studio as the development environment for our robot code.  Android Studio has robust hooks into GitHub, which we had already chosen for our code repository.  In addition, Android Studio is a cross-platform application which worked well as programmers utilized computers with Mac, Linux, and Windows operating systems for coding.
+
+.NH 3
+Programming Difficulties
+.XS
+Programming Difficulties
+.XE
+
+.PP
+The Team found that configuring the various versions of the Android APK in Android Studio was initially challenging.  One of the programmers did not have the appropriate APK loaded for the Android OS version on our Motorola controller phones, causing initial compile difficulties for building basic OpMode code.
+
+.PP
+The Team found a wide variety of controller libraries available on GitHub for the various tasks which needed to be accomplished.  One of the primary challenges was committing to a particular support library for accomplishing the desired task.  For example, in accomplishing the Autonomous mode Beacon Claim task, the team considered
 
 .NH 2
 Engineering Logbook
@@ -495,35 +524,40 @@ At this meeting the Build Team deconstructed the existing robot to the drivetrai
 
 Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer, Coach Michael Hitchcock, Coach Kurt Kochendarfer
 
-We started out meeting by updating our team members on what each team was doing and what there tasks were. Then the build team talked about how they were rebuilding the robot in order to add the batters, motors, and servo boards. While the project management team edited the engineering notebook and documented everything they were doing. The programing team got on the software Github on their  computers and started working on the beacon reorganization.
+We started out meeting by updating our team members on what each team was doing and what there tasks were. The Build Team talked about how they were rebuilding the robot in order to add the batteries, motors, and servo boards. The Project Management Team edited the Engineering Notebook and documented everything they were doing. The Programing Team set up the Android Studio software and Github on their computers and started working on the beacon claim task.
 
-
+.KS
 \fIStardate 20161228\fP
 
 Attendance: Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Micheal Hitchcock, Coach Kurt Kochendarfer
 
-We started the meeting off by a signing everyone their jobs and tasks afterward we separated. The build team is starting reorganizing their parts in all the boxes. Afterward, they continued to fame the robot and come up with their finalized plan for the Cap Ball, Particle Shooter, and Beacon changer. The build team also planed where each thing was going and got measurements. The programing team op-tested the sonar ranging and op-mode, for our autonomous mode. The project management worked on uploading the engineering notebook to the Github website. They also made sure everyone was staying on top of their job.
+We started the meeting off by assigning everyone their jobs and tasks.  Afterward we separated to work on team tasks. The Build Team started organizing their parts in all the boxes. Afterward, they continued to frame the robot and come up with their finalized plan for the cap ball lift, particle shooter, and beacon changer. The Build Team also planned where each thing was going and got measurements. The Programming Team op-tested the sonar ranging and op-mode code for our Autonomous mode tasks, utilizing an oscilloscope to view the pulse ranging signal. (Figure X.) The Project Management Team worked on uploading the Engineering Notebook to the Github website. They also made sure everyone was staying on top of their job.
 
+.PSPIC ./images/SonarOscopeTest.eps
+.PS
+"\fBFigure X.\fP" "\fISonar Oscilloscope Testing\fP";
+.PE
+.KE
 
-\fIStardate 201712
+\fIStardate 20170102\fP
 
 Attendance: Dale James, Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. Kochendarfer, Coaches Mr. and Mrs. James
 
-The build team striated the structured and clarified the designs for the core controllers and maintained the controllers. They also descended the design for where the controllers.    The programing team installed the robot controls and worked on the sonar. Fund-raising worked on how much we need to fundraise for Flagstaff. They also talked about what businesses we could ask for donations or to let us fundraise there.
+The Build Team striated the structure and clarified the designs for the core controllers and maintained the controllers. They also descended the design for where the controllers.  The Programming Team installed the robot controls and worked on the sonar. The Fundraising Team worked on how much money we need to raise for Flagstaff. They also talked about what businesses we could ask for donations or who might allow us fund-raise there.
 
 
-\fiStardate 201713
+\fIStardate 20170103\fP
 
 Attendance: Emmet Burks, Josh Bryant, Brandon Mclaughlin, Michael Wooldrige, Araya Blaylock, Dale James, AlyssaKochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. James, Mr. and Mrs. Kochendarfer
 
-We started the meeting off by talking about whatever ones tasks. The build team was to discus the robot design. They came up with three main ideas for the Cap Ball, Particle shooter,  Beacon Changer. And voted on which one would benefit us the furthest. Weather that being a claw of four, three, or two claws. The fund-raising team talked about transportation to Socorro and Flagstaff, hotels, and who all was going. We sent out emails to everyone asking who would be travailing with their parents and which dates they would be going to. The Fundraising Team also email the head administrative for the PTSG (Parent Teacher Support Group). To ask if we could present and ask for a donation. The Community Outreach set up a Facebook account in-order to set up a page. Programing started to downloaded more software and helped build team decide which design would benefit. 
+We started the meeting off by talking about each team's current tasks. The Build Team was discussed the new robot design. They came up with three main ideas for the cap ball lift, particle shooter, and beacon changer, then  voted on which idea would benefit us the most.  The Fundraising Team talked about transportation to Socorro and Flagstaff, hotels, and who was going. We sent out emails to everyone asking who would be traveling with their parents and which dates they would be going to. The Fundraising Team also emailed the head administrator for the Imago Dei PTSG (Parent Teacher Support Group) to ask if we could provide a presentation to the Group to solicit donations. The Community Outreach Team set up a Facebook account. Programing started to downloaded more software and helped Build Team decide which design would benefit.
 
 
-\fiStardate 201714
+\fIStardate 20170104\fP
 
 Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Dale James, Michael Wooldrige, Josh Bryant, Coaches Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Coach Michael Hitchcock
 
-We stared the meeting of by talking about our schedule the project management team created. We talked about our pictures Monday the 9th at 1pm. Then we talked about the out reach, of helping the IDA teachers move desks, tables, and other stuff into the new building. The PM team tasked the build team to finalized their design for the Cap Ball, Particle shooter and Beacon Changer. The programming team was getting the beacon program together. They figured out how to get the camera to recolonize the colors blue and red. The community outreach came up with ideas on outreach and started costumes ideas. They have decided to do a presentation at the Alamogordo Library, Help at the elderly nursing homes, and at the CDC (Child Development Centaur). 
+We started the meeting by talking about the schedule the Project Management team created. We talked about Team pictures on Monday the 9th at 1pm.  We talked about the outreach to help IDA teachers move desks, tables, and other classroom items into their new modular building. The PM Team tasked the Build Team to finalize their design for the cap ball lift, particle shooter and beacon changer. The Programming Team worked on getting the beacon program together. They figured out how to get the camera to recognize the colors blue and red. The Community Outreach Team came up with ideas on outreach and team costumes. They decided to do a presentation at the Alamogordo Library, help at the elderly nursing homes, and at the CDC (Child Development Center) at Holloman Air Force Base.
 
 
 .TC
