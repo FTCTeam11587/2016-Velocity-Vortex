@@ -11,4 +11,8 @@
     <MotorController name="MTR_CNTRLLR_2" serialNumber="AH03EU0K">
         <Motor name="arm_motor" port="1" />
     </MotorController>
+    <ServoController name="SRV_CNTRLLR_1" serialNumber="AL00VTCF">
+        <Servo name="port_claw" port="2" />
+        <Servo name="stbd_claw" port="1" />
+    </ServoController>
 </Robot>
