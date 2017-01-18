@@ -15,11 +15,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * This hardware class assumes the following device names have been configured on the robot:
  * Note:  All names are lower case and some have single spaces between words.
  *
- * Motor channel:  Left  drive motor:        "left_drive"
- * Motor channel:  Right drive motor:        "right_drive"
- * Motor channel:  Manipulator drive motor:  "left_arm"
- * Servo channel:  Servo to open left claw:  "left_hand"
- * Servo channel:  Servo to open right claw: "right_hand"
+ * Motor channel:  Left  drive motor:        "port_motor"
+ * Motor channel:  Right drive motor:        "stbd_motor"
+ * Motor channel:  Manipulator drive motor:  "arm_motor"
+ * Servo channel:  Servo to open left claw:  "port_claw"
+ * Servo channel:  Servo to open right claw: "stbd_claw"
  */
 public class HardwarePushbot
 {
@@ -49,9 +49,9 @@ public class HardwarePushbot
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        leftMotor   = hwMap.dcMotor.get("left_drive");
-        rightMotor  = hwMap.dcMotor.get("right_drive");
-        armMotor    = hwMap.dcMotor.get("left_arm");
+        leftMotor   = hwMap.dcMotor.get("port_motor");
+        rightMotor  = hwMap.dcMotor.get("stbd_motor");
+        armMotor    = hwMap.dcMotor.get("arm_motor");
         leftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
@@ -67,8 +67,8 @@ public class HardwarePushbot
         armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
-        leftClaw = hwMap.servo.get("left_hand");
-        rightClaw = hwMap.servo.get("right_hand");
+        leftClaw = hwMap.servo.get("port_claw");
+        rightClaw = hwMap.servo.get("stbd_claw");
         leftClaw.setPosition(MID_SERVO);
         rightClaw.setPosition(MID_SERVO);
     }

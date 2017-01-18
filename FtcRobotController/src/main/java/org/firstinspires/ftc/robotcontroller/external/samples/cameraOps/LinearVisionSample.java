@@ -135,6 +135,7 @@ public class LinearVisionSample extends LinearVisionOpMode {
                 frameCount++;
             }
 
+
             //Wait for a hardware cycle to allow other processes to run
             waitOneFullHardwareCycle();
         }

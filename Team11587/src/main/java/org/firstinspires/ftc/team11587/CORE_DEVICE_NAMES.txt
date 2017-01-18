@@ -2,7 +2,7 @@
 # the Robot.
 # For names, use Capitals with no spaces
 # Type					Name				Serial
-MotorController			MTR_CNTRLLR_1		AH03EU0K
-MotorController			MTR_CNTRLLR_2		AH03EUH5
+MotorController			MTR_CNTRLLR_1		AH03EUH5
+MotorController			MTR_CNTRLLR_2		AH03EU0K
 ServoController			SRV_CNTRLLR_1		AL00VTCF
 DeviceInterfaceModule	DEV_IF_MOD_1		AI02RM9V

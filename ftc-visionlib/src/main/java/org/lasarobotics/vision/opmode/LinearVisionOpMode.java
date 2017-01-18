@@ -15,6 +15,8 @@ import org.lasarobotics.vision.util.color.Color;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
+import java.io.FileNotFoundException;
+
 /**
  * Linear version of the Vision OpMode
  * This includes code from the FIRST library (C) Qualcomm as of 1/23/2016
@@ -57,7 +59,7 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
         hasNewFrame = false;
     }
 
-    public abstract void runOpMode() throws InterruptedException;
+    public abstract void runOpMode() throws InterruptedException, FileNotFoundException;
 
     public final void waitForVisionStart() throws InterruptedException {
         //Give some status info
@@ -184,6 +186,8 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
                 RobotLog.d("LinearOpMode received an Interrupted Exception; shutting down this linear op mode");
             } catch (RuntimeException var7) {
                 this.lastError = var7;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             } finally {
                 this.ready = true;
             }

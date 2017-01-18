@@ -4,15 +4,11 @@
         <OpticalDistanceSensor name="fwd_xdcr_rx" port="7" />
         <PulseWidthDevice name="xdcr_tx" port="1" />
     </DeviceInterfaceModule>
-    <MotorController name="MTR_CNTRLLR_1" serialNumber="AH03EU0K">
+    <MotorController name="MTR_CNTRLLR_1" serialNumber="AH03EUH5">
         <Motor name="port_motor" port="2" />
         <Motor name="stbd_motor" port="1" />
     </MotorController>
-    <MotorController name="MTR_CNTRLLR_2" serialNumber="AH03EUH5">
+    <MotorController name="MTR_CNTRLLR_2" serialNumber="AH03EU0K">
         <Motor name="arm_motor" port="1" />
     </MotorController>
-    <ServoController name="SRV_CNTRLLR_1" serialNumber="AL00VTCF">
-        <Servo name="port_claw" port="2" />
-        <Servo name="stbd_claw" port="1" />
-    </ServoController>
 </Robot>

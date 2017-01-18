@@ -39,8 +39,10 @@ public class SONAR_Ranging_test extends LinearOpMode {
 	DeviceInterfaceModule   DEV_IF_MOD_1;			// Device Object
 	PWMOutput				xdcr_tx;			// Device Object
 	OpticalDistanceSensor 	fwd_xdcr_rx;
+	OpticalDistanceSensor 	port_xdcr_rx;
+	OpticalDistanceSensor 	aft_xdcr_rx;
+	OpticalDistanceSensor 	stbd_xdcr_rx;
 	//File path = new File("/storage/emulated/0/FIRST/");
-
 
 	public SONAR_Ranging_test() throws FileNotFoundException {
 	}
@@ -51,7 +53,7 @@ public class SONAR_Ranging_test extends LinearOpMode {
 		// get a reference to a Modern Robotics DIM, and IO channels.
 		DEV_IF_MOD_1 = hardwareMap.deviceInterfaceModule.get("DEV_IF_MOD_1");	// build config profile
 		xdcr_tx = hardwareMap.pwmOutput.get("xdcr_tx");							// build config profile
-	  	fwd_xdcr_rx = hardwareMap.opticalDistanceSensor.get("fwd_xdcr_rx");				// build config profile
+		fwd_xdcr_rx = hardwareMap.opticalDistanceSensor.get("fwd_xdcr_rx");				// build config profile
 
 		String sentence = "New Data,	Rolling Average\n";
 		String filepath = String.valueOf(Environment.getExternalStorageDirectory()) + File.separator + "FIRST" + File.separator;
@@ -79,7 +81,7 @@ public class SONAR_Ranging_test extends LinearOpMode {
 		int ii=1;
 		int max_i = 10000;
 		double RANGE_rolavg = -1;
-	  	while (opModeIsActive()) {
+		while (opModeIsActive()) {
 			//double VRead = fwd_xdcr_rx.getMaxVoltage();
 			if (i < max_i) {
 				i++;
