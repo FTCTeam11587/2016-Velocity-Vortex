@@ -8,6 +8,7 @@ port_motor		Motor					2				MTR_CNTRLLR_1
 arm_motor		Motor					1				MTR_CNTRLLR_2
 port_claw		Servo					2				SRV_CNTRLLR_1
 stbd_claw		Servo					1				SRV_CNTRLLR_1
+lift_motor      Motor                   3*              MTR_CNTRLLR_1
 fwd_xdcr_rx		OpticalDistanceSensor	7				DEV_IF_MOD_1
 stbd_xdcr_rx 	OpticalDistanceSensor	6				DEV_IF_MOD_1
 aft_xdcr_rx		OpticalDistanceSensor	5				DEV_IF_MOD_1
