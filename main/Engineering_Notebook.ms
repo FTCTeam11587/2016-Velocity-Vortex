@@ -9,7 +9,7 @@ Starry Knights
 .AI
 Imago Dei Academy
 Alamogordo, NM
-
+7
 .AB
 The Starry Knights were organized in 2016 at Imago Dei Academy in Alamogordo, New Mexico.  Imago Dei Academy is a classical Christian school with a strong academic focus on classical liberal arts.  In 2016, the School Board decided to increase the school's emphasis on STEM activities to develop more well-rounded graduates.  FTC Team #11587 was formed as part of the school's increased STEM focus.  Team #11587 has grown significantly since its beginning and now includes not only IDA students, but also team members from local public and home schools.  Major team milestones include:
 .IP \[bu] 2
@@ -33,7 +33,7 @@ Team Overview
 
 .PP
 Welcome to the Engineering Notebook for FIRST\[rg] Tech Challenge Team #11587!  This book documents the development process for our team's robot for the 2016-2017 competition season.
-
+33...
 .PSPIC ./images/FTC11587TeamPic.eps
 .PS
 "\fIFTC Team #11587\fP";
@@ -506,7 +506,8 @@ Engineering Logbook
 .LP
 \fIStardate 20161226\fP
 
-Attendance:  Emmet  Burks, Brandon McLaughlin, Alyssa Kochendarfer, Coach Michael Hitchcock, Coach Kurt Kochendarfer
+Attendance:  Emmet  Burks, Brandon McLaughlin, Alyssa Kochendarfer
+Coaches: Michael Hitchcock, Kurt Kochendarfer
 
 In preparation for the Flagstaff competition in February, the Project Manager in conjunction with the coaches decided to take the robot down to the basic drivetrain and rebuild it to accomplish the following specific objectives:
 .IP \[bu] 2
@@ -522,14 +523,16 @@ At this meeting the Build Team deconstructed the existing robot to the drivetrai
 
 \fIStardate 20161227\fP
 
-Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer, Coach Michael Hitchcock, Coach Kurt Kochendarfer
+Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer
+Coaches: Michael Hitchcock, Kurt Kochendarfer
 
 We started out meeting by updating our team members on what each team was doing and what there tasks were. The Build Team talked about how they were rebuilding the robot in order to add the batteries, motors, and servo boards. The Project Management Team edited the Engineering Notebook and documented everything they were doing. The Programing Team set up the Android Studio software and Github on their computers and started working on the beacon claim task.
 
 .KS
 \fIStardate 20161228\fP
 
-Attendance: Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Micheal Hitchcock, Coach Kurt Kochendarfer
+Attendance: Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer
+Coaches: Micheal Hitchcock, Kurt Kochendarfer
 
 We started the meeting off by assigning everyone their jobs and tasks.  Afterward we separated to work on team tasks. The Build Team started organizing their parts in all the boxes. Afterward, they continued to frame the robot and come up with their finalized plan for the cap ball lift, particle shooter, and beacon changer. The Build Team also planned where each thing was going and got measurements. The Programming Team op-tested the sonar ranging and op-mode code for our Autonomous mode tasks, utilizing an oscilloscope to view the pulse ranging signal. (Figure X.) The Project Management Team worked on uploading the Engineering Notebook to the Github website. They also made sure everyone was staying on top of their job.
 
@@ -541,7 +544,8 @@ We started the meeting off by assigning everyone their jobs and tasks.  Afterwar
 
 \fIStardate 20170102\fP
 
-Attendance: Dale James, Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. Kochendarfer, Coaches Mr. and Mrs. James
+Attendance: Dale James, Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer
+Coaches: Michael Hitchcock, Mr. and Mrs. Kochendarfer, Mr. and Mrs. James
 
 The Build Team striated the structure and clarified the designs for the core controllers and maintained the controllers. They also descended the design for where the controllers.  The Programming Team installed the robot controls and worked on the sonar. The Fundraising Team worked on how much money we need to raise for Flagstaff. They also talked about what businesses we could ask for donations or who might allow us fund-raise there.
 
@@ -555,9 +559,12 @@ We started the meeting off by talking about each team's current tasks. The Build
 
 \fIStardate 20170104\fP
 
-Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Dale James, Michael Wooldrige, Josh Bryant, Coaches Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Coach Michael Hitchcock
+Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Dale James, Michael Wooldrige, Josh Bryant
+Coaches: Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Michael Hitchcock
 
 We started the meeting by talking about the schedule the Project Management team created. We talked about Team pictures on Monday the 9th at 1pm.  We talked about the outreach to help IDA teachers move desks, tables, and other classroom items into their new modular building. The PM Team tasked the Build Team to finalize their design for the cap ball lift, particle shooter and beacon changer. The Programming Team worked on getting the beacon program together. They figured out how to get the camera to recognize the colors blue and red. The Community Outreach Team came up with ideas on outreach and team costumes. They decided to do a presentation at the Alamogordo Library, help at the elderly nursing homes, and at the CDC (Child Development Center) at Holloman Air Force Base.
 
+
+\fIStardate 2017016
 
 .TC
