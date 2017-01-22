@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
+import java.lang.Math;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
@@ -20,10 +20,11 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
     static final double     COUNTS_PER_MOTOR_REV        =1440;  /*Adjust to CPR * 4*/
     static final double     DRIVE_GEAR_REDUCTION        =2.0;   /*Motor gear = 40 tooth + wheel gear = 80 tooth*/
-    static final double     WHEEL_DIAMETER_INCHES       =4.439;
+    static final double     WHEEL_DIAMETER_INCHES       =(4.357 + 4.382 ) / 2; //4.439;
     static final double     COUNTS_PER_INCH             =(COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /                                                                 (WHEEL_DIAMETER_INCHES * 3.141592654));
     static final double     DRIVE_SPEED                 =0.6;
     static final double     TURN_SPEED                  =0.5;
+	static final double 	Enc_D_CF					= 3.2;
 
     @Override
     public void runOpMode() {
@@ -46,9 +47,9 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
         waitForStart();     //Wait until DS presses PLAY//
 
-        encoderDrive (DRIVE_SPEED, 60,60,3);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
-        encoderDrive (TURN_SPEED, 12,-12,3);
-        encoderDrive (DRIVE_SPEED, 36,36,3);
+        encoderDrive (DRIVE_SPEED, 108,108,10000);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
+        //encoderDrive (TURN_SPEED, 12,-12,3);
+        //encoderDrive (DRIVE_SPEED, 36,36,3);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
@@ -58,13 +59,27 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
             int newLeftTarget;
             int newRightTarget;
+			double CurrentPosition_left;
+			double CurrentPosition_right;
+
 
         if (opModeIsActive()) {
 
             //Sets new target position using current position//
-            newLeftTarget = robot.leftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTarget = robot.rightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            robot.leftMotor.setTargetPosition(newLeftTarget);
+
+			CurrentPosition_right = robot.leftMotor.getCurrentPosition() *  Enc_D_CF;
+			CurrentPosition_left = robot.rightMotor.getCurrentPosition() *  Enc_D_CF;
+
+            newLeftTarget  = (int) (CurrentPosition_left + (int)(leftInches * COUNTS_PER_INCH) + 0.5);
+			newRightTarget = (int) (CurrentPosition_right + (int)(rightInches * COUNTS_PER_INCH) + 0.5);
+
+
+
+
+
+
+
+            robot.leftMotor.setTargetPosition(newLeftTarget);    // + 0.5, because rounding to nearest is better!!!
             robot.rightMotor.setTargetPosition(newRightTarget);
 
             //Set motors to Encoder drive mode//
