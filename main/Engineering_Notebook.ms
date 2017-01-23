@@ -83,7 +83,7 @@ Build Team
 .XE
 
 .NH 4
-Emmet Burks
+Emmet Burks - Student Team Lead
 
 .LP
 .PSPIC ./images/EmmetBurksBio.eps
@@ -172,19 +172,6 @@ Programming Team
 Programming Team
 .XE
 
-.NH 4
-Coach Michael Hitchcock - Programming Team Lead
-
-.LP
-.PSPIC ./images/MichaelHitchcockBio.eps
-.PS
-"\fIMichael Hitchcock\fP";
-.PE
-
-.LP
-Michael "Hitch" Hitchcock served for 9.5 years as a US Navy Submarine Navigation Electronics Technician.  After his discharge from the Navy, he received an Associate's Degree in Electronics Technology, and credits towards a Bachelor's Degree in Electrical Engineering.  He now works as a civilian Electronics Technician for the US Air Force High Speed Test Track at Holloman Air Force Base, New Mexico.  His hobbies include programming, circuit design, 3D modeling, repurposing hardware, and Hash House Harriers.
-.KE
-
 .KS
 .NH 4
 Dax Bash
@@ -226,8 +213,19 @@ Fundraising Team
 Fundraising Team
 .XE
 
-.KE
+.KS
+.NH 4
+Dale James
 
+.LP
+.PSPIC ./images/DaleJamesBio.eps
+.PS
+"\fIDale James\fP";
+.PE
+
+.LP
+Dale James is an 8th grader at Imago Dei Academy.  He joined this team to be a part of something challenging.  He has learned a lot and was a member of the team who organized and documented the meetings and accomplishments.  He has lots of diversity in his interests and is a great team player and encourager.  You can always count on Dale for genuine smile!
+.KE
 
 .KS
 .NH 3
@@ -248,19 +246,6 @@ Alyssa Kochendarfer - Lead Project Manager
 Alyssa splits her time between being a part-time sophomore at Imago Dei Academy and a home-school student.  She decided to join the Project Management Team both as a way to see the various areas of Team 11587, and as a way to use her organizational skills to benefit the Team.  Alyssa is a 4th generation licensed amateur radio operator and plans on studying engineering in college.  She is interested in a career in radio engineering and broadcasting.
 .KE
 
-.KS
-.NH 4
-Dale James
-
-.LP
-.PSPIC ./images/DaleJamesBio.eps
-.PS
-"\fIDale James\fP";
-.PE
-
-.LP
-Dale James is an 8th grader at Imago Dei Academy.  He joined this team to be a part of something challenging.  He has learned a lot and was a member of the team who organized and documented the meetings and accomplishments.  He has lots of diversity in his interests and is a great team player and encourager.  You can always count on Dale for genuine smile!
-.KE
 
 .KS
 .NH 3
@@ -293,6 +278,19 @@ Coach Teena Kochendarfer
 
 .LP
 Teena is Registered Dental Hygienist, and the organizing force behind anything Coach Kurt does.  As a mother who has been home-schooling children since 1998, her mentoring and organizational skills have been indispensable in keeping the \fIStarry Knights\fP on task this season.
+.KE
+
+.NH 4
+Coach Michael Hitchcock - Programming Team Lead
+
+.LP
+.PSPIC ./images/MichaelHitchcockBio.eps
+.PS
+"\fIMichael Hitchcock\fP";
+.PE
+
+.LP
+Michael "Hitch" Hitchcock served for 9.5 years as a US Navy Submarine Navigation Electronics Technician.  After his discharge from the Navy, he received an Associate's Degree in Electronics Technology, and credits towards a Bachelor's Degree in Electrical Engineering.  He now works as a civilian Electronics Technician for the US Air Force High Speed Test Track at Holloman Air Force Base, New Mexico.  His hobbies include programming, circuit design, 3D modeling, repurposing hardware, and Hash House Harriers.
 .KE
 
 .KS
@@ -565,6 +563,6 @@ Coaches: Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Michael Hitchcoc
 We started the meeting by talking about the schedule the Project Management team created. We talked about Team pictures on Monday the 9th at 1pm.  We talked about the outreach to help IDA teachers move desks, tables, and other classroom items into their new modular building. The PM Team tasked the Build Team to finalize their design for the cap ball lift, particle shooter and beacon changer. The Programming Team worked on getting the beacon program together. They figured out how to get the camera to recognize the colors blue and red. The Community Outreach Team came up with ideas on outreach and team costumes. They decided to do a presentation at the Alamogordo Library, help at the elderly nursing homes, and at the CDC (Child Development Center) at Holloman Air Force Base.
 
 
-\fIStardate 2017016
+\fIStardate 2017016\fp
 
 .TC
