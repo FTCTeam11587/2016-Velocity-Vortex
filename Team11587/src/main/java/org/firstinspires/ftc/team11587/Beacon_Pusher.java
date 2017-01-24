@@ -1,14 +1,16 @@
 package org.firstinspires.ftc.team11587;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.PWMOutput;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.lasarobotics.vision.android.Cameras;
 import org.lasarobotics.vision.ftc.resq.Beacon;
 import org.lasarobotics.vision.opmode.LinearVisionOpMode;
-import org.lasarobotics.vision.opmode.VisionOpMode;
 import org.lasarobotics.vision.opmode.extensions.CameraControlExtension;
 import org.lasarobotics.vision.util.ScreenOrientation;
 import org.opencv.core.Mat;
@@ -18,11 +20,14 @@ import org.opencv.core.Size;
 import android.os.AsyncTask;
 import android.os.Environment;
 
+import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+
+import java.util.Scanner;
 
 
 /**
@@ -40,6 +45,24 @@ import java.io.Writer;
 
 public class Beacon_Pusher extends LinearVisionOpMode {
 
+	// Hardware Variables
+	DcMotor port_motor;
+	DcMotor stbd_motor;
+	Servo SONAR_Pedestal_Drive;
+	double Pedestal_Position = 0.5;            // Servo mid position
+	final double Pedestal_Speed = 0.02;   // Sets rate to move servo
+
+	// Encoder Stuff
+	static final double     COUNTS_PER_MOTOR_REV        =1440;  /*Adjust to CPR * 4*/
+	static final double     DRIVE_GEAR_REDUCTION        =2.0;   /*Motor gear = 40 tooth + wheel gear = 80 tooth*/
+	static final double     WHEEL_DIAMETER_INCHES       =(4.357 + 4.382 ) / 2; //4.439;
+	static final double     COUNTS_PER_INCH             =(COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /                                                                 (WHEEL_DIAMETER_INCHES * 3.141592654));
+	static final double     DRIVE_SPEED                 =0.6;
+	static final double     TURN_SPEED                  =0.5;
+	static final double 	Enc_D_CF					= 3.2;
+
+	private ElapsedTime runtime     =new ElapsedTime();
+
 	//Frame counter
 	int frameCount = 0;
 
@@ -50,6 +73,17 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 	public void runOpMode() throws InterruptedException {
 
 		waitForVisionStart();
+		port_motor = hardwareMap.dcMotor.get("port_motor");	    						// build config profile
+		stbd_motor = hardwareMap.dcMotor.get("stbd_motor");     						// build config profile
+		SONAR_Pedestal_Drive = hardwareMap.servo.get("SONAR_Pedestal_Drive");	        // build config profile
+		stbd_motor.setDirection(DcMotor.Direction.REVERSE);
+		SONAR_Pedestal_Drive.setPosition(Pedestal_Position);
+
+		port_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+		stbd_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+		port_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+		stbd_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 		this.setCamera(Cameras.PRIMARY);
 
@@ -74,16 +108,51 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 		AsyncTask Rh_Finder_Running = new Rh_Finder().execute();
 		waitForStart();
 
-		while (opModeIsActive()) {
+
+		int POSITION = 0;
+		Make_New_CalDat_file();
+
+		while (opModeIsActive() && POSITION <= 12) {
 			//Log a few things
-			telemetry.addData("Beacon Color", beacon.getAnalysis().getColorString());
-			telemetry.addData("Beacon Center", beacon.getAnalysis().getLocationString());
-			telemetry.addData("Beacon Confidence", beacon.getAnalysis().getConfidenceString());
-			telemetry.addData("Beacon Buttons", beacon.getAnalysis().getButtonString());
-			telemetry.addData("Screen Rotation", rotation.getScreenOrientationActual());
-			telemetry.addData("Frame Rate", fps.getFPSString() + " FPS");
-			telemetry.addData("Frame Size", "Width: " + width + " Height: " + height);
-			telemetry.addData("Frame Counter", frameCount);
+			//telemetry.addData("Beacon Color", beacon.getAnalysis().getColorString());
+			//telemetry.addData("Beacon Center", beacon.getAnalysis().getLocationString());
+			//telemetry.addData("Beacon Confidence", beacon.getAnalysis().getConfidenceString());
+			//telemetry.addData("Beacon Buttons", beacon.getAnalysis().getButtonString());
+			//telemetry.addData("Screen Rotation", rotation.getScreenOrientationActual());
+			//telemetry.addData("Frame Rate", fps.getFPSString() + " FPS");
+			//telemetry.addData("Frame Size", "Width: " + width + " Height: " + height);
+			//telemetry.addData("Frame Counter", frameCount);
+
+			encoderDrive (DRIVE_SPEED, -12, -12, 10000);
+			POSITION++;
+			sleep(1000);
+
+			double Rh[] = new double[4];
+			int TRYCNT = 0;
+			int BAD_Rh = 1;
+			while (BAD_Rh == 1) {
+				Rh = Get_Rh_Data();
+				telemetry.addData("Grabbing Rh Data %s","");
+				telemetry.addData("Rh[0] = %d",Rh[0]);
+				telemetry.update();
+				if (Rh[0] > 0 && !(Double.isNaN(Rh[0])) && !(Double.isInfinite(Rh[0]))) {
+					BAD_Rh = 0;
+				}
+			}
+
+			telemetry.addData("OK, I got past Get_Rh. %s","");
+			telemetry.update();
+			// Write a Calibration Lookup Table for either regression analysis or linear interpolation
+
+			Write_PositionRh(POSITION,Rh[0]);
+
+
+			telemetry.addData("Rh (Fwd): ",Rh[0]);
+			telemetry.addData("Rh (Stbd): ",Rh[1]);
+			telemetry.addData("Rh (Aft): ",Rh[2]);
+			telemetry.addData("Rh (Port): ",Rh[3]);
+
+			sleep(10000l);
 
 			if (hasNewFrame()) {
 				//Get the frame
@@ -111,6 +180,122 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 		}
 	}
 
+	public void Make_New_CalDat_file() {
+		String filepath = String.valueOf(Environment.getExternalStorageDirectory()) + File.separator + "FIRST" + File.separator;
+		File root = new File(filepath);
+		File datfile = new File(root, "Rh_Cal_Data.dat");
+		Writer writer = null;
+		try {
+			writer = new FileWriter(datfile, false);
+			writer.append("POSITION, Fwd_Rh\n");
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void Write_PositionRh(int POSITION, double Range) {
+		String P_and_Rh_Sentence = String.format("%s, %f\n", Integer.toString((int) POSITION), Range);
+		String filepath = String.valueOf(Environment.getExternalStorageDirectory()) + File.separator + "FIRST" + File.separator;
+		File root = new File(filepath);
+		File datfile = new File(root, "Rh_Cal_Data.dat");
+		Writer writer = null;
+		try {
+			writer = new FileWriter(datfile, true);
+			writer.append(P_and_Rh_Sentence);
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	public double[] Get_Rh_Data() {
+		String Rh_Data_String = "";
+		String filepath = String.valueOf(Environment.getExternalStorageDirectory()) + File.separator + "FIRST" + File.separator;
+		String datfile = filepath + "ranging_data.dat";
+
+		try {
+			InputStream FID = new FileInputStream(datfile);
+			InputStreamReader ISR = new InputStreamReader(FID);
+			BufferedReader BR = new BufferedReader(ISR);
+			String tline = BR.readLine();
+			FID.close();
+			Scanner Rh_scan = new Scanner(tline);
+			double Rh[] = {-1,-1,-1,-1};
+			for (int RhSC=0; RhSC <= 3; RhSC++) {
+				Rh[RhSC] = Rh_scan.nextDouble();
+			}
+			return Rh;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			double Rh[] = {-1,-1,-1,-1};
+			return Rh;
+		} catch (IOException e) {
+			e.printStackTrace();
+			double Rh[] = {-1,-1,-1,-1};
+			return Rh;
+		}
+
+	}
+
+	public void encoderDrive (double speed, double leftInches, double rightInches, double timeoutS) {
+
+		int newLeftTarget;
+		int newRightTarget;
+		double CurrentPosition_left;
+		double CurrentPosition_right;
+
+
+		if (opModeIsActive()) {
+
+			//Sets new target position using current position//
+
+			CurrentPosition_right = port_motor.getCurrentPosition() *  Enc_D_CF;
+			CurrentPosition_left = stbd_motor.getCurrentPosition() *  Enc_D_CF;
+
+			newLeftTarget  = (int) (CurrentPosition_left + (int)(leftInches * COUNTS_PER_INCH) + 0.5);   // Plus 0.5, because rounding to nearest is more accurate
+			newRightTarget = (int) (CurrentPosition_right + (int)(rightInches * COUNTS_PER_INCH) + 0.5); //    floor and (int) are decimal choppers
+
+
+
+
+
+
+
+			port_motor.setTargetPosition(newLeftTarget);
+			stbd_motor.setTargetPosition(newRightTarget);
+
+			//Set motors to Encoder drive mode//
+			port_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+			stbd_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+			runtime.reset();
+			port_motor.setPower(Math.abs(speed));
+			stbd_motor.setPower(Math.abs(speed));
+
+			while (opModeIsActive() &&
+					(runtime.seconds() < timeoutS) &&
+					(port_motor.isBusy() && stbd_motor.isBusy())) {
+				telemetry.addData("Path1", "Driving to %7d :%7d",newLeftTarget,newRightTarget);
+				telemetry.addData("Path2", "Driving at %7d :%7d",
+						port_motor.getCurrentPosition(),
+						stbd_motor.getCurrentPosition());
+				telemetry.update();
+			}
+
+			//Stop all motion and reset motors//
+			port_motor.setPower(0);
+			stbd_motor.setPower(0);
+			port_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+			stbd_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+		}
+	}
+
+
+
     private class Rh_Finder extends AsyncTask<Void, Void, Void> {
 
         protected Void doInBackground(Void... params) {
@@ -127,6 +312,9 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 			DEV_IF_MOD_1 = hardwareMap.deviceInterfaceModule.get("DEV_IF_MOD_1");	// build config profile
 			xdcr_tx = hardwareMap.pwmOutput.get("xdcr_tx");							// build config profile
 			fwd_xdcr_rx = hardwareMap.opticalDistanceSensor.get("fwd_xdcr_rx");				// build config profile
+			stbd_xdcr_rx = hardwareMap.opticalDistanceSensor.get("stbd_xdcr_rx");				// build config profile
+			aft_xdcr_rx = hardwareMap.opticalDistanceSensor.get("aft_xdcr_rx");				// build config profile
+			port_xdcr_rx = hardwareMap.opticalDistanceSensor.get("port_xdcr_rx");				// build config profile
 
 			String sentence = "New Data,	Rolling Average\n";
 			String filepath = String.valueOf(Environment.getExternalStorageDirectory()) + File.separator + "FIRST" + File.separator;
@@ -148,11 +336,11 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 
 			int i=1;
 			int ii=1;
-			int max_i = 10000;
-			double RANGE_rolavg = -1;
+			int max_i = 500;
+			double[] RANGE_rolavg = {-1,-1,-1,-1};
 
 			while (! isCancelled()) {
-
+			//while (opModeIsActive())
                 synchronized (Rh) {
 					//double VRead = fwd_xdcr_rx.getMaxVoltage();
 					if (i < max_i) {
@@ -162,26 +350,39 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 						ii++;
 					}
 					//double RANGE_new = 1 / Math.sqrt(fwd_xdcr_rx.getLightDetected());
-					double RANGE_new_sum = 0;
+					double[] RANGE_new_sum = {0,0,0,0};
+
+					//double[] new RANGE_new_sum = 0;
+					//double RANGE_new_sum = 0;
 					for (int count=0; count < 300; count++) {
-						RANGE_new_sum = RANGE_new_sum + (fwd_xdcr_rx.getLightDetected() * 9.951450243819872f);
+						RANGE_new_sum[0] = RANGE_new_sum[0] + (fwd_xdcr_rx.getLightDetected() * 9.951450243819872f);
+						RANGE_new_sum[1] = RANGE_new_sum[1] + (stbd_xdcr_rx.getLightDetected() * 9.951450243819872f);
+						RANGE_new_sum[2] = RANGE_new_sum[2] + (aft_xdcr_rx.getLightDetected() * 9.951450243819872f);
+						RANGE_new_sum[3] = RANGE_new_sum[3] + (port_xdcr_rx.getLightDetected() * 9.951450243819872f);
 					}
-					double RANGE_new = RANGE_new_sum / 300;
+					double[] RANGE_new = {0,0,0,0};
+					RANGE_new[0] = RANGE_new_sum[0] / 300;
+					RANGE_new[1] = RANGE_new_sum[1] / 300;
+					RANGE_new[2] = RANGE_new_sum[2] / 300;
+					RANGE_new[3] = RANGE_new_sum[3] / 300;
 
-					if (RANGE_rolavg < 0) {
-						if (!Double.isNaN(RANGE_new) && !Double.isInfinite(RANGE_new)) {
-							RANGE_rolavg = RANGE_new;
+					for (int count1=0; count1 <= 3; count1++) {
+						if (RANGE_rolavg[count1] < 0) {
+							if (!Double.isNaN(RANGE_new[count1]) && !Double.isInfinite(RANGE_new[count1])) {
+								RANGE_rolavg[count1] = RANGE_new[count1];
+								Rh = RANGE_rolavg;
+							}
+						} else {
+							if (!Double.isNaN(RANGE_new[count1]) && !Double.isInfinite(RANGE_new[count1])) {
+								RANGE_rolavg[count1] = RANGE_rolavg[count1] + (RANGE_new[count1] - RANGE_rolavg[count1]) / i;
+								Rh = RANGE_rolavg;
+							}
 						}
 					}
-					else {
-						if (!Double.isNaN(RANGE_new) && !Double.isInfinite(RANGE_new)) {
-							RANGE_rolavg = RANGE_rolavg + (RANGE_new - RANGE_rolavg) / i;
-						}
-					}
 
-					sentence = String.format("%f, %f\n", RANGE_new, RANGE_rolavg);
+					sentence = String.format("%f, %f, %f, %f\n", RANGE_rolavg[0], RANGE_rolavg[1], RANGE_rolavg[2], RANGE_rolavg[3]);
 					try {
-						writer = new FileWriter(datfile, true);
+						writer = new FileWriter(datfile, false);
 						//FileWriter(datfile, boolean append);
 						writer = writer.append(sentence);
 						writer.flush();
@@ -190,14 +391,10 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 						e.printStackTrace();
 					}
 
-					Rh[0] = 0;
-					Rh[1] = 0;
-					Rh[2] = 0;
-					Rh[3] = 0;
                 }
 				publishProgress(null);
             }
-            return null;
+			return null;
         }
 
         protected void onPostExecute() {
@@ -209,10 +406,10 @@ public class Beacon_Pusher extends LinearVisionOpMode {
         }
 
 
-        protected Double[] onProgressUpdate(Double[] Rh) {
+		protected Double[] onProgressUpdate(Double[] Rh) {
 			synchronized(Rh) {}
 			return Rh;
-        }
+		}
     }
 
 }

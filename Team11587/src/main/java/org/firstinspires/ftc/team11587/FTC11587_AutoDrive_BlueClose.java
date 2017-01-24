@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.team11587;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -12,7 +12,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * AutoDrive from Blue Near position (0,60) to lead-in line to near Blue Beacon
  */
 
-@Autonomous(name="AutoDrive: Blue Close", group="AutoDrive")
+@Autonomous(name="AutoDrive: Blue Close 1", group="AutoDrive")
 public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
     HardwarePushbot     robot       =new HardwarePushbot();
@@ -25,6 +25,12 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
     static final double     DRIVE_SPEED                 =0.6;
     static final double     TURN_SPEED                  =0.5;
 	static final double 	Enc_D_CF					= 3.2;
+	static final double		DBDW 						= 14.0; // Distance between Drive wheels
+
+
+	double arclength;
+	double theta;
+
 
     @Override
     public void runOpMode() {
@@ -47,13 +53,58 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
         waitForStart();     //Wait until DS presses PLAY//
 
-        encoderDrive (DRIVE_SPEED, 108,108,10000);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
-        //encoderDrive (TURN_SPEED, 12,-12,3);
-        //encoderDrive (DRIVE_SPEED, 36,36,3);
+
+		// 0,	60
+		// 60,	0
+		// 60,	0
+		// 60,	24
+		// 108,	24
+
+
+
+        encoderDrive (DRIVE_SPEED, 60,	60,	10000);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
+
+		theta = 90.0;
+		arclength = (theta * 3.141592653589793 * DBDW) /  360;
+		sleep(100);
+		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);
+		sleep(100);
+		encoderDrive(DRIVE_SPEED, 60, 60, 10000);  		// Drive to the wall and then
+		sleep(100);
+		encoderDrive(DRIVE_SPEED, -24, -24, 10000);  	// 24 inches away from the wall
+
+		// Turn parallel to wall, and drive along
+		theta = -90.0;
+		arclength = (theta * 3.141592653589793 * DBDW) /  360;
+		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);  // turn 90 degrees away from wall to parallel the wall
+		sleep(100);
+		encoderDrive(DRIVE_SPEED, 48, 48, 10000); 					// drive 48 inches to next beacon
+		sleep(100);
+
+		// Oh MY!!!, theres a beacon here!
+		theta = 90.0;
+		arclength = (theta * 3.141592653589793 * DBDW) /  360;
+		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);	// turn to wall
+		sleep(100);
+		encoderDrive(DRIVE_SPEED, 24, 24, 10000);					// we're 24 inches away, so we can drive 24 inches to.
+		sleep(100);
+		encoderDrive(DRIVE_SPEED, -36,-36, 10000);					// the next beacon is located 36 inches, in the y axis
+		sleep(100);
+
+		theta = -90.0;
+		arclength = (theta * 3.141592653589793 * DBDW) /  360;
+		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);	// turn to wall
+		sleep(100);
+
+
+
+		//encoderDrive (TURN_SPEED, 12,-12,10000);
+		//encoderDrive (DRIVE_SPEED, 36,36,50);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
     }
+
 
     public void encoderDrive (double speed, double leftInches, double rightInches, double timeoutS) {
 
@@ -70,8 +121,8 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 			CurrentPosition_right = robot.leftMotor.getCurrentPosition() *  Enc_D_CF;
 			CurrentPosition_left = robot.rightMotor.getCurrentPosition() *  Enc_D_CF;
 
-            newLeftTarget  = (int) (CurrentPosition_left + (int)(leftInches * COUNTS_PER_INCH) + 0.5);
-			newRightTarget = (int) (CurrentPosition_right + (int)(rightInches * COUNTS_PER_INCH) + 0.5);
+            newLeftTarget  = (int) (CurrentPosition_left + (int)(leftInches * COUNTS_PER_INCH) + 0.5);   // Plus 0.5, because rounding to nearest is more accurate
+			newRightTarget = (int) (CurrentPosition_right + (int)(rightInches * COUNTS_PER_INCH) + 0.5); //    floor and (int) are decimal choppers
 
 
 
@@ -79,7 +130,7 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
 
 
-            robot.leftMotor.setTargetPosition(newLeftTarget);    // + 0.5, because rounding to nearest is better!!!
+            robot.leftMotor.setTargetPosition(newLeftTarget);
             robot.rightMotor.setTargetPosition(newRightTarget);
 
             //Set motors to Encoder drive mode//
