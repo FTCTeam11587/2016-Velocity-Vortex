@@ -563,6 +563,15 @@ Coaches: Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Michael Hitchcoc
 We started the meeting by talking about the schedule the Project Management team created. We talked about Team pictures on Monday the 9th at 1pm.  We talked about the outreach to help IDA teachers move desks, tables, and other classroom items into their new modular building. The PM Team tasked the Build Team to finalize their design for the cap ball lift, particle shooter and beacon changer. The Programming Team worked on getting the beacon program together. They figured out how to get the camera to recognize the colors blue and red. The Community Outreach Team came up with ideas on outreach and team costumes. They decided to do a presentation at the Alamogordo Library, help at the elderly nursing homes, and at the CDC (Child Development Center) at Holloman Air Force Base.
 
 
-\fIStardate 2017016\fp
+\fIStardate 2017019\fP
+
+Attendance:
+
+\fIStardate 20170123\fP
+
+Attendance: Dax Bash, Brandon Mclaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
+Coaches: Mr. and Mrs. Kochendarfer, Michael Hitchcock, Mrs. Martinez, Mrs. Steckler
+
+We started the meeting of by telling everyone 
 
 .TC
