@@ -2,7 +2,10 @@ package org.firstinspires.ftc.team11587;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.AnalogSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
@@ -17,12 +20,16 @@ public class FTC11587_TankDrive extends LinearOpMode {
 
         //Define hardware for task functions//
         DcMotor         lift_motor;
-        Servo           grapple_servo;
+        Servo           left_grapple_servo;
+        Servo           right_grapple_servo;
+        DigitalChannel  upper_limit_switch;
+        DigitalChannel  lower_limit_switch;
 
         //Define variables for task functions//
         double          lift_motor_power = 0.5;
-        double          grapplePosition = 0.5;      //Grapple initializes to mid-position...needs to be changed//
-        final double    GRAPPLE_SPEED = 0.02;       //Grapple actuation speed//
+        double          leftGrapplePosition = 1.0;      //Grapple initializes to closed//
+        double          rightGrapplePosition = 1.0;     //Grapple initializes to closed//
+        final double    GRAPPLE_SPEED = 0.02;           //Grapple actuation speed//
 
         HardwarePushbot robot = new HardwarePushbot();
 
@@ -36,10 +43,15 @@ public class FTC11587_TankDrive extends LinearOpMode {
 
             //Initialize aux hardware//
             lift_motor = hardwareMap.dcMotor.get("lift_motor");
-            grapple_servo = hardwareMap.servo.get("grapple_servo");
-            grapple_servo.setPosition(grapplePosition);
+            left_grapple_servo = hardwareMap.servo.get("left_grapple_servo");
+            right_grapple_servo = hardwareMap.servo.get("right_grapple_servo");
+            left_grapple_servo.setPosition(leftGrapplePosition);
+            right_grapple_servo.setPosition(rightGrapplePosition);
 
-            telemetry.addData("Say", "Hello Knight!");
+            upper_limit_switch = hardwareMap.digitalChannel.get("upperLimitSwitch");
+            lower_limit_switch = hardwareMap.digitalChannel.get("lowerLimitSwitch");
+
+            telemetry.addData("Say: ", "Hello Knight!");
             telemetry.update();
 
             waitForStart();
@@ -49,9 +61,9 @@ public class FTC11587_TankDrive extends LinearOpMode {
                 left = -gamepad1.left_stick_y + gamepad1.right_stick_x;
                 right = -gamepad1.left_stick_y - gamepad1.right_stick_x;
                 max = Math.max(Math.abs(left), Math.abs(right));
-                telemetry.addData("left:", left);
-                telemetry.addData("Right:", right);
-                telemetry.addData("max:", max);
+                telemetry.addData("Left Motor Pos: ", left);
+                telemetry.addData("Right Motor Pos: ", right);
+                telemetry.addData("Max Motor Pos: ", max);
                 telemetry.update();
 
                 if (max > 1.0) {
@@ -66,24 +78,40 @@ public class FTC11587_TankDrive extends LinearOpMode {
 
             //Use Gamepad 1 D-pad L/R to actuate the grapple servo//
             if (gamepad1.dpad_right)
-                grapplePosition += GRAPPLE_SPEED;
-
+                leftGrapplePosition += GRAPPLE_SPEED;
+                rightGrapplePosition -= GRAPPLE_SPEED;
             else if (gamepad1.dpad_left)
-                grapplePosition -= GRAPPLE_SPEED;
+                leftGrapplePosition -= GRAPPLE_SPEED;
+                rightGrapplePosition += GRAPPLE_SPEED;
 
-            grapplePosition = Range.clip(grapplePosition,0,1);
-                grapple_servo.setPosition(grapplePosition);
+            leftGrapplePosition = Range.clip(leftGrapplePosition,0.0,1.0);
+                left_grapple_servo.setPosition(leftGrapplePosition);
 
-                telemetry.addData("Grapple: ", "%.2f",grapplePosition);
+            rightGrapplePosition = Range.clip(rightGrapplePosition,0.0,1.0);
+                right_grapple_servo.setPosition(rightGrapplePosition);
+
+                telemetry.addData("Left Grapple Position: ", "%.2f",leftGrapplePosition);
+                telemetry.addData("Right Grapple Position:", "%.2f",rightGrapplePosition);
                 telemetry.update();
 
             //Use Gamepad 1 D-pad Up/Down to actuate the lift motor//
-            if (gamepad1.dpad_up)
-                lift_motor.setPower(lift_motor_power);  //Need to add limit switch logic//
-            else if (gamepad1.dpad_down)
-                lift_motor.setPower(-lift_motor_power);
+            boolean uLim = upper_limit_switch.getState();
+            boolean lLim = lower_limit_switch.getState();
+
+            while (gamepad1.dpad_up)
+                if (uLim = false)  //Check this...generates caution...always true?
+                    lift_motor.setPower(lift_motor_power);
+                else if (uLim = true)
+                    lift_motor.setPower(0.0);
+
+            while (gamepad1.dpad_down)
+                if (lLim = false)
+                    lift_motor.setPower(-lift_motor_power);
+                else if (lLim = false)
+                    lift_motor.setPower(0.0);
 
                  robot.waitForTick(40);
             }
         }
     }
+

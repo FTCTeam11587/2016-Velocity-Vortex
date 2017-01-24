@@ -7,12 +7,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import java.lang.Math;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
-/**
+/*
  * FTC Team 11587
  * AutoDrive from Blue Near position (0,60) to lead-in line to near Blue Beacon
  */
 
-@Autonomous(name="AutoDrive: Blue Close 1", group="AutoDrive")
+@Autonomous(name="AutoDrive: Blue Close", group="AutoDrive")
 public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
     HardwarePushbot     robot       =new HardwarePushbot();
@@ -25,14 +25,11 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 															(WHEEL_DIAMETER_INCHES * 3.141592653589793));
     static final double     DRIVE_SPEED                 =0.6;
     static final double     TURN_SPEED                  =0.5;
-	static final double 	Enc_D_CF					= 3.2;
-
-	static final double		DBDW 						= 14.0; // Distance between Drive wheels
-
+	static final double 	Enc_D_CF					=3.2;
+	static final double		DBDW 						=14.0; // Distance between Drive wheels
 
 	double arclength;
 	double theta;
-
 
     @Override
     public void runOpMode() {
@@ -55,52 +52,38 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
         waitForStart();     //Wait until DS presses PLAY//
 
-
 		// 0,	60
 		// 60,	0
 		// 60,	0
 		// 60,	24
 		// 108,	24
 
-
-
-        encoderDrive (DRIVE_SPEED, 60,	60,	4.0);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
-
 		theta = 90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
 
-		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);
+        //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
+        encoderDrive (DRIVE_SPEED, 60,	60,	10000);
+        encoderDrive (TURN_SPEED, arclength, -(arclength), 10000);
 
-		encoderDrive(DRIVE_SPEED, 60, 60, 4.0);  		// Drive to the wall and then
-
-		encoderDrive(DRIVE_SPEED, -24, -24, 4.0);  	// 24 inches away from the wall
+		encoderDrive(DRIVE_SPEED, 60, 60, 10000);  	    // Drive to the wall and then
+		encoderDrive(DRIVE_SPEED, -24, -24, 10000);  	// 24 inches away from the wall
 
 		// Turn parallel to wall, and drive along
 		theta = -90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);  // turn 90 degrees away from wall to parallel the wall
-
-		encoderDrive(DRIVE_SPEED, 48, 48, 4.0); 					// drive 48 inches to next beacon
-
+		encoderDrive(TURN_SPEED, arclength, -(arclength), 10000);   // turn 90 degrees away from wall to parallel the wall
+		encoderDrive(DRIVE_SPEED, 48, 48, 10000); 					// drive 48 inches to next beacon
 
 		// Oh MY!!!, theres a beacon here!
 		theta = 90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);	// turn to wall
-
-		encoderDrive(DRIVE_SPEED, 24, 24, 4.0);					// we're 24 inches away, so we can drive 24 inches to.
-
-		encoderDrive(DRIVE_SPEED, -36,-36, 4.0);					// the next beacon is located 36 inches, in the y axis
+		encoderDrive(TURN_SPEED, arclength, -(arclength), 10000);	// turn to wall
+		encoderDrive(DRIVE_SPEED, 24, 24, 10000); 					// we're 24 inches away, so we can drive 24 inches to.
+		encoderDrive(DRIVE_SPEED, -36,-36, 10000);					// the next beacon is located 36 inches, in the y axis
 
 		theta = -90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);	// turn to wall
-
-
-
-
-		//encoderDrive (TURN_SPEED, 12,-12,10000);
-		//encoderDrive (DRIVE_SPEED, 36,36,50);
+		encoderDrive(TURN_SPEED, arclength, -(arclength), 10000);	// turn to wall
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
