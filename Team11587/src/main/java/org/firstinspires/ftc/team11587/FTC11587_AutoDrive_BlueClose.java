@@ -21,10 +21,12 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
     static final double     COUNTS_PER_MOTOR_REV        =1440;  /*Adjust to CPR * 4*/
     static final double     DRIVE_GEAR_REDUCTION        =2.0;   /*Motor gear = 40 tooth + wheel gear = 80 tooth*/
     static final double     WHEEL_DIAMETER_INCHES       =(4.357 + 4.382 ) / 2; //4.439;
-    static final double     COUNTS_PER_INCH             =(COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /                                                                 (WHEEL_DIAMETER_INCHES * 3.141592654));
+    static final double     COUNTS_PER_INCH             =(COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /
+															(WHEEL_DIAMETER_INCHES * 3.141592653589793));
     static final double     DRIVE_SPEED                 =0.6;
     static final double     TURN_SPEED                  =0.5;
 	static final double 	Enc_D_CF					= 3.2;
+
 	static final double		DBDW 						= 14.0; // Distance between Drive wheels
 
 
@@ -62,39 +64,38 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
 
 
 
-        encoderDrive (DRIVE_SPEED, 60,	60,	10000);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
+        encoderDrive (DRIVE_SPEED, 60,	60,	4.0);  //Drives from Blue Near (0,60) to start of near Blue Beacon lead-in line (60,24)
 
 		theta = 90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		sleep(100);
-		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);
-		sleep(100);
-		encoderDrive(DRIVE_SPEED, 60, 60, 10000);  		// Drive to the wall and then
-		sleep(100);
-		encoderDrive(DRIVE_SPEED, -24, -24, 10000);  	// 24 inches away from the wall
+
+		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);
+
+		encoderDrive(DRIVE_SPEED, 60, 60, 4.0);  		// Drive to the wall and then
+
+		encoderDrive(DRIVE_SPEED, -24, -24, 4.0);  	// 24 inches away from the wall
 
 		// Turn parallel to wall, and drive along
 		theta = -90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);  // turn 90 degrees away from wall to parallel the wall
-		sleep(100);
-		encoderDrive(DRIVE_SPEED, 48, 48, 10000); 					// drive 48 inches to next beacon
-		sleep(100);
+		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);  // turn 90 degrees away from wall to parallel the wall
+
+		encoderDrive(DRIVE_SPEED, 48, 48, 4.0); 					// drive 48 inches to next beacon
+
 
 		// Oh MY!!!, theres a beacon here!
 		theta = 90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);	// turn to wall
-		sleep(100);
-		encoderDrive(DRIVE_SPEED, 24, 24, 10000);					// we're 24 inches away, so we can drive 24 inches to.
-		sleep(100);
-		encoderDrive(DRIVE_SPEED, -36,-36, 10000);					// the next beacon is located 36 inches, in the y axis
-		sleep(100);
+		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);	// turn to wall
+
+		encoderDrive(DRIVE_SPEED, 24, 24, 4.0);					// we're 24 inches away, so we can drive 24 inches to.
+
+		encoderDrive(DRIVE_SPEED, -36,-36, 4.0);					// the next beacon is located 36 inches, in the y axis
 
 		theta = -90.0;
 		arclength = (theta * 3.141592653589793 * DBDW) /  360;
-		encoderDrive(DRIVE_SPEED, arclength, -(arclength),	10000);	// turn to wall
-		sleep(100);
+		encoderDrive(TURN_SPEED, arclength, -(arclength),	4.0);	// turn to wall
+
 
 
 
@@ -117,25 +118,18 @@ public class FTC11587_AutoDrive_BlueClose extends LinearOpMode {
         if (opModeIsActive()) {
 
             //Sets new target position using current position//
-
 			CurrentPosition_right = robot.leftMotor.getCurrentPosition() *  Enc_D_CF;
 			CurrentPosition_left = robot.rightMotor.getCurrentPosition() *  Enc_D_CF;
 
-            newLeftTarget  = (int) (CurrentPosition_left + (int)(leftInches * COUNTS_PER_INCH) + 0.5);   // Plus 0.5, because rounding to nearest is more accurate
-			newRightTarget = (int) (CurrentPosition_right + (int)(rightInches * COUNTS_PER_INCH) + 0.5); //    floor and (int) are decimal choppers
-
-
-
-
-
-
-
-            robot.leftMotor.setTargetPosition(newLeftTarget);
-            robot.rightMotor.setTargetPosition(newRightTarget);
+			// Determine new target position, and pass to motor controller
+			newLeftTarget = robot.leftMotor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
+			newRightTarget = robot.rightMotor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+			robot.leftMotor.setTargetPosition(newLeftTarget);
+			robot.rightMotor.setTargetPosition(newRightTarget);
 
             //Set motors to Encoder drive mode//
             robot.leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             runtime.reset();
             robot.leftMotor.setPower(Math.abs(speed));
