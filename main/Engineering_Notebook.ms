@@ -9,7 +9,7 @@ Starry Knights
 .AI
 Imago Dei Academy
 Alamogordo, NM
-7
+
 .AB
 The Starry Knights were organized in 2016 at Imago Dei Academy in Alamogordo, New Mexico.  Imago Dei Academy is a classical Christian school with a strong academic focus on classical liberal arts.  In 2016, the School Board decided to increase the school's emphasis on STEM activities to develop more well-rounded graduates.  FTC Team #11587 was formed as part of the school's increased STEM focus.  Team #11587 has grown significantly since its beginning and now includes not only IDA students, but also team members from local public and home schools.  Major team milestones include:
 .IP \[bu] 2
@@ -20,9 +20,18 @@ Robot Build Complete:  October 31, 2016
 Robot Testing Complete:  December 12, 2016
 .IP \[bu]
 Alamogordo FTC Competition 2nd Place:  December 17, 2016
+.IP \[bu]
+Robot Re-design Complete:  January 27, 2017
 
 .LP
-We invite judges to review our Team Overview and Biographies on pages XX-YY to get to know us better.  Judges are also invited to view our Engineering Section on pages XX-YY for full documentation of our robot development efforts.
+We invite judges to review our Team Overview and Biographies on pages XX-YY to get to know us better.  Judges may also find the following portions of this Notebook particularly interesting:
+.IP \[bu] 2
+Programming/Control Section
+.IP \[bu]
+Engineering Notebook Documentation Section
+.IP \[bu]
+Scissor Lift Design Section
+
 .AE
 
 .NH
@@ -33,7 +42,7 @@ Team Overview
 
 .PP
 Welcome to the Engineering Notebook for FIRST\[rg] Tech Challenge Team #11587!  This book documents the development process for our team's robot for the 2016-2017 competition season.
-33...
+
 .PSPIC ./images/FTC11587TeamPic.eps
 .PS
 "\fIFTC Team #11587\fP";
@@ -66,6 +75,7 @@ When the team initially formed, none of our members had any experience in roboti
 .PP
 Our 2nd place finish at Alamogordo secured us a spot at the Arizona/New Mexico Championship being held at Flagstaff in February 2017.  We quickly realized we needed to step up our game significantly to be competitive at that match.  We reorganized, went back to the drawing board, and identified three target tasks for our robot to allow us to remain competitive at the inter-state match.  Under the guidance of our new Head Coach, Kurt Kochendarfer, we tore our robot all the way down to the basic drivetrain and started a rebuild to meet our target goals.  During this time our team also branched out to accomplish an increased focus on community outreach, fundraising/support, and Team spirit!  Along the journey we've had lots of opportunities to learn, to teach, and to grow in our understanding of and appreciation for science, technology, engineering, and mathematics.  FIRST\[rg] Tech Challenge has allowed us to meet and exceed our School Board's expectations for STEM development.  The credit for all of this goes, first and foremost, to God.
 
+.KS
 .NH 2
 Team Biographies
 .XS
@@ -75,7 +85,6 @@ Team Biographies
 .PP
 Our Team consists of members from a wide variety of backgrounds and interest areas.  The biographies listed below will allow you to get to know us better!
 
-.KS
 .NH 3
 Build Team
 .XS
@@ -83,7 +92,7 @@ Build Team
 .XE
 
 .NH 4
-Emmet Burks - Student Team Lead
+Emmet Burks - Build Team Lead
 
 .LP
 .PSPIC ./images/EmmetBurksBio.eps
@@ -120,21 +129,7 @@ Joshua Bryant
 .PE
 
 .LP
-Joshua Bryant is an 11th grader at Imago Dei Academy.  He joined the FTC team because he did FLL and wanted to move to the next level.  He really enjoyed participating in FLL.  He was a valued participant on the building sub-team and had many good ideas.  Josh would like to be a Lego Master Builder who builds life-sized Lego models.  He does not plan to attend college but maybe will change his mind.  His other interests include reading, watching TV and playing video games.
-.KE
-
-.KS
-.NH 4
-Adrian Martinez
-
-.LP
-.PSPIC ./images/AdrianMartinezBio.eps
-.PS
-"\fIAdrian Martinez\fP";
-.PE
-
-.LP
-Adrian Martinez is in 9th grade at Imago Dei Academy.  His Mom encouraged him to join FIRST\[rg] Tech Challenge.  He chose to be on the robot building team to create the ideas that are in his head.  Adrian would like to be a Cartographer because it involves technology, math, and science. H believes we need to know what the world we live in is like, so that we can take care of our planet. Caring for the earth is a thing we must do, because it can help make everything easier for future generations.
+Joshua Bryant is an 11th grader at Imago Dei Academy.  He joined the FTC team because he did FLL and wanted to move to the next level.  He really enjoyed participating in FLL.  He was a valued participant on the building sub-team and had many good ideas.  Josh would like to be a Lego Master Builder who builds life-sized Lego models.  He does not plan to attend college but maybe will change his mind.  Josh was the mastermind behind the team's Autonomous mode driving strategy this year.  His other interests include reading, watching TV and playing video games.
 .KE
 
 .KS
@@ -152,29 +147,14 @@ Gabe Steckler is in the 8th grade.  He joined FIRST\[rg] Tech Challenge to learn
 .KE
 
 .KS
-.NH 4
-Michael Wooldridge
-
-.LP
-.PSPIC ./images/MichaelWooldridgeBio.eps
-.PS
-"\fIMichael Wooldridge\fP";
-.PE
-
-.LP
-Michael Wooldridge is in the 9th grade at Imago Dei Academy. He joined FTC because he was curious about building robots and competing with them. At this time, he is not really interested in science and does not really have a favorite subject in school.  His confidence in engineering-type skills has increased exponentially since starting this team.  His interests are soccer, video games, and airsoft battles.  He plans to attend college but will determine his field of study at a later date.  Michael has been one of the most dedicated members on this team and has the highest attendance record.
-.KE
-
-.KS
 .NH 3
 Programming Team
 .XS
 Programming Team
 .XE
 
-.KS
 .NH 4
-Dax Bash
+Dax Bash - Programming Team Lead
 
 .LP
 .PSPIC ./images/DaxBashBio.eps
@@ -194,7 +174,7 @@ Community Outreach Team
 .XE
 
 .NH 4
-Araya Blaylock
+Araya Blaylock - Community Outreach Team Lead
 
 .LP
 .PSPIC ./images/ArayaBlaylockBio.eps
@@ -207,15 +187,28 @@ Araya is a junior at Imago Dei Academy.  She joined FTC because she thought it w
 .KE
 
 .KS
+.NH 4
+Adrian Martinez
+
+.LP
+.PSPIC ./images/AdrianMartinezBio.eps
+.PS
+"\fIAdrian Martinez\fP";
+.PE
+
+.LP
+Adrian Martinez is in 9th grade at Imago Dei Academy.  His Mom encouraged him to join FIRST\[rg] Tech Challenge.  He chose to be on the robot building team to create the ideas that are in his head.  Adrian would like to be a Cartographer because it involves technology, math, and science. H believes we need to know what the world we live in is like, so that we can take care of our planet. Caring for the earth is a thing we must do, because it can help make everything easier for future generations.
+.KE
+
+.KS
 .NH 3
 Fundraising Team
 .XS
 Fundraising Team
 .XE
 
-.KS
 .NH 4
-Dale James
+Dale James - Fundraising Team Lead
 
 .LP
 .PSPIC ./images/DaleJamesBio.eps
@@ -224,7 +217,7 @@ Dale James
 .PE
 
 .LP
-Dale James is an 8th grader at Imago Dei Academy.  He joined this team to be a part of something challenging.  He has learned a lot and was a member of the team who organized and documented the meetings and accomplishments.  He has lots of diversity in his interests and is a great team player and encourager.  You can always count on Dale for genuine smile!
+Dale James is an 8th grader at Imago Dei Academy.  He joined this team to be a part of something challenging.  He has learned a lot and was a member of the team who organized and documented the meetings and accomplishments.  He has lots of diversity in his interests and is a great team player and encourager.  Dale's outgoing personality and professionalism paved the way for sponsor support this year.  You can always count on Dale for genuine smile!
 .KE
 
 .KS
@@ -255,33 +248,34 @@ Coaches and Mentors
 .XE
 
 .NH 4
-Coach Kurt Kochendarfer - Head Coach
+Kurt Kochendarfer - Head Coach
 
 .LP
 /*.PSPIC ./images/CoachKBio.eps*/
 .PS
-"\fICoach Kurt Kochendarfer\fP";
+"\fIKurt Kochendarfer\fP";
 .PE
 
-Kurt is an Air Force Reserve F-16 instructor pilot and Department of Defense contract civilian F-16 subject matter expert with more than 3200 flight hours and six combat deployments under his belt.  Kurt's technical background comes primarily from more than 30 years of aviation experience, multiple IT management projects, and lots of self-instruction.  Kurt's hobbies include long-range shooting, mountain biking, long-distance running, and anything related to aviation.  Kurt is also a 3rd generation licensed amateur radio operator with an interest in software-defined radio and digital signal processing.  When not nerding out, he loves a good cup of coffee on the front porch enjoying God's creation with his wife, Teena, and their dogs.
+Kurt is an Air Force Reserve F-16 instructor pilot and Department of Defense contract F-16 subject matter expert with more than 3200 flight hours and six combat deployments under his belt.  Kurt's technical background comes primarily from more than 30 years of aviation experience, multiple IT management projects, and lots of self-instruction.  Kurt's hobbies include long-range shooting, mountain biking, long-distance running, and anything related to aviation.  Kurt is also a 3rd generation licensed amateur radio operator with an interest in software-defined radio and digital signal processing.  When not nerding out, he loves a good cup of coffee on the front porch enjoying God's creation with his wife, Teena, and their dogs.
 .KE
 
 .KS
 .NH 4
-Coach Teena Kochendarfer
+Teena Kochendarfer - Assistant Head Coach
 
 .LP
 /*.PSPIC ./images/CoachMrsKBio.eps*/
 .PS
-"\fICoach Teena Kochendarfer\fP";
+"\fITeena Kochendarfer\fP";
 .PE
 
 .LP
-Teena is Registered Dental Hygienist, and the organizing force behind anything Coach Kurt does.  As a mother who has been home-schooling children since 1998, her mentoring and organizational skills have been indispensable in keeping the \fIStarry Knights\fP on task this season.
+Teena is Registered Dental Hygienist, and the organizing force behind the administrative functions of the team.  As a mother who has been home-schooling children since 1998, her mentoring and organizational skills have been indispensable in keeping the \fIStarry Knights\fP on task this season.
 .KE
 
+.KS
 .NH 4
-Coach Michael Hitchcock - Programming Team Lead
+Michael Hitchcock - Programming/Build Team Mentor
 
 .LP
 .PSPIC ./images/MichaelHitchcockBio.eps
@@ -295,31 +289,30 @@ Michael "Hitch" Hitchcock served for 9.5 years as a US Navy Submarine Navigation
 
 .KS
 .NH 4
-Coach Deneen Black
+Deneen Black - Head Coach
 
 .LP
 .PSPIC ./images/CoachMrsBlackBio.eps
 .PS
-"\fICoach Deneen Black\fP";
+"\fIDeneen Black\fP";
 .PE
 
-Coach Deneen Black is a retired Engineer and Program Manager who worked most of her career as a US government civilian.  She organized this team and secured a DoD grant for Imago Dei Academy to get started.  She has been working with STEM education outreach since 2007 through AIAA and Air Force STEM.  Her son, Nate, is on the team.  Her husband, Roger, and son, Chris, are also mentors to this FTC team.  She gives God all the glory for all of her blessings and accomplishments.
+Coach Deneen Black is a retired Engineer and Program Manager who worked most of her career as a US government civilian.  She organized this team and secured a DoD grant for Imago Dei Academy to get started.  She has been working with STEM education outreach since 2007 through AIAA and Air Force STEM.  Coach Black smoothed the way for team sponsors, and was the driving force behind the team's formative months.  She gives God all the glory for all of her blessings and accomplishments.
 .KE
-
-.NH 4
-Mentor Steven James
-
-.NH 4
-Mentor Elizabeth James
 
 .KS
 .NH 4
-Mentor Chris Black
+Steven James - Build Team Mentor
+.KE
+
+.KS
+.NH 4
+Chris Black - Programming Team Mentor
 
 .LP
 .PSPIC ./images/MentorMrCBlackBio.eps
 .PS
-"\fIMentor Chris Black\fP";
+"\fIChris Black\fP";
 .PE
 
 .LP
@@ -328,11 +321,11 @@ Mentor Chris Black is a college student pursuing his Masters Degree in Electrica
 
 .KS
 .NH 4
-Mentor Roger Black
+Roger Black - Build Team Mentor
 .LP
 .PSPIC ./images/MentorMrRBlackBio.eps
 .PS
-"\fIMentor Roger Black\fP";
+"\fIRoger Black\fP";
 .PE
 
 .LP
@@ -341,26 +334,26 @@ Mentor Roger Black is a Veterinarian.  He also spent many years in construction 
 
 .KS
 .NH 4
-Mentor Erin Steckler
+Erin Steckler - Community Outreach / Fundraising Mentor
 
 .LP
 .PSPIC ./images/MentorMrsStecklerBio.eps
 .PS
-"\fIMentor Erin Steckler\fP";
+"\fIErin Steckler\fP";
 .PE
 
 .LP
-Mentor Erin Steckler is a homeschooling mother and wife. Her son, Gabe, was curious about robotics which led to her involvement with the team. This was her first exposure to robotics and programming. In her spare time, she enjoys hiking, spending time with family and friends, and photography.
+Mentor Erin Steckler is a homeschooling mother and wife. Her son, Gabe, was curious about robotics which led to her involvement with the team. This was her first exposure to robotics and programming.  Mrs. Steckler was instrumental in helping the Community Outreach Team and Fundraising Teams develop momentum to jump to the next level in \fIStarry Knights\fP team history. In her spare time, she enjoys hiking, spending time with family and friends, and photography.
 .KE
 
 .KS
 .NH 4
-Mentor John Steckler
+John Steckler - Build Team Mentor
 
 .LP
 /*.PSPIC ./images/MentorMrSteckler.eps*/
 .PS
-"\fIMentor John Steckler\fP";
+"\fIJohn Steckler\fP";
 .PE
 
 .LP
@@ -411,8 +404,7 @@ CAD Software Suites
 .XE
 
 .PP
-The Team used several different CAD software suites to aid in the design of our robot.  OpenSCAD was used for individual component design due to its relatively simple code-based user interface and ability to output multiple file types.  The OpenSCAD code was stored on GitHub to allow multiple Team members to access and easily modify the code.
-
+The Team used several different CAD software suites to aid in the design of our robot.  OpenSCAD was used for individual component design due to its relatively simple code-based user interface and ability to output multiple file types.  The OpenSCAD code was stored on GitHub to allow multiple Team members to access and easily modify the code.  AutoDesk and AutoCAD were both used for the design of the scissor lift, due to their capabilities to model motion with the 3D structures.
 .KE
 
 .KS
@@ -421,7 +413,6 @@ Engineering Overview
 .XS
 Engineering Overview
 .XE
-
 .KE
 
 .KS
@@ -432,7 +423,17 @@ Scissor Lift Design
 .XE
 
 .PP
-To accomplish our objective of executing the cap ball lift into the Center Vortex during End Game, the Build Team decided to utilize a scissor lift mechanism to raise the cap ball into the Center Vortex.  While several other designs were considered, including a cascading pulley lift, the Build Team favored the scissor lift for its simplicity and strength (Figure X)
+The cap ball lift present an engineering challenge in that we had to get a 21" diameter ball into a holder that required almost 47" of clearance from the floor, all while being lifted by an assembly that would fit into an 18"x18"x18" package (Figure X.)
+
+.PSPIC ./images/CapBallLiftPlanning.eps
+.PS
+"\fBFigure X.\fP" "\fICap Ball Lift Planning\fP";
+.PE
+.KE
+
+.KS
+.PP
+To accomplish our objective of executing the cap ball lift into the Center Vortex during End Game, the Build Team decided to utilize a scissor lift mechanism to raise the cap ball into the Center Vortex.  While several other designs were considered, including a cascading pulley lift, the Build Team favored the scissor lift for its simplicity and strength (Figure X.)
 
 .PSPIC ./images/CapBallLiftInitialSketch.eps
 .PS
@@ -455,6 +456,22 @@ L sub x sub 1 = L sub x sub 2 = W over {tan theta}
 "\fBFigure X.\fP" "\fIScissor Assembly Load Calculations\fP";
 .PE
 
+where \fILx\fP and \fILy\fP are the \fIx\fP and \fIy\fP components of the lift load, \fIw\fP is the total weight to be lifted, and \fItheta\fP is the interior angle of the scissor arms.
+
+.PP
+As we attempted to fit the scissor lift on the robot chassis, we discovered the side-loaded single leg scissor lift design took up too much room on the robot chassis, making it difficult to stay within the 18"x18"x18" space constraint.  After reviewing the design, we settled on modifying the scissor lift to a center-load lifting mechanism with dual sliding leg supports at both the top and bottom of the scissor assembly.  The formula used for the lift load on the redesign was:
+
+.EQ
+L sub y = {W times D times {cos theta}} over 2
+.EN
+
+.PS
+"\fBFigure X.\fP" "\fIScissor Assembly Re-calculations\fP";
+.PE
+
+where \fILy\fP is the \fIy\fP component of the lift load, \fIW\fP is the total weight to be lifted, \fID\fP is the total lifting distance of all lift arms, and \fItheta\fP is the interior angle of the scissor arms.
+
+
 .KS
 .PP
 The arms used in our scissor lift were designed with the OpenSCAD software, which allowed us to 3D print the final components.  The 3D printer available to us had a 255mm lateral print limitation which forced a component redesign after our initial attempt.  Our first scissor arm was designed to be printed as one piece on the 255mm print bed, but the resulting 240mm scissor arm was not sturdy enough to support the weight of the cap ball plus our grapple mechanism.
@@ -466,6 +483,19 @@ The arms used in our scissor lift were designed with the OpenSCAD software, whic
 "\fBFigure X.\fP" "\fIScissor Arm I-Beam Cutaway View\fP";
 .PE
 
+Although the I-beam design was structurally strong, the Build Team found that 3D-printing the I-beams was more complex/slower than printing a simply structural beam, so the design was modified accordingly.
+
+.PP
+Our initial scissor lift design utilized a side-load leadscrew design to actuate the scissor lift; however, after some discussion, the Build Team settled on a vertical center-load design with dual sliding bases to raise the Cap Ball.  This design allowed the use of a single, centrally mounted DC motor connected to a leadscrew.  The primary benefit of this design was the ability to use a simple single point of attachment for the leadscrew, while maintaining a low center of gravity and small lateral footprint on the robot chassis.  We decided to utilize a dual scissor design with scissor arms cross-tied by aluminum tube for strength.
+
+.NH 2
+Grapple Design
+.XS
+Grapple Design
+.XE
+
+.PP
+The grapple attached to the scissor lift went through several revisions before settling on the final design.  The Build Team considered several options, including a 3-claw grapple, a mechanized sloping ramp, and the final 2-claw grapple design.  Two grapple actuation methods were considered.  Initially the Team considered a grapple actuated by a single bar connected to a servo and both grapple arms.  Due to engineering difficulties, we eventually settled on a twin-servo actuator design, as working the actuators in software was easier than designing a lightweight, compact mechanical actuator.
 .KE
 
 .NH 2
@@ -490,10 +520,39 @@ Programming Difficulties
 .XE
 
 .PP
-The Team found that configuring the various versions of the Android APK in Android Studio was initially challenging.  One of the programmers did not have the appropriate APK loaded for the Android OS version on our Motorola controller phones, causing initial compile difficulties for building basic OpMode code.
+The Team found that configuring the various versions of the Android APK in Android Studio was initially challenging.  One of the programmers did not have the appropriate SDK's loaded for the Android OS version on our Motorola controller phones, causing initial compile difficulties for building basic OpMode code.
 
 .PP
-The Team found a wide variety of controller libraries available on GitHub for the various tasks which needed to be accomplished.  One of the primary challenges was committing to a particular support library for accomplishing the desired task.  For example, in accomplishing the Autonomous mode Beacon Claim task, the team considered
+The Team found a wide variety of controller libraries available on GitHub for the various tasks which needed to be accomplished.  One of the primary challenges was committing to a particular support library for accomplishing the desired task.  For example, in accomplishing the Autonomous mode Beacon Claim task, the team considered several virtual vision options before settling on the FTCVision library developed by Lasarobotics.  Projects which contained full Javadoc documentation were considered above others due to our unfamiliarity with Java programming.
+
+.NH 3
+Autonomous Drive Programming
+.XS
+Autonomous Drive Programming
+.XE
+
+.PP
+
+.NH 3
+Driver Mode Programming
+.XS
+Driver Mode Programming
+.XE
+
+.PP
+After coordinating with the Project Lead and Build Team on the design goals for Driver mode, the Programming team decided that a simple tank drive program with additional DC motor and servo control functionality was all that was required to build a functioning Driver OpMode.  Our robot started life as a Pushbot prior to our re-design, so we elected to utilize the Pushbot OpMode as the basis for our Driver Mode program.
+
+.CW
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.AnalogSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
+
 
 .NH 2
 Engineering Logbook
@@ -572,6 +631,18 @@ Attendance:
 Attendance: Dax Bash, Brandon Mclaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
 Coaches: Mr. and Mrs. Kochendarfer, Michael Hitchcock, Mrs. Martinez, Mrs. Steckler
 
-We started the meeting of by telling everyone 
+We started the meeting off by telling everyone
+
+.NH 2
+Community Outreach Overview
+.XS
+Community Outreach Overview
+.XE
+
+.PSPIC ./images/ImagoDeiOutreach.eps
+.PS
+"\fBFigure X.\fP" "\fIImago Dei Computer Lab Setup\fP";
+.PE
+
 
 .TC
