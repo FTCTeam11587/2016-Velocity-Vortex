@@ -532,6 +532,11 @@ Autonomous Drive Programming
 .XE
 
 .PP
+.PSPIC ./images/VVArenaPlanning.eps
+.PS
+"\fBFigure X.\fP" "\fIAutonomous Drive X-Y Map\fP";
+.PE
+
 
 .NH 3
 Driver Mode Programming
@@ -541,17 +546,6 @@ Driver Mode Programming
 
 .PP
 After coordinating with the Project Lead and Build Team on the design goals for Driver mode, the Programming team decided that a simple tank drive program with additional DC motor and servo control functionality was all that was required to build a functioning Driver OpMode.  Our robot started life as a Pushbot prior to our re-design, so we elected to utilize the Pushbot OpMode as the basis for our Driver Mode program.
-
-.CW
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.AnalogSensor;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
-import com.qualcomm.robotcore.hardware.DigitalChannel;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.Range;
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 .NH 2
