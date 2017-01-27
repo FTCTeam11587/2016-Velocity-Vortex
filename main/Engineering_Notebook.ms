@@ -621,14 +621,14 @@ We started the meeting by talking about the schedule the Project Management team
 Attendance: Emmet Burks, Dax Bash, Araya Blaylock, Gabe Steckler, Brandon Mclaughlin, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mr. and Mrs. Kochendarfer, Mrs. Steckler, Mr. Hitchcock
 
-The Starry-Knights Team started our meeting 
+The Starry-Knights Team started our meeting by asking where each group is at. The build team reported that they were still working on finishing the robot design and planned to finalizing to design by the end of the meeting. The programing team tought one of the members how to use Post Modual and where the sencers are located on the robot. The fundraising team estimated how much we need to fundraise for parts, travile, and other expencese. 
 
 \fIStardate 20170123\fP
 
 Attendance: Dax Bash, Brandon Mclaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
 Coaches: Mr. and Mrs. Kochendarfer, Michael Hitchcock, Mrs. Martinez, Mrs. Steckler
 
-We started the meeting off by telling everyone
+We started the meeting off by telling everyone 
 
 .NH 2
 Community Outreach Overview
