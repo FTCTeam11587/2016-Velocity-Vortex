@@ -657,6 +657,14 @@ Coaches: Mr. Hitchcock, Mrs. Steckler, Mr. and Mrs. Kochendarfer
 We started the meeting off by talking about where we are at with the build team. Then we tasked everyone and set goals for the day. By the end of the meeting the build team mounted the core power modulater, and temperarily built a phone holder
 
 
+\fIStardate 20170121P
+
+Attendance: Emmet Burks, Dale James, Adrian Martinze, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mr. and Mr. Kochendarfer, Mr. James, Mr. Hichcock, Mrs. Steckler
+
+We stated the meeting of by asking where we were at with the robot and programing. After each team gave their report, we set goals and gave the teams thier tasks to accomplish. The Communiy Out-reach Team worked on their slides for the Library presentation on the 26th of January. Progect management worked on getting the Engineering Notebook up to date. Build team worked on designing a pattle for the CAP Ball, tightened the temporary phone holder.
+
+
 \fIStardate 20170123\fP
 
 Attendance: Dax Bash, Brandon Mclaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
