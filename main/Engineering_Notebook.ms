@@ -627,10 +627,34 @@ The Starry-Knights Team started our meeting by asking where each group is at. Th
 
 \fIStardate 20170110\fP
 
-Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Gabe Steckler, Dale James
-Coaches: Mr. James, Mr. Kochendarfer, Mrs. Steckler
+Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Gabe Steckler, Dale James, Alyssa Kochendarfer
+Coaches: Mr. James, Mr. Kochendarfer, Mrs. Steckler, Mr. Hitchcock
 
 We asked where we were at and then tasked everyone their jobs and goals for today's meetings. The build team finalized the design for the scissor lift and sketched it out. The programing team designed the sensors and decited where they were being placed. Community Out-reach came with ideas for out reaching to the community and designed a few costume ideas. 
+
+
+\fIStardate 20170114\fP
+
+Attendance: Emmet Burks, Dale James, Adrain Martinze, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mrs. Martinze, Mr. James, Mr. Kochendarfer, Mr. Hitchcock
+
+Build team mounted the servoe and discussed how the 3D parts were be constructed and engineered the 3D parts.
+
+
+\fIStardate 20170116\fP
+
+Attendance: Emmet Burks, Dale James, Brandon Mclaughlin, Alyssa Kochendarfer
+Coaches: Mr. Kochendarfer, Mr. James, Mr. Hitchcock, Mrs. Steckler
+
+The community out-reach team designed a presation for our out-reach at the Alamogordo Library on the 26 of January. Progaming team maped out the arena and read the white lines on the flopr. They also worked on the sonar to work with the cameron on the phone to find the beacones.
+
+
+\fIStardate 20170117\fP
+
+Attendance: Emmet Burks, Dale James, Adrian Martinze, Araya Blaylock, Gabe Steckler, Brandon Mclaughlin, Josh Bryant
+Coaches: Mr. Hitchcock, Mrs. Steckler, Mr. and Mrs. Kochendarfer
+
+We started the meeting off by talking about where we are at with the build team. Then we tasked everyone and set goals for the day. By the end of the meeting the build team mounted the core power modulater, and temperarily built a phone holder
 
 
 \fIStardate 20170123\fP
