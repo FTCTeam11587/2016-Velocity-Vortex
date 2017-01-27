@@ -19,6 +19,7 @@ import org.opencv.core.Size;
 // Stuff I've Added
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.text.TextUtils;
 
 import java.io.*;
 import java.io.File;
@@ -27,7 +28,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-import java.util.Scanner;
 
 
 /**
@@ -57,9 +57,9 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 	static final double     DRIVE_GEAR_REDUCTION        =2.0;   /*Motor gear = 40 tooth + wheel gear = 80 tooth*/
 	static final double     WHEEL_DIAMETER_INCHES       =(4.357 + 4.382 ) / 2; //4.439;
 	static final double     COUNTS_PER_INCH             =(COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /                                                                 (WHEEL_DIAMETER_INCHES * 3.141592654));
-	static final double     DRIVE_SPEED                 =0.6;
+	static final double     DRIVE_SPEED                 =0.4;
 	static final double     TURN_SPEED                  =0.5;
-	static final double 	Enc_D_CF					= 3.2;
+
 
 	private ElapsedTime runtime     =new ElapsedTime();
 
@@ -112,7 +112,11 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 		int POSITION = 0;
 		Make_New_CalDat_file();
 
-		while (opModeIsActive() && POSITION <= 12) {
+		double Rh[] = new double[4];
+		int BAD_Rh = 1;
+		ElapsedTime runtime     =new ElapsedTime();
+
+		while (opModeIsActive()) {
 			//Log a few things
 			//telemetry.addData("Beacon Color", beacon.getAnalysis().getColorString());
 			//telemetry.addData("Beacon Center", beacon.getAnalysis().getLocationString());
@@ -123,36 +127,38 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 			//telemetry.addData("Frame Size", "Width: " + width + " Height: " + height);
 			//telemetry.addData("Frame Counter", frameCount);
 
-			encoderDrive (DRIVE_SPEED, -12, -12, 10000);
-			POSITION++;
-			sleep(1000);
-
-			double Rh[] = new double[4];
-			int TRYCNT = 0;
-			int BAD_Rh = 1;
-			while (BAD_Rh == 1) {
-				Rh = Get_Rh_Data();
-				telemetry.addData("Grabbing Rh Data %s","");
-				telemetry.addData("Rh[0] = %d",Rh[0]);
-				telemetry.update();
-				if (Rh[0] > 0 && !(Double.isNaN(Rh[0])) && !(Double.isInfinite(Rh[0]))) {
-					BAD_Rh = 0;
-				}
+			// you need to keep a reference to the task so you can cancel it later
+			if (Rh_Finder_Running == null) {
+				// task doesn't exist -- make a new task and start it
+				Rh_Finder_Running = new Rh_Finder();
+				Rh_Finder_Running.execute();
+				// this will make doInBackground() run on background thread
 			}
 
-			telemetry.addData("OK, I got past Get_Rh. %s","");
-			telemetry.update();
+			encoderDrive (DRIVE_SPEED, -12, -12, 4.0);
+			POSITION++;
+
+			runtime.reset();
+			while (runtime.seconds() < 60) {
+				BAD_Rh = 1;
+
+				while (BAD_Rh == 1) {
+					Rh = Get_Rh_Data();
+					if (Rh[0] > 0 && !(Double.isNaN(Rh[0])) && !(Double.isInfinite(Rh[0]))) {
+						BAD_Rh = 0;
+					}
+				}
+				telemetry.addData("Position: ",POSITION);
+				telemetry.addData("Rh: ",Rh[0]);
+				telemetry.addData("Time: ", runtime.seconds());
+				telemetry.update();
+			}
+
+
 			// Write a Calibration Lookup Table for either regression analysis or linear interpolation
 
 			Write_PositionRh(POSITION,Rh[0]);
 
-
-			telemetry.addData("Rh (Fwd): ",Rh[0]);
-			telemetry.addData("Rh (Stbd): ",Rh[1]);
-			telemetry.addData("Rh (Aft): ",Rh[2]);
-			telemetry.addData("Rh (Port): ",Rh[3]);
-
-			sleep(10000l);
 
 			if (hasNewFrame()) {
 				//Get the frame
@@ -167,17 +173,10 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 				frameCount++;
 			}
 
-			// you need to keep a reference to the task so you can cancel it later
-			if (Rh_Finder_Running == null) {
-				// task doesn't exist -- make a new task and start it
-				Rh_Finder_Running = new Rh_Finder();
-				Rh_Finder_Running.execute();
-				// this will make doInBackground() run on background thread
-			}
-
 			//Wait for a hardware cycle to allow other processes to run
 			waitOneFullHardwareCycle();
 		}
+
 	}
 
 	public void Make_New_CalDat_file() {
@@ -213,6 +212,7 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 
 
 	public double[] Get_Rh_Data() {
+
 		String Rh_Data_String = "";
 		String filepath = String.valueOf(Environment.getExternalStorageDirectory()) + File.separator + "FIRST" + File.separator;
 		String datfile = filepath + "ranging_data.dat";
@@ -223,11 +223,17 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 			BufferedReader BR = new BufferedReader(ISR);
 			String tline = BR.readLine();
 			FID.close();
-			Scanner Rh_scan = new Scanner(tline);
-			double Rh[] = {-1,-1,-1,-1};
-			for (int RhSC=0; RhSC <= 3; RhSC++) {
-				Rh[RhSC] = Rh_scan.nextDouble();
+			//Scanner Rh_scan = new Scanner(tline).useDelimiter("\\D");
+			double Rh[] = {-1, -1, -1, -1};
+
+			if (tline != null && !tline.isEmpty()) {
+				String[] Rh_str = tline.split(",");
+				for (int RhSC = 0; RhSC <= 3; RhSC++) {
+					//Rh[RhSC] = Rh_scan.nextDouble();
+					Rh[RhSC] = Double.parseDouble(Rh_str[RhSC]);
+				}
 			}
+			//Rh_scan.close();
 			return Rh;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -252,19 +258,8 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 		if (opModeIsActive()) {
 
 			//Sets new target position using current position//
-
-			CurrentPosition_right = port_motor.getCurrentPosition() *  Enc_D_CF;
-			CurrentPosition_left = stbd_motor.getCurrentPosition() *  Enc_D_CF;
-
-			newLeftTarget  = (int) (CurrentPosition_left + (int)(leftInches * COUNTS_PER_INCH) + 0.5);   // Plus 0.5, because rounding to nearest is more accurate
-			newRightTarget = (int) (CurrentPosition_right + (int)(rightInches * COUNTS_PER_INCH) + 0.5); //    floor and (int) are decimal choppers
-
-
-
-
-
-
-
+			newLeftTarget  = port_motor.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
+			newRightTarget = stbd_motor.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
 			port_motor.setTargetPosition(newLeftTarget);
 			stbd_motor.setTargetPosition(newRightTarget);
 
@@ -332,11 +327,11 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 			}
 
 			xdcr_tx.setPulseWidthOutputTime(10);
-			xdcr_tx.setPulseWidthPeriod(15000);
+			xdcr_tx.setPulseWidthPeriod(20000);
 
 			int i=1;
 			int ii=1;
-			int max_i = 500;
+			int max_i = 1000;
 			double[] RANGE_rolavg = {-1,-1,-1,-1};
 
 			while (! isCancelled()) {
@@ -355,16 +350,24 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 					//double[] new RANGE_new_sum = 0;
 					//double RANGE_new_sum = 0;
 					for (int count=0; count < 300; count++) {
-						RANGE_new_sum[0] = RANGE_new_sum[0] + (fwd_xdcr_rx.getLightDetected() * 9.951450243819872f);
-						RANGE_new_sum[1] = RANGE_new_sum[1] + (stbd_xdcr_rx.getLightDetected() * 9.951450243819872f);
-						RANGE_new_sum[2] = RANGE_new_sum[2] + (aft_xdcr_rx.getLightDetected() * 9.951450243819872f);
-						RANGE_new_sum[3] = RANGE_new_sum[3] + (port_xdcr_rx.getLightDetected() * 9.951450243819872f);
+						// old Cal_Factor 9.951450243819872f
+						//  Noticing that at around 4 to 6 ft, it gets a little weird.
+						//  Decreasing frequency, and removing cal factor for writing data to cal data file
+						// Data appears like it could roughly fit a quadratic function, we'll see.  Though it does still do the same around 5 ft
+						RANGE_new_sum[0] = RANGE_new_sum[0] + fwd_xdcr_rx.getLightDetected();
+						RANGE_new_sum[1] = RANGE_new_sum[1] + stbd_xdcr_rx.getLightDetected();
+						RANGE_new_sum[2] = RANGE_new_sum[2] + aft_xdcr_rx.getLightDetected();
+						RANGE_new_sum[3] = RANGE_new_sum[3] + port_xdcr_rx.getLightDetected();
 					}
 					double[] RANGE_new = {0,0,0,0};
 					RANGE_new[0] = RANGE_new_sum[0] / 300;
 					RANGE_new[1] = RANGE_new_sum[1] / 300;
 					RANGE_new[2] = RANGE_new_sum[2] / 300;
 					RANGE_new[3] = RANGE_new_sum[3] / 300;
+
+					for (int count1 = 0; count1 <= 3; count1++) {
+						RANGE_new[count1] = (14 * RANGE_new[count1] * RANGE_new[count1]) + (14 * RANGE_new[count1]) - 0.86;
+					}
 
 					for (int count1=0; count1 <= 3; count1++) {
 						if (RANGE_rolavg[count1] < 0) {
@@ -393,7 +396,8 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 
                 }
 				publishProgress(null);
-            }
+
+			}
 			return null;
         }
 

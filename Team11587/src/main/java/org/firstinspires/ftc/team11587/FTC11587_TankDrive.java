@@ -26,7 +26,7 @@ public class FTC11587_TankDrive extends LinearOpMode {
         DigitalChannel  lower_limit_switch;
 
         //Define variables for task functions//
-        double          lift_motor_power = 0.5;
+        double          lift_motor_power = 0.1;
         double          leftGrapplePosition = 1.0;      //Grapple initializes to closed//
         double          rightGrapplePosition = 1.0;     //Grapple initializes to closed//
         final double    GRAPPLE_SPEED = 0.02;           //Grapple actuation speed//
@@ -42,14 +42,14 @@ public class FTC11587_TankDrive extends LinearOpMode {
             robot.init(hardwareMap);
 
             //Initialize aux hardware//
-            lift_motor = hardwareMap.dcMotor.get("lift_motor");
-            left_grapple_servo = hardwareMap.servo.get("left_grapple_servo");
-            right_grapple_servo = hardwareMap.servo.get("right_grapple_servo");
+            lift_motor = hardwareMap.dcMotor.get("lift_motor");		// build config profile
+            left_grapple_servo = hardwareMap.servo.get("left_grapple");	// build config profile
+            right_grapple_servo = hardwareMap.servo.get("right_grapple");	// build config profile
             left_grapple_servo.setPosition(leftGrapplePosition);
             right_grapple_servo.setPosition(rightGrapplePosition);
 
-            upper_limit_switch = hardwareMap.digitalChannel.get("upperLimitSwitch");
-            lower_limit_switch = hardwareMap.digitalChannel.get("lowerLimitSwitch");
+            upper_limit_switch = hardwareMap.digitalChannel.get("upperLimitSwitch");	// build config profile
+            lower_limit_switch = hardwareMap.digitalChannel.get("lowerLimitSwitch");	// build config profile
 
             telemetry.addData("Say: ", "Hello Knight!");
             telemetry.update();
@@ -77,19 +77,20 @@ public class FTC11587_TankDrive extends LinearOpMode {
             /*Code to open/close Cap Ball grapple servo*/
 
             //Use Gamepad 1 D-pad L/R to actuate the grapple servo//
-            if (gamepad1.dpad_right)
+            if (gamepad1.dpad_right) {
                 leftGrapplePosition += GRAPPLE_SPEED;
                 rightGrapplePosition -= GRAPPLE_SPEED;
-            else if (gamepad1.dpad_left)
+            }
+            else if (gamepad1.dpad_left) {
                 leftGrapplePosition -= GRAPPLE_SPEED;
                 rightGrapplePosition += GRAPPLE_SPEED;
+            }
 
             leftGrapplePosition = Range.clip(leftGrapplePosition,0.0,1.0);
-                left_grapple_servo.setPosition(leftGrapplePosition);
+				left_grapple_servo.setPosition(leftGrapplePosition);
 
             rightGrapplePosition = Range.clip(rightGrapplePosition,0.0,1.0);
-                right_grapple_servo.setPosition(rightGrapplePosition);
-
+                right_grapple_servo.setPosition(-rightGrapplePosition);
                 telemetry.addData("Left Grapple Position: ", "%.2f",leftGrapplePosition);
                 telemetry.addData("Right Grapple Position:", "%.2f",rightGrapplePosition);
                 telemetry.update();
@@ -98,17 +99,18 @@ public class FTC11587_TankDrive extends LinearOpMode {
             boolean uLim = upper_limit_switch.getState();
             boolean lLim = lower_limit_switch.getState();
 
-            while (gamepad1.dpad_up)
-                if (uLim = false)  //Check this...generates caution...always true?
+            if (gamepad1.dpad_up)
+            //    if (uLim = false)  //Check this...generates caution...always true?
                     lift_motor.setPower(lift_motor_power);
-                else if (uLim = true)
-                    lift_motor.setPower(0.0);
+            //    else if (uLim = true)
+            //        lift_motor.setPower(0.0);
 
-            while (gamepad1.dpad_down)
-                if (lLim = false)
+            if (gamepad1.dpad_down)
+            //    if (lLim = false)
                     lift_motor.setPower(-lift_motor_power);
-                else if (lLim = false)
-                    lift_motor.setPower(0.0);
+            //    else if (lLim = false)
+            //        lift_motor.setPower(0.0);
+
 
                  robot.waitForTick(40);
             }
