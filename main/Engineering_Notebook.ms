@@ -672,6 +672,15 @@ Coaches: Mr. and Mrs. Kochendarfer, Michael Hitchcock, Mrs. Martinez, Mrs. Steck
 
 We started the meeting off by telling everyone the goals for the day and where everyone was at. Fundrasing worked on writing the business letter. Commuinty out-reach went over the presentation slides, to make sure they knew what they were talking about. The build team formated the structur to mount te sicssor lift rail, mounted the servose to the claw for the CAP Ball and had to redesigned a new idea for the claw. They also tried mounting the cork screw for the CAP Ball but that did not work. The build team also got percise measurements for munting the sicssor lift. 
 
+
+\fIStardate 20170124\fP
+
+Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Adrain Martinze, Gabe Stekler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mrs. Stekler, Mr. and Mrs. Kochendarfer, Mr. James
+
+We started the meetig by talking about how we only have afew days till Socorro and a lot of work to be done. The build team worked o useing the angle iron to cut 16 inch pices. They finished putting together the sicssor lift and center mounted the threaded cross brace. Mesured, and drilled holes in to rails to mount the sicssor lift on the robot. The community out-reach up dated the storyboard with new photos
+
+
 .NH 2
 Community Outreach Overview
 .XS
