@@ -24,13 +24,13 @@ Alamogordo FTC Competition 2nd Place:  December 17, 2016
 Robot Re-design Complete:  January 27, 2017
 
 .LP
-We invite judges to review our Team Overview and Biographies on pages XX-YY to get to know us better.  Judges may also find the following portions of this Notebook particularly interesting:
+We invite judges to review our Team Overview and Biographies on pages 4-21 to get to know us better.  Judges may also find the following portions of this Notebook particularly interesting:
 .IP \[bu] 2
-Programming/Control Section
+Programming/Control Section (p.29-32)
 .IP \[bu]
-Engineering Notebook Documentation Section
+Engineering Notebook Document Processing Section (p. 22)
 .IP \[bu]
-Scissor Lift Design Section
+Scissor Lift Design Section (p. 23-27)
 
 .AE
 
@@ -251,7 +251,7 @@ Coaches and Mentors
 Kurt Kochendarfer - Head Coach
 
 .LP
-/*.PSPIC ./images/CoachKBio.eps*/
+.PSPIC ./images/CoachKBio.eps
 .PS
 "\fIKurt Kochendarfer\fP";
 .PE
@@ -264,13 +264,13 @@ Kurt is an Air Force Reserve F-16 instructor pilot and Department of Defense con
 Teena Kochendarfer - Assistant Head Coach
 
 .LP
-/*.PSPIC ./images/CoachMrsKBio.eps*/
+.PSPIC ./images/CoachMrsKBio.eps
 .PS
 "\fITeena Kochendarfer\fP";
 .PE
 
 .LP
-Teena is Registered Dental Hygienist, and the organizing force behind the administrative functions of the team.  As a mother who has been home-schooling children since 1998, her mentoring and organizational skills have been indispensable in keeping the \fIStarry Knights\fP on task this season.
+Teena is Registered Dental Hygienist, and the organizing force behind the administrative functions of the team.  As a mother who has been home-schooling children since 1998, her mentoring and organizational skills have been indispensable in keeping the \fIStarry Knights\fP on task this season.  Prior to this season, Teena had precisely zero experience with robots but has learned much throughout the development process.
 .KE
 
 .KS
@@ -289,7 +289,7 @@ Michael "Hitch" Hitchcock served for 9.5 years as a US Navy Submarine Navigation
 
 .KS
 .NH 4
-Deneen Black - Head Coach
+Deneen Black - Founding Head Coach
 
 .LP
 .PSPIC ./images/CoachMrsBlackBio.eps
@@ -303,7 +303,16 @@ Coach Deneen Black is a retired Engineer and Program Manager who worked most of 
 .KS
 .NH 4
 Steven James - Build Team Mentor
+
+.LP
+.PSPIC ./images/MentorMrJames.eps
+.PS
+"\fISteven James\fP";
+.PE
+
+Steven was fundamental in mentoring the build team in the redesign of the robot for the second half of this season.  As the owner of Eureka CNC, a precision aircraft parts manufacturing firm, Steven brought thousands of hours of CAD experience and structural engineering to the project.  His expertise with 3D printing was vital to the design and production of the scissor lift assembly.
 .KE
+
 
 .KS
 .NH 4
@@ -351,7 +360,7 @@ Mentor Erin Steckler is a homeschooling mother and wife. Her son, Gabe, was curi
 John Steckler - Build Team Mentor
 
 .LP
-/*.PSPIC ./images/MentorMrSteckler.eps*/
+.PSPIC ./images/MentorMrSteckler.eps
 .PS
 "\fIJohn Steckler\fP";
 .PE
@@ -423,26 +432,26 @@ Scissor Lift Design
 .XE
 
 .PP
-The cap ball lift present an engineering challenge in that we had to get a 21" diameter ball into a holder that required almost 47" of clearance from the floor, all while being lifted by an assembly that would fit into an 18"x18"x18" package (Figure X.)
+The cap ball lift presented an engineering challenge in that we had to get a 21" diameter ball into a holder that required almost 47" of clearance from the floor, all while being lifted by an assembly that would fit into an 18"x18"x18" package (Figure 1.)
 
 .PSPIC ./images/CapBallLiftPlanning.eps
 .PS
-"\fBFigure X.\fP" "\fICap Ball Lift Planning\fP";
+"\fBFigure 1.\fP" "\fICap Ball Lift Planning\fP";
 .PE
 .KE
 
 .KS
 .PP
-To accomplish our objective of executing the cap ball lift into the Center Vortex during End Game, the Build Team decided to utilize a scissor lift mechanism to raise the cap ball into the Center Vortex.  While several other designs were considered, including a cascading pulley lift, the Build Team favored the scissor lift for its simplicity and strength (Figure X.)
+To accomplish our objective of executing the cap ball lift into the Center Vortex during End Game, the Build Team decided to utilize a scissor lift mechanism to raise the cap ball into the Center Vortex.  While several other designs were considered, including a cascading pulley lift, the Build Team favored the scissor lift for its simplicity and strength (Figure 2.)
 
 .PSPIC ./images/CapBallLiftInitialSketch.eps
 .PS
-"\fBFigure X.\fP" "\fICap Ball Lift Sketch\fP";
+"\fBFigure 2.\fP" "\fICap Ball Lift Sketch\fP";
 .PE
 .KE
 
 .PP
-Significant engineering research was required to ensure that components in the scissor lift would safely support the load of both the cap ball and the grapple assembly.  The sketch at Figure X is a component diagram of the structural assembly with factor variables denoted.  Assuming the grapple assembly would be attached at two points at the top of the scissor mechanism, two equations were used to calculate the loads imposed on the lifting structure:
+Significant engineering research was required to ensure that components in the scissor lift would safely support the load of both the cap ball and the grapple assembly.  The sketch at Figure 2 is a component diagram of the structural assembly with factor variables denoted.  Assuming the grapple assembly would be attached at two points at the top of the scissor mechanism, two equations were used to calculate the loads imposed on the lifting structure:
 
 .EQ
 L sub y sub 1 = L sub y sub 2 = W over 2
@@ -453,7 +462,7 @@ L sub x sub 1 = L sub x sub 2 = W over {tan theta}
 .EN
 
 .PS
-"\fBFigure X.\fP" "\fIScissor Assembly Load Calculations\fP";
+"\fBFigure 3.\fP" "\fIScissor Assembly Load Calculations\fP";
 .PE
 
 where \fILx\fP and \fILy\fP are the \fIx\fP and \fIy\fP components of the lift load, \fIw\fP is the total weight to be lifted, and \fItheta\fP is the interior angle of the scissor arms.
@@ -466,27 +475,36 @@ L sub y = {W times D times {cos theta}} over 2
 .EN
 
 .PS
-"\fBFigure X.\fP" "\fIScissor Assembly Re-calculations\fP";
+"\fBFigure 4.\fP" "\fIScissor Assembly Re-calculations\fP";
 .PE
 
 where \fILy\fP is the \fIy\fP component of the lift load, \fIW\fP is the total weight to be lifted, \fID\fP is the total lifting distance of all lift arms, and \fItheta\fP is the interior angle of the scissor arms.
 
+.PP
+The redesign of the scissor lift presented its own challenges.  With dual sliding scissor arms at both the top and bottom of the scissor lift assembly, we needed to develop a mechanism to keep the lift centered on the robot chassis while executing the lift.  After several design considerations, we finally settled on utilizing strategically placed rubber bands to provide the small centering force needed to keep the lift aligned.
 
 .KS
 .PP
 The arms used in our scissor lift were designed with the OpenSCAD software, which allowed us to 3D print the final components.  The 3D printer available to us had a 255mm lateral print limitation which forced a component redesign after our initial attempt.  Our first scissor arm was designed to be printed as one piece on the 255mm print bed, but the resulting 240mm scissor arm was not sturdy enough to support the weight of the cap ball plus our grapple mechanism.
 
- Our second scissor arm design broke the arm component into two 235mm pieces with an overlap joint which could be bolted together post-print (Figure XX).  With the designed overlap, this gave us a final scissor arm length of 440mm.  The scissor arm was designed using a simple I-beam construct with a 12.5mm flange width and a 6mm thick web.  The through-bolt pivot joints were cylindrically reinforced for torsional strength (Figure XX):
+ Our second scissor arm design broke the arm component into two 235mm pieces with an overlap joint which could be bolted together post-print (Figure 5.)  With the designed overlap, this gave us a final scissor arm length of 440mm.  The scissor arm was designed using a simple I-beam construct with a 12.5mm flange width and a 6mm thick web.  The through-bolt pivot joints were cylindrically reinforced for torsional strength:
 
 .PSPIC ./images/IBeamCutaway.eps
 .PS
-"\fBFigure X.\fP" "\fIScissor Arm I-Beam Cutaway View\fP";
+"\fBFigure 5.\fP" "\fIScissor Arm I-Beam Cutaway View\fP";
 .PE
 
-Although the I-beam design was structurally strong, the Build Team found that 3D-printing the I-beams was more complex/slower than printing a simply structural beam, so the design was modified accordingly.
+Although the I-beam design was structurally strong, the Build Team found that 3D-printing the I-beams was more complex/slower than printing a simple structural beam, so the design was modified accordingly.  The primary challenge with printing the I-beam design was the issue of "overhang", where the 3D printer could not print on top open space.  Although techniques for printing "fills" were investigated, ultimately we found little structural benefit from printing the I-beam design and instead opted to print a simple rectangular structure.
 
+.KS
 .PP
-Our initial scissor lift design utilized a side-load leadscrew design to actuate the scissor lift; however, after some discussion, the Build Team settled on a vertical center-load design with dual sliding bases to raise the Cap Ball.  This design allowed the use of a single, centrally mounted DC motor connected to a leadscrew.  The primary benefit of this design was the ability to use a simple single point of attachment for the leadscrew, while maintaining a low center of gravity and small lateral footprint on the robot chassis.  We decided to utilize a dual scissor design with scissor arms cross-tied by aluminum tube for strength.
+Our initial scissor lift design utilized a side-load leadscrew design to actuate the scissor lift; however, after some discussion, the Build Team settled on a vertical center-load design with dual sliding bases to raise the Cap Ball.  This design allowed the use of a single, centrally mounted DC motor connected to a leadscrew.  The primary benefit of this design was the ability to use a simple single point of attachment for the leadscrew, while maintaining a low center of gravity and small lateral footprint on the robot chassis.  We decided to utilize a dual scissor design with scissor arms cross-tied by aluminum tube for strength (Figure 6.)
+
+.PSPIC ./images/Build1.eps
+.PS
+"\fBFigure 6.\fP" "\fIAssembling the Scissor Lift\fP";
+.PE
+.KE
 
 .NH 2
 Grapple Design
@@ -498,6 +516,7 @@ Grapple Design
 The grapple attached to the scissor lift went through several revisions before settling on the final design.  The Build Team considered several options, including a 3-claw grapple, a mechanized sloping ramp, and the final 2-claw grapple design.  Two grapple actuation methods were considered.  Initially the Team considered a grapple actuated by a single bar connected to a servo and both grapple arms.  Due to engineering difficulties, we eventually settled on a twin-servo actuator design, as working the actuators in software was easier than designing a lightweight, compact mechanical actuator.
 .KE
 
+.KS
 .NH 2
 Programming Overview
 .XS
@@ -524,7 +543,9 @@ The Team found that configuring the various versions of the Android APK in Andro
 
 .PP
 The Team found a wide variety of controller libraries available on GitHub for the various tasks which needed to be accomplished.  One of the primary challenges was committing to a particular support library for accomplishing the desired task.  For example, in accomplishing the Autonomous mode Beacon Claim task, the team considered several virtual vision options before settling on the FTCVision library developed by Lasarobotics.  Projects which contained full Javadoc documentation were considered above others due to our unfamiliarity with Java programming.
+.KE
 
+.KS
 .NH 3
 Autonomous Drive Programming
 .XS
@@ -532,12 +553,31 @@ Autonomous Drive Programming
 .XE
 
 .PP
+Our primary goal in Autonomous mode was to claim as many beacons as possible in the 30 second period.  To accomplish this, we elected to use rotary encoder drive motors on the wheels in conjunction with a simple \fIx,y\fP map of the key points around the arena (Figure 1.)  The initial idea was to drive the robot using coarse vectors (rotary encoders only) until the robot was able to pick up the white lead-in line to approach the beacon.  Once aligned on the lead-in line, the robot would then utilize its vision library to fine-tune its approach to the beacon.
+
+.LP
 .PSPIC ./images/VVArenaPlanning.eps
 .PS
-"\fBFigure X.\fP" "\fIAutonomous Drive X-Y Map\fP";
+"\fBFigure 1.\fP" "\fIAutonomous Drive X-Y Map\fP";
 .PE
 
+.KE
 
+.PP
+Our initial design planning on utilizing a motorized single-axis servo with a "pusher" to select the proper beacon color during Autonomous mode claims.  We abandoned this design in favor of a much more simple plan of pushing either beacon button, then using the vision software to determine whether the beacon had changed to the correct color.  The 5 second timeout delay on the beacon buttons complicated this problem, but we assessed that as an acceptable delay based on the points value of a scored beacon.
+
+.PP
+In considering autonomous navigation around the arena, in addition to the rotary encoder coarse drive, we investigated building an ultrasonic ranging sensor to be used to update the coarse navigation solution, primarily by ranging off the side walls of the arena (Figure 2.)
+
+.PSPIC ./images/SonarOscopeTest.eps
+.PS
+"\fBFigure 2.\fP" "\fISonar Oscilloscope Testing\fP";
+.PE
+
+.PP
+Our primary challenge with the ultrasonic ranging system was eliminating false returns and providing a smoothed average range that could be used to update the robot's actual position based on the rotary encoder's estimated position in the arena.  The Programming Team is still developing this navigation update system and hope to have it implemented by the Flagstaff regional competition in February.
+
+.KS
 .NH 3
 Driver Mode Programming
 .XS
@@ -547,7 +587,73 @@ Driver Mode Programming
 .PP
 After coordinating with the Project Lead and Build Team on the design goals for Driver mode, the Programming team decided that a simple tank drive program with additional DC motor and servo control functionality was all that was required to build a functioning Driver OpMode.  Our robot started life as a Pushbot prior to our re-design, so we elected to utilize the Pushbot OpMode as the basis for our Driver Mode program.
 
+.PP
+In addition to the basic Pushbot program, our Driver Mode program added a DC motor control to activate the scissor lift leadscrew motor.  We elected to use digital device inputs into the Core Device Interface for upper and lower limit switches to limit travel on the scissor lift arms.  Finally, we added inputs for two servo motors to operate the grapple arms to accomplish the cap ball lift:
 
+.CW
+//Define hardware for task functions//
+    DcMotor           lift_motor;
+    Servo             left_grapple_servo;
+    Servo             right_grapple_servo;
+    DigitalChannel    upper_limit_switch;
+    DigitalChannel    lower_limit_switch;
+
+//Initialize aux hardware//
+    lift_motor = hardwareMap.dcMotor.get("lift_motor");		            // build config profile
+    left_grapple_servo = hardwareMap.servo.get("left_grapple");         // build config profile
+    right_grapple_servo = hardwareMap.servo.get("right_grapple");       // build config profile
+    left_grapple_servo.setPosition(leftGrapplePosition);
+    right_grapple_servo.setPosition(rightGrapplePosition);
+
+    upper_limit_switch = hardwareMap.digitalChannel.get("upperLimitSwitch");    // build config profile
+    lower_limit_switch = hardwareMap.digitalChannel.get("lowerLimitSwitch");    // build config profile
+.KE
+
+.KS
+.PP
+Implementing the auxilliary hardware into the Pushbot code was a moderately simple process.  We desired to maintain the ability to control the entire robot using a single driver.  As such, we elected to assign servo grapple and lift motor functions to the controller D-pad assembly.  This would localize the controls for all aux functionality while allowing a single driver to operate the robot:
+.CW
+
+/*Code to open/close Cap Ball grapple servo*/
+    //Use Gamepad 1 D-pad L/R to actuate the grapple servo//
+        if (gamepad1.dpad_right) {
+        leftGrapplePosition += GRAPPLE_SPEED;
+        rightGrapplePosition -= GRAPPLE_SPEED;
+        }
+
+        else if (gamepad1.dpad_left) {
+        leftGrapplePosition -= GRAPPLE_SPEED;
+        rightGrapplePosition += GRAPPLE_SPEED;
+        }
+
+        leftGrapplePosition = Range.clip(leftGrapplePosition,0.0,1.0);
+        left_grapple_servo.setPosition(leftGrapplePosition);
+
+        rightGrapplePosition = Range.clip(rightGrapplePosition,0.0,1.0);
+        right_grapple_servo.setPosition(-rightGrapplePosition);
+
+        telemetry.addData("L Grapple: ", "%.2f",leftGrapplePosition);
+        telemetry.addData("R Grapple: ", "%.2f",rightGrapplePosition);
+        telemetry.update();
+
+    //Use Gamepad 1 D-pad Up/Down to actuate the lift motor//
+        boolean uLim = upper_limit_switch.getState();
+        boolean lLim = lower_limit_switch.getState();
+
+        if (gamepad1.dpad_up)
+            if (uLim = false)
+                lift_motor.setPower(lift_motor_power);
+            else if (uLim = true)
+                lift_motor.setPower(0.0);
+
+        if (gamepad1.dpad_down)
+            if (lLim = false)
+                lift_motor.setPower(-lift_motor_power);
+            else if (lLim = false)
+                lift_motor.setPower(0.0);
+.KE
+
+.KS
 .NH 2
 Engineering Logbook
 .XS
@@ -578,119 +684,162 @@ Attendance: Emmet Burks, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer
 Coaches: Michael Hitchcock, Kurt Kochendarfer
 
 We started out meeting by updating our team members on what each team was doing and what there tasks were. The Build Team talked about how they were rebuilding the robot in order to add the batteries, motors, and servo boards. The Project Management Team edited the Engineering Notebook and documented everything they were doing. The Programing Team set up the Android Studio software and Github on their computers and started working on the beacon claim task.
+.KE
 
 .KS
 \fIStardate 20161228\fP
 
-Attendance: Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer
+Attendance: Emmet Burks, Brandon McLaughlin, Dax Bash, Alyssa Kochendarfer
 Coaches: Micheal Hitchcock, Kurt Kochendarfer
 
-We started the meeting off by assigning everyone their jobs and tasks.  Afterward we separated to work on team tasks. The Build Team started organizing their parts in all the boxes. Afterward, they continued to frame the robot and come up with their finalized plan for the cap ball lift, particle shooter, and beacon changer. The Build Team also planned where each thing was going and got measurements. The Programming Team op-tested the sonar ranging and op-mode code for our Autonomous mode tasks, utilizing an oscilloscope to view the pulse ranging signal. (Figure X.) The Project Management Team worked on uploading the Engineering Notebook to the Github website. They also made sure everyone was staying on top of their job.
-
-.PSPIC ./images/SonarOscopeTest.eps
-.PS
-"\fBFigure X.\fP" "\fISonar Oscilloscope Testing\fP";
-.PE
-.KE
+We started the meeting off by assigning everyone their jobs and tasks.  Afterward we separated to work on team tasks. The Build Team started organizing their parts in all the boxes. Afterward, they continued to frame the robot and come up with their finalized plan for the cap ball lift, particle shooter, and beacon changer. The Build Team also planned where each thing was going and got measurements. The Programming Team op-tested the sonar ranging and op-mode code for our Autonomous mode tasks, utilizing an oscilloscope to view the pulse ranging signal. The Project Management Team worked on uploading the Engineering Notebook to the Github website. They also made sure everyone was staying on top of their job.
 
 \fIStardate 20170102\fP
 
-Attendance: Dale James, Emmet Burks, Brandon Mclaughlin, Dax Bash, Alyssa Kochendarfer
+Attendance: Dale James, Emmet Burks, Brandon McLaughlin, Dax Bash, Alyssa Kochendarfer
 Coaches: Michael Hitchcock, Mr. and Mrs. Kochendarfer, Mr. and Mrs. James
 
-The Build Team striated the structure and clarified the designs for the core controllers and maintained the controllers. They also descended the design for where the controllers.  The Programming Team installed the robot controls and worked on the sonar. The Fundraising Team worked on how much money we need to raise for Flagstaff. They also talked about what businesses we could ask for donations or who might allow us fund-raise there.
-
+The Build Team striated the structure and clarified the designs for the core controllers and maintained the controllers. They also decided the design for where the controllers would be mounted.  The Programming Team installed the robot controls and worked on the sonar. The Fundraising Team worked on how much money we need to raise for Flagstaff. They also talked about what businesses we could ask for donations or who might allow us fund-raise there.
 
 \fIStardate 20170103\fP
 
-Attendance: Emmet Burks, Josh Bryant, Brandon Mclaughlin, Michael Wooldrige, Araya Blaylock, Dale James, AlyssaKochendarfer
-Coaches: Michael Hitchcock, Mr. and Mrs. James, Mr. and Mrs. Kochendarfer
+Attendance: Emmet Burks, Josh Bryant, Brandon McLaughlin, Michael Wooldrige, Araya Blaylock, Dale James, Alyssa Kochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. James, Mr. and Mrs. Kochendarfer
 
-We started the meeting off by talking about each team's current tasks. The Build Team was discussed the new robot design. They came up with three main ideas for the cap ball lift, particle shooter, and beacon changer, then  voted on which idea would benefit us the most.  The Fundraising Team talked about transportation to Socorro and Flagstaff, hotels, and who was going. We sent out emails to everyone asking who would be traveling with their parents and which dates they would be going to. The Fundraising Team also emailed the head administrator for the Imago Dei PTSG (Parent Teacher Support Group) to ask if we could provide a presentation to the Group to solicit donations. The Community Outreach Team set up a Facebook account. Programing started to downloaded more software and helped Build Team decide which design would benefit.
-
+We started the meeting off by talking about each team's current tasks. The Build Team discussed the new robot design. They came up with three main ideas for the cap ball lift, particle shooter, and beacon changer, then  voted on which idea would benefit us the most.  The Fundraising Team talked about transportation to Socorro and Flagstaff, hotels, and who was going. We sent out emails to everyone asking who would be traveling with their parents and which dates they would be going to. The Fundraising Team also emailed the head administrator for the Imago Dei PTSG (Parent Teacher Support Group) to ask if we could provide a presentation to the Group to solicit donations. The Community Outreach Team set up a Facebook account. Programing started to downloaded more software and helped Build Team decide which design would benefit.
 
 \fIStardate 20170104\fP
 
-Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Dale James, Michael Wooldrige, Josh Bryant
+Attendance: Emmet Burks, Dax Bash, Brandon McLaughlin, Araya Blaylock, Dale James, Michael Wooldrige, Josh Bryant
 Coaches: Mr. and Mrs. James, Coaches Mr. and Mrs. Kochendarfer, Michael Hitchcock
 
 We started the meeting by talking about the schedule the Project Management team created. We talked about Team pictures on Monday the 9th at 1pm.  We talked about the outreach to help IDA teachers move desks, tables, and other classroom items into their new modular building. The PM Team tasked the Build Team to finalize their design for the cap ball lift, particle shooter and beacon changer. The Programming Team worked on getting the beacon program together. They figured out how to get the camera to recognize the colors blue and red. The Community Outreach Team came up with ideas on outreach and team costumes. They decided to do a presentation at the Alamogordo Library, help at the elderly nursing homes, and at the CDC (Child Development Center) at Holloman Air Force Base.
 
-
 \fIStardate 20170109\fP
 
-Attendance: Emmet Burks, Dax Bash, Araya Blaylock, Gabe Steckler, Brandon Mclaughlin, Josh Bryant, Alyssa Kochendarfer
+Attendance: Emmet Burks, Dax Bash, Araya Blaylock, Gabe Steckler, Brandon McLaughlin, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mr. and Mrs. Kochendarfer, Mrs. Steckler, Mr. Hitchcock
 
-The Starry-Knights Team started our meeting by asking where each group is at. The build team reported that they were still working on finishing the robot design and planned to finalizing to design by the end of the meeting. The programing team tought one of the members how to use Post Modual and where the sencers are located on the robot. The fundraising team estimated how much we need to fundraise for parts, travile, and other expencese. 
-
+The Starry-Knights Team started our meeting by asking where each group is at. The Build Team reported that they were still working on finishing the robot design and planned to finalizing to design by the end of the meeting. The Programing Team taught one of the members how to use the Android Studio post module and where the sensors are located on the robot. The Fundraising Team estimated how much we need to fund-raise for parts, travel, and other expenses.
 
 \fIStardate 20170110\fP
 
-Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Gabe Steckler, Dale James, Alyssa Kochendarfer
+Attendance: Emmet Burks, Dax Bash, Brandon McLaughlin, Gabe Steckler, Dale James, Alyssa Kochendarfer
 Coaches: Mr. James, Mr. Kochendarfer, Mrs. Steckler, Mr. Hitchcock
 
-We asked where we were at and then tasked everyone their jobs and goals for today's meetings. The build team finalized the design for the scissor lift and sketched it out. The programing team designed the sensors and decited where they were being placed. Community Out-reach came with ideas for out reaching to the community and designed a few costume ideas. 
-
+We asked where we were at and then tasked everyone their jobs and goals for today's meeting. The Build Team finalized the design for the scissor lift and sketched it out. The Programing Team designed the sensors and decided where they were being placed. Community Outreach came with ideas for outreach to the community and designed a few costume ideas.
 
 \fIStardate 20170114\fP
 
-Attendance: Emmet Burks, Dale James, Adrain Martinze, Alyssa Kochendarfer
-Coaches: Mrs. Steckler, Mrs. Martinze, Mr. James, Mr. Kochendarfer, Mr. Hitchcock
+Attendance: Emmet Burks, Dale James, Adrian Martinez, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mrs. Martinez, Mr. James, Mr. Kochendarfer, Mr. Hitchcock
 
-Build team mounted the servoe and discussed how the 3D parts were be constructed and engineered the 3D parts.
-
+Build Team mounted the servos and discussed how the 3D parts were be to be constructed.  Mr. James assisted the Build Team in engineering the parts to be 3D printed for the scissor lift.  Programming Team continued to develop the ultrasonic ranging algorithms needed to move the robot around the Area in Autonomous mode.
 
 \fIStardate 20170116\fP
 
-Attendance: Emmet Burks, Dale James, Brandon Mclaughlin, Alyssa Kochendarfer
+Attendance: Emmet Burks, Dale James, Brandon McLaughlin, Alyssa Kochendarfer
 Coaches: Mr. Kochendarfer, Mr. James, Mr. Hitchcock, Mrs. Steckler
 
-The community out-reach team designed a presation for our out-reach at the Alamogordo Library on the 26 of January. Progaming team maped out the arena and read the white lines on the flopr. They also worked on the sonar to work with the cameron on the phone to find the beacones.
-
+The Community Outreach Team designed a presentation for our outreach at the Alamogordo Library on the 26 of January. Programming Team mapped out the arena and developed ideas to read the white lines on the floor with an IR sensor. They also worked on the sonar and the vision system using the camera on the phone to find and claim the beacons.
 
 \fIStardate 20170117\fP
 
-Attendance: Emmet Burks, Dale James, Adrian Martinze, Araya Blaylock, Gabe Steckler, Brandon Mclaughlin, Josh Bryant
+Attendance: Emmet Burks, Dale James, Adrian Martinez, Araya Blaylock, Gabe Steckler, Brandon McLaughlin, Josh Bryant
 Coaches: Mr. Hitchcock, Mrs. Steckler, Mr. and Mrs. Kochendarfer
 
-We started the meeting off by talking about where we are at with the build team. Then we tasked everyone and set goals for the day. By the end of the meeting the build team mounted the core power modulater, and temperarily built a phone holder
+We started the meeting off by talking about where we are at with the Build Team. Then we tasked everyone and set goals for the day. By the end of the meeting the Build Team mounted the Core Power Module, and built a temporary phone holder to mount the phone at the front of the robot.  Programming Team continued to process FTCVision programming code and tested the code on a test beacon in our practice arena.
 
+\fIStardate 20170121\fP
 
-\fIStardate 20170121P
+Attendance: Emmet Burks, Dale James, Adrian Martinez, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mr. and Mr. Kochendarfer, Mr. James, Mr. Hitchcock, Mrs. Steckler
 
-Attendance: Emmet Burks, Dale James, Adrian Martinze, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
-Coaches: Mr. and Mr. Kochendarfer, Mr. James, Mr. Hichcock, Mrs. Steckler
-
-We stated the meeting of by asking where we were at with the robot and programing. After each team gave their report, we set goals and gave the teams thier tasks to accomplish. The Communiy Out-reach Team worked on their slides for the Library presentation on 26th of January. Progect management worked on getting the Engineering Notebook up to date. Build team worked on designing a pattle for the CAP Ball and tightened the temporary phone holder. The build team also, took a foam soap holder cut it in half, and zip tied the two foam parts to two long metal part for the beacon changer. They also started to glue and screw the 3D parts. 
-
+We started the meeting off by asking where we were at with the robot and programming. After each team gave their report, we set goals and gave the teams their tasks to accomplish. The Community Outreach Team worked on their slides for the Library presentation on 26th of January. Project Management worked on getting the Engineering Notebook up to date. Build Team worked on designing a paddle for the Cap Ball and tightened the temporary phone holder. The Build Team also took a foam soap holder cut it in half, and zip tied the two foam parts to two long metal parts for the beacon changer. They also started to glue and assemble the printed 3D parts to form the scissor lift.
 
 \fIStardate 20170123\fP
 
-Attendance: Dax Bash, Brandon Mclaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
+Attendance: Dax Bash, Brandon McLaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
 Coaches: Mr. and Mrs. Kochendarfer, Michael Hitchcock, Mrs. Martinez, Mrs. Steckler
 
-We started the meeting off by telling everyone the goals for the day and where everyone was at. Fundrasing worked on writing the business letter. Commuinty out-reach went over the presentation slides, to make sure they knew what they were talking about. The build team formated the structur to mount te sicssor lift rail, mounted the servose to the claw for the CAP Ball and had to redesigned a new idea for the claw. They also tried mounting the cork screw for the CAP Ball but that did not work. The build team also got percise measurements for munting the sicssor lift. 
-
+We started the meeting off by telling everyone the goals for the day and where everyone was at. Fundraising Team worked on writing the business letter. Community Outreach went over the presentation slides, to make sure they knew what they were talking about. The Build Team formatted the structure to mount the scissor lift rail, mounted the servos to the grapple for the Cap Ball and had to redesigned a new idea for the grapple. They also tried mounting the lead-screw for the CAP Ball but that did not work. The Build Team also got precise measurements for mounting the scissor lift.
 
 \fIStardate 20170124\fP
 
-Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Araya Blaylock, Adrain Martinze, Gabe Stekler, Josh Bryant, Alyssa Kochendarfer
-Coaches: Mrs. Stekler, Mr. and Mrs. Kochendarfer, Mr. James
+Attendance: Emmet Burks, Dax Bash, Brandon McLaughlin, Araya Blaylock, Adrian Martinez, Gabe Stekler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James
 
-We started the meetig by talking about how we only have afew days till Socorro and a lot of work to be done. The build team worked o useing the angle iron to cut 16 inch pices. They finished putting together the sicssor lift and center mounted the threaded cross brace. Mesured, and drilled holes in to rails to mount the sicssor lift on the robot. The community out-reach up dated the storyboard with new photos
+We started the meeting by talking about how we only have a few days till Socorro and a lot of work to be done. The build team worked on using the angle iron to cut 16 inch pieces to anchor the scissor lift. They finished putting together the scissor lift and center-mounted the threaded cross brace. They also measured and drilled holes in the rails to mount the scissor lift on the robot. The Community Outreach Team updated the Team storyboard with new photos.
+.KE
 
-
+.KS
 .NH 2
 Community Outreach Overview
 .XS
 Community Outreach Overview
 .XE
 
+.NH 3
+Imago Dei Academy Teacher Service Project
+.XS
+Imago Dei Academy Teacher Service Project
+.XE
+
+.PP
+Imago Deo Academy, one of the team's sponsors, recently expanded their facilities and was in desperate need of help in setting up the new building over the Christmas holiday.  \fIStarry Knights\fP Community Outreach Team discussed the school's needs with several teachers and the Headmaster and decided the Team could help the teachers at the school get settled into their new facility before the end of Christmas Break.  Organizing the rest of the Team, over several days of the Christmas Break Community Outreach orchestrated moving classroom furniture, desks, books, shelves, and other classroom materials into the new facility.  The Team also helped set up tables in the school's new Computer Lab (Figure 1) and helped install a microwave wireless link between the satellite school facility and the main campus, allowing the new Computer Lab to have Internet access.
+
 .PSPIC ./images/ImagoDeiOutreach.eps
 .PS
-"\fBFigure X.\fP" "\fIImago Dei Computer Lab Setup\fP";
+"\fBFigure 1.\fP" "\fIImago Dei Computer Lab Setup\fP";
 .PE
 
+.PP
+Thanks to the work of the \fIStarry Knights\fP, the Imago Dei teachers were able to get set up in the new classrooms with just enough time to be ready for school to start back after the Christmas Break!
+.KE
 
+.KS
+.NH 3
+Alamogordo Public Library Presentation
+.XS
+Alamogordo Public Library Presentation
+.XE
+
+.PP
+As part of our public outreach program, as an effort to spread the word about the benefits of FIRST\[rg] Tech Challenge, the Community Outreach Team contacted the Alamogordo Public Library and asked if we could come to the library and present information on FIRST\[rg] robotics to any of the library's youth programs.  The library welcomed the offer and scheduled a time for the Team to come make our presentation.  The Community Outreach Team put together an informative slideshow providing information about our efforts with the Velocity Vortex game this season and delivered the presentation at the library (Figure 2.)
+
+.PSPIC ./images/Library1.eps
+.PS
+"\fBFigure 2.\fP" "\fIAlamogordo Library Presentation\fP";
+.PE
+
+.PP
+The library presentation generated several questions from the audience about the goals and objectives of FIRST\[rg] Tech Challenge, as well as some of the mechanical specifics of the robot.  Members of the Project Management and Build Team were in attendance at the presentation and were able to answer the questions raised.
+.KE
+
+.KS
+.NH 2
+Fundraising Overview
+.XS
+Fundraising Overview
+.XE
+
+.PP
+The Fundraising Team organized halfway through the season in a effort to secure the materials and funding we needed to make it to the Flagstaff regional competition in February.  The Team quickly brainstormed places from which to seek funding and put together a presentation to take to prospective sponsors.  In addition, the Team developed a tri-fold handout which could be used to give potential sponsors a quick-reference guide to the team and facilitate contacting the team to offer support.
+
+.NH 3
+Imago Dei Academy Parent-Teacher Support Group
+.XS
+Imago Dei Academy Parent-Teacher Support Group
+.XE
+
+.PP
+The Team decided the first stop on the funding path should be the Imago Dei Academy Parent-Teacher Support Group (PTSG). The PTSG is a non-profit entity whose purpose is to provide financial and material support to teachers and students of Imago Dei Academy.  The PTSG provides support where the school's budget is either gapped or falls short of annual needs.  The Fundraising Team scheduled a visit with the members of the PTSG at one of their monthly meetings and made a presentation about the benefits of FIRST\[rg] Tech Challenge for students (Figure 1.)
+
+.PSPIC ./images/PTSG1.eps
+.PS
+"\fBFigure 2.\fP" "\fIParent-Teacher Support Group Presentation\fP";
+.PE
+
+.PP
+The PTSG was very impressed with the FIRST\[rg] Tech Challenge program and decided to provide the majority of the financial support needed to get the team to Flagstaff in February.  Thank you Imago Dei Academy PTSG!
+.KE
 .TC
