@@ -140,6 +140,8 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 				get_initial_SONAR_fix = 0;
 			}
 
+			//  Need method to find our operating envelope
+			//		is the diagnal line, through the center of the arena, a positive or negative slope
 
 
 
