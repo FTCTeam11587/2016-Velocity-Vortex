@@ -603,7 +603,8 @@ The Build Team striated the structure and clarified the designs for the core con
 
 \fIStardate 20170103\fP
 
-Attendance: Emmet Burks, Josh Bryant, Brandon Mclaughlin, Michael Wooldrige, Araya Blaylock, Dale James, AlyssaKochendarfer, Coach Michael Hitchcock, Coaches Mr. and Mrs. James, Mr. and Mrs. Kochendarfer
+Attendance: Emmet Burks, Josh Bryant, Brandon Mclaughlin, Michael Wooldrige, Araya Blaylock, Dale James, AlyssaKochendarfer
+Coaches: Michael Hitchcock, Mr. and Mrs. James, Mr. and Mrs. Kochendarfer
 
 We started the meeting off by talking about each team's current tasks. The Build Team was discussed the new robot design. They came up with three main ideas for the cap ball lift, particle shooter, and beacon changer, then  voted on which idea would benefit us the most.  The Fundraising Team talked about transportation to Socorro and Flagstaff, hotels, and who was going. We sent out emails to everyone asking who would be traveling with their parents and which dates they would be going to. The Fundraising Team also emailed the head administrator for the Imago Dei PTSG (Parent Teacher Support Group) to ask if we could provide a presentation to the Group to solicit donations. The Community Outreach Team set up a Facebook account. Programing started to downloaded more software and helped Build Team decide which design would benefit.
 
@@ -622,6 +623,15 @@ Attendance: Emmet Burks, Dax Bash, Araya Blaylock, Gabe Steckler, Brandon Mclaug
 Coaches: Mr. and Mrs. Kochendarfer, Mrs. Steckler, Mr. Hitchcock
 
 The Starry-Knights Team started our meeting by asking where each group is at. The build team reported that they were still working on finishing the robot design and planned to finalizing to design by the end of the meeting. The programing team tought one of the members how to use Post Modual and where the sencers are located on the robot. The fundraising team estimated how much we need to fundraise for parts, travile, and other expencese. 
+
+
+\fIStardate 20170110\fP
+
+Attendance: Emmet Burks, Dax Bash, Brandon Mclaughlin, Gabe Steckler, Dale James
+Coaches: Mr. James, Mr. Kochendarfer, Mrs. Steckler
+
+We asked where we were at and then tasked everyone their jobs and goals for today's meetings. The build team finalized the design for the scissor lift and sketched it out. The programing team designed the sensors and decited where they were being placed. Community Out-reach came with ideas for out reaching to the community and designed a few costume ideas. 
+
 
 \fIStardate 20170123\fP
 
