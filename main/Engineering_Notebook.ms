@@ -662,7 +662,7 @@ We started the meeting off by talking about where we are at with the build team.
 Attendance: Emmet Burks, Dale James, Adrian Martinze, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mr. and Mr. Kochendarfer, Mr. James, Mr. Hichcock, Mrs. Steckler
 
-We stated the meeting of by asking where we were at with the robot and programing. After each team gave their report, we set goals and gave the teams thier tasks to accomplish. The Communiy Out-reach Team worked on their slides for the Library presentation on the 26th of January. Progect management worked on getting the Engineering Notebook up to date. Build team worked on designing a pattle for the CAP Ball, tightened the temporary phone holder.
+We stated the meeting of by asking where we were at with the robot and programing. After each team gave their report, we set goals and gave the teams thier tasks to accomplish. The Communiy Out-reach Team worked on their slides for the Library presentation on 26th of January. Progect management worked on getting the Engineering Notebook up to date. Build team worked on designing a pattle for the CAP Ball and tightened the temporary phone holder. The build team also, took a foam soap holder cut it in half, and zip tied the two foam parts to two long metal part for the beacon changer. They also started to glue and screw the 3D parts. 
 
 
 \fIStardate 20170123\fP
@@ -670,7 +670,7 @@ We stated the meeting of by asking where we were at with the robot and programin
 Attendance: Dax Bash, Brandon Mclaughlin, Emmet Burks, Josh Bryant, Gabe Steckler, Dale James, Araya Blaylock, Adrian Martinez, Alyssa Kochendarfer
 Coaches: Mr. and Mrs. Kochendarfer, Michael Hitchcock, Mrs. Martinez, Mrs. Steckler
 
-We started the meeting off by telling everyone 
+We started the meeting off by telling everyone the goals for the day and where everyone was at. Fundrasing worked on writing the business letter. Commuinty out-reach went over the presentation slides, to make sure they knew what they were talking about. The build team formated the structur to mount te sicssor lift rail, mounted the servose to the claw for the CAP Ball and had to redesigned a new idea for the claw. They also tried mounting the cork screw for the CAP Ball but that did not work. The build team also got percise measurements for munting the sicssor lift. 
 
 .NH 2
 Community Outreach Overview
