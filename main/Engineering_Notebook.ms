@@ -769,6 +769,9 @@ Attendance: Emmet Burks, Dax Bash, Brandon McLaughlin, Araya Blaylock, Adrian Ma
 Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James
 
 We started the meeting by talking about how we only have a few days till Socorro and a lot of work to be done. The build team worked on using the angle iron to cut 16 inch pieces to anchor the scissor lift. They finished putting together the scissor lift and center-mounted the threaded cross brace. They also measured and drilled holes in the rails to mount the scissor lift on the robot. The Community Outreach Team updated the Team storyboard with new photos.
+
+\fIStardate 20170231\fP
+Attendance: Emmet Burks, Dax Bash, 
 .KE
 
 .KS
