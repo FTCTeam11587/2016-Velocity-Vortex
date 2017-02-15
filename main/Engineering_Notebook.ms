@@ -765,13 +765,25 @@ We started the meeting off by telling everyone the goals for the day and where e
 
 \fIStardate 20170124\fP
 
-Attendance: Emmet Burks, Dax Bash, Brandon McLaughlin, Araya Blaylock, Adrian Martinez, Gabe Stekler, Josh Bryant, Alyssa Kochendarfer
-Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James
+Attendance: Emmet Burks, Dax Bash, Brandon McLaughlin, Araya Blaylock, Adrian Martinez, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James, Mr. Hitchcock
 
 We started the meeting by talking about how we only have a few days till Socorro and a lot of work to be done. The build team worked on using the angle iron to cut 16 inch pieces to anchor the scissor lift. They finished putting together the scissor lift and center-mounted the threaded cross brace. They also measured and drilled holes in the rails to mount the scissor lift on the robot. The Community Outreach Team updated the Team storyboard with new photos.
 
-\fIStardate 20170231\fP
-Attendance: Emmet Burks, Dax Bash, 
+\fIStardate 20170130\fP
+
+Attendance: Emmet Burks, Dax Bash, Araya Blaylock, Dale James, Adrian Martinez, Brandon Mclaughlin, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mrs. and Mr. Kochenderfer, Mr. James, Mr. Hitchcock
+
+After our compution in Socorro we decited we were going to have a day to relax. We played board games, ate food and planned for our next meeting.
+
+\fIStardate 20170206
+
+Attendance: Dax Bash, Dale James, Adrian Martinez, Emmet Burks, Brandon Mclaughlin, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James, Mr. Hitchcock
+
+
+
 .KE
 
 .KS
