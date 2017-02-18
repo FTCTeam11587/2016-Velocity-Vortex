@@ -777,12 +777,17 @@ Coaches: Mrs. Steckler, Mrs. and Mr. Kochenderfer, Mr. James, Mr. Hitchcock
 
 After our compution in Socorro we decited we were going to have a day to relax. We played board games, ate food and planned for our next meeting.
 
-\fIStardate 20170206
+\fIStardate 20170206\fP
 
 Attendance: Dax Bash, Dale James, Adrian Martinez, Emmet Burks, Brandon Mclaughlin, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James, Mr. Hitchcock
 
+\fIStardate 20170218\fP
 
+Attendance: Gabe Steckler, Josh Bryant, Dale James, Brandon McLaughlin, Emmet Burks, Dax Bash, Alyssa Kochendarfer
+Coaches: Mrs. Steckler, Mr. James, Mr. Kochendarfer, Mr. Hitchcock
+
+The build team worked on recutting the pulley system so that it fits with in the 18x18x18 box dimensions and recrating the graple to hold the CAP ball. In the mean time the Project managment team worked on updating the Engineering Notbook. 
 
 .KE
 
