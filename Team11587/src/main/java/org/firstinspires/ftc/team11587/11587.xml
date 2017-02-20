@@ -3,8 +3,10 @@
     <DeviceInterfaceModule name="DEV_IF_MOD_1" serialNumber="AI02RM9V">
         <OpticalDistanceSensor name="aft_xdcr_rx" port="5" />
         <OpticalDistanceSensor name="fwd_xdcr_rx" port="7" />
+        <DigitalDevice name="lowerLimitSwitch" port="1" />
         <OpticalDistanceSensor name="port_xdcr_rx" port="4" />
         <OpticalDistanceSensor name="stbd_xdcr_rx" port="6" />
+        <DigitalDevice name="upperLimitSwitch" port="0" />
         <PulseWidthDevice name="xdcr_tx" port="1" />
     </DeviceInterfaceModule>
     <MotorController name="MTR_CNTRLLR_1" serialNumber="AH03EUH5">
@@ -13,10 +15,13 @@
     </MotorController>
     <MotorController name="MTR_CNTRLLR_2" serialNumber="AH03EU0K">
         <Motor name="arm_motor" port="2" />
+        <Motor name="lift_motor" port="1" />
     </MotorController>
     <ServoController name="SRV_CNTRLLR_1" serialNumber="AL00VTCF">
         <Servo name="SONAR_Pedestal_Drive" port="6" />
-        <Servo name="port_claw" port="2" />
-        <Servo name="stbd_claw" port="1" />
+        <Servo name="left_grapple" port="2" />
+        <Servo name="port_claw" port="3" />
+        <Servo name="right_grapple" port="1" />
+        <Servo name="stbd_claw" port="4" />
     </ServoController>
 </Robot>
