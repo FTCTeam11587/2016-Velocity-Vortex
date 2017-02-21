@@ -782,6 +782,8 @@ After our compution in Socorro we decited we were going to have a day to relax. 
 Attendance: Dax Bash, Dale James, Adrian Martinez, Emmet Burks, Brandon Mclaughlin, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James, Mr. Hitchcock
 
+
+
 \fIStardate 20170218\fP
 
 Attendance: Gabe Steckler, Josh Bryant, Dale James, Brandon McLaughlin, Emmet Burks, Dax Bash, Alyssa Kochendarfer
