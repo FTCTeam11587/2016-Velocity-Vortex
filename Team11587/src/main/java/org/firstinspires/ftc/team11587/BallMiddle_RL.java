@@ -9,8 +9,8 @@ public class BallMiddle_RL extends LinearOpMode{
     DcMotor port_motor;
     DcMotor stbd_motor;
     private ElapsedTime runtime = new ElapsedTime();
-    final double max_fwd = 1.0;
-    final double max_rev = -1.0;
+    final double max_fwd = 1.0 / 4;
+    final double max_rev = -1.0 / 4;
     final long waittime = 200;
 
     @Override
@@ -31,8 +31,8 @@ public class BallMiddle_RL extends LinearOpMode{
             port_motor.setPower(0);
             stbd_motor.setPower(0);
             sleep(waittime);
-            port_motor.setPower(0.25);
-            stbd_motor.setPower(-0.25);
+            port_motor.setPower(max_fwd / 4);
+            stbd_motor.setPower(-(max_fwd / 4));
             sleep(800);
             port_motor.setPower(0);
             stbd_motor.setPower(0);
@@ -49,8 +49,8 @@ public class BallMiddle_RL extends LinearOpMode{
             port_motor.setPower(0);
             stbd_motor.setPower(0);
             sleep(waittime);
-            port_motor.setPower(-0.25);
-            stbd_motor.setPower(0.25);
+            port_motor.setPower(-(max_fwd / 4));
+            stbd_motor.setPower(max_fwd / 4);
             sleep(1500);
             port_motor.setPower(0);
             stbd_motor.setPower(0);

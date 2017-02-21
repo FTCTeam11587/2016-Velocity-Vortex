@@ -93,7 +93,7 @@ public abstract class LinearVisionOpMode extends VisionOpMode {
         }
     }
 
-    public void sleep(long milliseconds) throws InterruptedException {
+    public static void sleep(long milliseconds) throws InterruptedException {
         Thread.sleep(milliseconds);
     }
 

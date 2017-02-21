@@ -19,7 +19,6 @@ import org.opencv.core.Size;
 // Stuff I've Added
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.text.TextUtils;
 
 import java.io.*;
 import java.io.File;
@@ -27,8 +26,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-
-
 
 /**
  * Linear Vision Sample
@@ -52,14 +49,18 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 	double Pedestal_Position = 0.5;            // Servo mid position
 	final double Pedestal_Speed = 0.02;   // Sets rate to move servo
 
+	static final float 		pi 							= 3.141592653589793f;
 
 	// Encoder Stuff
-	static final double     COUNTS_PER_MOTOR_REV        =1440;  /*Adjust to CPR * 4*/
-	static final double     DRIVE_GEAR_REDUCTION        =2.0;   /*Motor gear = 40 tooth + wheel gear = 80 tooth*/
-	static final double     WHEEL_DIAMETER_INCHES       =(4.357 + 4.382 ) / 2; //4.439;
-	static final double     COUNTS_PER_INCH             =(COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /                                                                 (WHEEL_DIAMETER_INCHES * 3.141592654));
-	static final double     DRIVE_SPEED                 =0.4;
-	static final double     TURN_SPEED                  =0.5;
+
+	static final double     COUNTS_PER_MOTOR_REV        = 1440;  /*Adjust to CPR * 4*/
+	static final double     DRIVE_GEAR_REDUCTION        = 0.5;   /*Motor gear = 40 tooth + wheel gear = 80 tooth*/
+	//static final double     WHEEL_DIAMETER_INCHES       = (4.357 + 4.382 ) / 2; //4.439;
+	static final double     WHEEL_DIAMETER_INCHES       = 4.0;
+	static final double     COUNTS_PER_INCH             = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION /
+															(WHEEL_DIAMETER_INCHES * pi));
+	static final double     DRIVE_SPEED                 = 0.4;
+	static final double     TURN_SPEED                  = 0.5;
 
 
 	private ElapsedTime runtime     =new ElapsedTime();
@@ -72,8 +73,8 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 
 	@Override
 	public void runOpMode() throws InterruptedException {
-
 		waitForVisionStart();
+
 		port_motor = hardwareMap.dcMotor.get("port_motor");	    						// build config profile
 		stbd_motor = hardwareMap.dcMotor.get("stbd_motor");     						// build config profile
 		SONAR_Pedestal_Drive = hardwareMap.servo.get("SONAR_Pedestal_Drive");	        // build config profile
@@ -117,10 +118,11 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 		int BAD_Rh = 1;
 		ElapsedTime runtime     =new ElapsedTime();
 
-		double SONAR_fix[] = {0,0};
-		double DR_fix[] = {0,0};
+		double SONAR_fix[] = new double[2]; SONAR_fix[0] = 0; SONAR_fix[1] = 0;
+		double DR_fix[] = new double[2]; DR_fix[0] = 0; DR_fix[1] = 0;
 		int get_initial_SONAR_fix = 1;
 		double pedestal_angle = 0;
+		int Zero_to_Rear = 1;
 
 
 		while (opModeIsActive()) {
@@ -133,16 +135,37 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 				// this will make doInBackground() run on background thread
 			}
 
+			//double ANGLE = -10;
+			//while (ANGLE < 45) {
+			//	Drive_SONAR_Pedestal_angle(ANGLE);
+			//	telemetry.addData("Pedestal Angle: ", ANGLE);
+			//	telemetry.update();
+			//	sleep(10000);
+			//	ANGLE = ANGLE + 0.1;
+			//}
+
+
+
+
 			// Zero our Y coordinate, I think minus 2 inches should do it just fine.
-			encoderDrive (DRIVE_SPEED, -2, -2, 4.0);
+			if (Zero_to_Rear == 1) {
+				encoderDriveRamped(1.5, 3.0,DRIVE_SPEED, -6, -6, 4.0);
+				//encoderDrive (DRIVE_SPEED, -2, -2, 4.0);
+				Zero_to_Rear = 0;
+			}
+
 			if (get_initial_SONAR_fix == 1 && SONAR_fix[0] == 0 && SONAR_fix[1] == 0) {
 				SONAR_fix = get_SONAR_fix();
 				get_initial_SONAR_fix = 0;
 			}
 
+			encoderDriveRamped(1.5, 3.0, DRIVE_SPEED, 64, 64, 4.0);
+
+			SONAR_fix = get_SONAR_fix();
+			sleep(5000);
 			//  Need method to find our operating envelope
 			//		is the diagnal line, through the center of the arena, a positive or negative slope
-
+			//
 
 
 			if (hasNewFrame()) {
@@ -166,30 +189,30 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 
 	public double[] get_SONAR_fix() throws InterruptedException {
 
-		double[] coords = {0,0};
+		//double[] coords = {0,0};
+		double coords[] = new double[2]; coords[0] = 0; coords[1] = 0;
 
-		// Where exactly are we
-		double fwd_Rh_coords[] = {0,0};
-		double stbd_Rh_coords[] = {0,0};
-		double aft_Rh_coords[] = {0,0};
-		double port_Rh_coords[] = {0,0};
+		double fwd_Rh_coords[] = coords;
+		double stbd_Rh_coords[] = coords;
+		double aft_Rh_coords[] = coords;
+		double port_Rh_coords[] = coords;
 
-		double Rh[] = {0, 0, 0, 0};
+		double Rh[] = new double[4]; Rh[0] = 0; Rh[1] = 0; Rh[2] = 0; Rh[3] = 0;
 
 		double max_pedestal_angle = 75.0;
 		double pedestal_angle = 0;
 		int BAD_Rh = 1;
 		int max_angle_iteration = 10;
-		double max_xy_VRh[] = {0,0};
-		double min_xy_VRh[] = {0,0};
+		double max_xy_VRh[] = coords;
+		double min_xy_VRh[] = coords;
 
 		for (int angle_iteration=0; angle_iteration < max_angle_iteration; angle_iteration++) {
-			double max_xy_VRh_tmp[] = {0,0};
-			double min_xy_VRh_tmp[] = {0,0};
-			for (int i = 1; i <= 2; i++) {
+			double max_xy_VRh_tmp[] = new double[2]; max_xy_VRh_tmp[0] = 0; max_xy_VRh_tmp[1] = 0;
+			double min_xy_VRh_tmp[] = max_xy_VRh_tmp;
+			for (int i = 0; i <= 1; i++) {
 				pedestal_angle = -pedestal_angle;
 				Drive_SONAR_Pedestal_angle(pedestal_angle);
-
+				sleep(300);
 
 				BAD_Rh = 1;
 				while (BAD_Rh == 1) {
@@ -203,11 +226,11 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 				double stbd_coords_tmp[] = angle2vectorCoord(pedestal_angle + 90, Rh[1]);
 				double aft_coords_tmp[] = angle2vectorCoord(pedestal_angle + 180, Rh[2]);
 				double port_coords_tmp[] = angle2vectorCoord(pedestal_angle + 270, Rh[3]);
-				double max_xy_VRh_tmp1[] = {0,0};
-				double min_xy_VRh_tmp1[] = {0,0};
+				double max_xy_VRh_tmp1[] = new double[2];max_xy_VRh_tmp1[0] = 0; max_xy_VRh_tmp1[1] = 0;
+				double min_xy_VRh_tmp1[] = max_xy_VRh_tmp1;
 
 				// Find min and max x and y Ranges, at this angle
-				for (int ii=0; i <= 1; i++) {
+				for (int ii=0; ii <= 1; ii++) {
 					double fwdstbd_max_coord_tmp = Math.max(fwd_coords_tmp[ii], stbd_coords_tmp[ii]);
 					double aftport_max_coord_tmp = Math.max(aft_coords_tmp[ii], port_coords_tmp[ii]);
 					max_xy_VRh_tmp1[ii] = Math.max(fwdstbd_max_coord_tmp, aftport_max_coord_tmp);
@@ -232,29 +255,31 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 		// Hopefully it works!
 		coords[0] = Math.abs(min_xy_VRh[0]) * ((Math.abs(min_xy_VRh[0]) + max_xy_VRh[0]) / 12);
 		coords[1] = Math.abs(min_xy_VRh[1]) * ((Math.abs(min_xy_VRh[1]) + max_xy_VRh[1]) / 12);
-
+		telemetry.addData("X:", coords[0]);
+		telemetry.addData("Y:", coords[1]);
+		telemetry.update();
 		// Return to Zero Degrees
 		Drive_SONAR_Pedestal_angle(0);
+
 		return coords;
 	}
 
 	public double[] angle2vectorCoord(double Angle, double Length) {
 		double x;
 		double y;
-		x = Length * Math.cos(Angle * 3.141592653589793/180);
-		y = Length * Math.sin(Angle * 3.141592653589793/180);
+		x = Length * Math.cos(Angle * pi/180);
+		y = Length * Math.sin(Angle * pi/180);
 		double coord[] = {x,y};
 
 		return coord;
 	}
 
 	public void Drive_SONAR_Pedestal_angle(double theta) throws InterruptedException {
-		// 180 degrees => 1
-		// 0 degrees => 0
-		// 1 / 180 = posit/theta
-		// theta / 180 = posit
-		SONAR_Pedestal_Drive.setPosition(theta/180);
-
+		// 90 degrees => 1
+		// -90 degrees => 0
+		// 1 / 180 = posit/(theta+90)
+		// (theta+90) / 180 = posit
+		SONAR_Pedestal_Drive.setPosition((theta + 90) / 180);
 		// Ok, FINE!!!!, I'll "try" to take a nap, to help let the Range measurements stabilize.
 		try {
 			sleep(100);
@@ -316,6 +341,12 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 					//Rh[RhSC] = Rh_scan.nextDouble();
 					Rh[RhSC] = Double.parseDouble(Rh_str[RhSC]);
 				}
+				telemetry.addData("Fwd:", Rh[0]);
+				telemetry.addData("Aft:", Rh[2]);
+				telemetry.addData("Port:", Rh[3]);
+				telemetry.addData("Stbd:", Rh[1]);
+				telemetry.update();
+
 			}
 			//Rh_scan.close();
 			return Rh;
@@ -331,12 +362,72 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 
 	}
 
-	public void encoderDrive (double speed, double leftInches, double rightInches, double timeoutS) {
+	public void encoderTurn (double SPEED, double theta, double Timeout) {
+		telemetry.addData("turning: ","%.3f degrees",theta);
+		telemetry.update();
+		double DBDW = 14.0; // Distance between Drive wheels
+		double arclength = (theta * pi * DBDW) /  360;
+		encoderDrive(1, SPEED,arclength,-arclength,Timeout);
+	}
+
+	public void encoderDriveRamped(double RAMP, double i_RAMP, double speed, double leftInches, double rightInches, double timeoutS) {
 
 		int newLeftTarget;
 		int newRightTarget;
-		double CurrentPosition_left;
-		double CurrentPosition_right;
+
+		// Divide things a speed a few times, and set the initial speed
+		double initial_speed = speed;
+		for (int i = 0; i < i_RAMP; i++){
+			initial_speed = initial_speed / RAMP;
+		}
+		double lftdrvdist = leftInches / i_RAMP;
+		double rgtdrvdist = rightInches / i_RAMP;
+
+
+		for (int i = 0; i < i_RAMP; i++) {
+			//Sets new target position using current position//
+			newLeftTarget  = port_motor.getCurrentPosition() + (int)(lftdrvdist * COUNTS_PER_INCH);
+			newRightTarget = stbd_motor.getCurrentPosition() + (int)(rgtdrvdist * COUNTS_PER_INCH);
+			port_motor.setTargetPosition(newLeftTarget);
+			stbd_motor.setTargetPosition(newRightTarget);
+
+			port_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+			stbd_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+			runtime.reset();
+			port_motor.setPower(Math.abs(initial_speed));
+			stbd_motor.setPower(Math.abs(initial_speed));
+
+			newLeftTarget  = port_motor.getCurrentPosition() + (int)(lftdrvdist * COUNTS_PER_INCH);
+			newRightTarget = stbd_motor.getCurrentPosition() + (int)(rgtdrvdist * COUNTS_PER_INCH);
+			while (opModeIsActive() &&
+					(runtime.seconds() < timeoutS) &&
+					(port_motor.isBusy() && stbd_motor.isBusy())) {
+				telemetry.addData("Path1", "Driving to %7d :%7d",newLeftTarget,newRightTarget);
+				telemetry.addData("Path2", "Driving at %7d :%7d",
+						port_motor.getCurrentPosition(),
+						stbd_motor.getCurrentPosition());
+				telemetry.update();
+			}
+			//encoderDrive(0, initial_speed, lftdrvdist, rgtdrvdist, timeoutS);
+			initial_speed = initial_speed * RAMP;
+		}
+		//Stop all motion and reset motors//
+		port_motor.setPower(0);
+		stbd_motor.setPower(0);
+		port_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+		stbd_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+
+
+
+
+	}
+
+	public void encoderDrive (int DISABLE, double speed, double leftInches, double rightInches, double timeoutS) {
+
+		int newLeftTarget;
+		int newRightTarget;
 
 
 		if (opModeIsActive()) {
@@ -348,6 +439,7 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 			stbd_motor.setTargetPosition(newRightTarget);
 
 			//Set motors to Encoder drive mode//
+
 			port_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 			stbd_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
@@ -370,6 +462,7 @@ public class Beacon_Pusher extends LinearVisionOpMode {
 			stbd_motor.setPower(0);
 			port_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 			stbd_motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
 		}
 	}
 

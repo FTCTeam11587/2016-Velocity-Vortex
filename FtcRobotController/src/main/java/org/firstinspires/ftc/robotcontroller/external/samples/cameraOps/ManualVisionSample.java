@@ -1,4 +1,5 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package org.firstinspires.ftc.robotcontroller.external.samples.cameraOps;
+//package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import org.lasarobotics.vision.android.Cameras;
 import org.lasarobotics.vision.detection.ColorBlobDetector;

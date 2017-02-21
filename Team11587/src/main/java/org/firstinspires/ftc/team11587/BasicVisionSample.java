@@ -9,6 +9,7 @@ import org.lasarobotics.vision.opmode.extensions.CameraControlExtension;
 import org.lasarobotics.vision.util.ScreenOrientation;
 import org.opencv.core.Size;
 
+
 /**
  * Basic Vision Sample
  * <p/>
