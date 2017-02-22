@@ -45,7 +45,7 @@ public class FTC11587_TankDrive extends LinearOpMode {
             //Initialize aux hardware//
 
             lift_motor = hardwareMap.dcMotor.get("lift_motor");		// build config profile
-            grapple_servo = hardwareMap.servo.get("grapple");	// build config profile
+            grapple_servo = hardwareMap.servo.get("grapple_servo");	// build config profile
             //right_grapple_servo = hardwareMap.servo.get("right_grapple");	// build config profile
             grapple_servo.setPosition(GrapplePosition);
             //right_grapple_servo.setPosition(rightGrapplePosition);
@@ -54,8 +54,8 @@ public class FTC11587_TankDrive extends LinearOpMode {
 
             //upper_limit_switch = hardwareMap.digitalChannel.get("upperLimitSwitch");	// build config profile
             //lower_limit_switch = hardwareMap.digitalChannel.get("lowerLimitSwitch");	// build config profile
-            grapple_servo = hardwareMap.servo.get("grapple_servo");
-            grapple_servo.setPosition(GrapplePosition);
+            //grapple_servo = hardwareMap.servo.get("grapple_servo");
+            //grapple_servo.setPosition(GrapplePosition);
 
 
             telemetry.addData("Say: ", "Hello Knight!");

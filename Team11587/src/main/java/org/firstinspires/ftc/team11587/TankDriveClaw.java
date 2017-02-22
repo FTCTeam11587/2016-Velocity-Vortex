@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class TankDriveClaw extends LinearOpMode {
     DcMotor port_motor;
     DcMotor stbd_motor;
-    DcMotor arm_motor;
+    DcMotor lift_motor;
     Servo port_claw;
     Servo stbd_claw;
     double port_motorpower;
@@ -25,7 +25,7 @@ public class TankDriveClaw extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         port_motor = hardwareMap.dcMotor.get("port_motor");	    // build config profile
         stbd_motor = hardwareMap.dcMotor.get("stbd_motor");     // build config profile
-        arm_motor = hardwareMap.dcMotor.get("arm_motor");       // build config profile
+        lift_motor = hardwareMap.dcMotor.get("lift_motor");       // build config profile
         port_claw = hardwareMap.servo.get("port_claw");	        // build config profile
         stbd_claw = hardwareMap.servo.get("stbd_claw");	        // build config profile
         stbd_motor.setDirection(DcMotor.Direction.REVERSE);
@@ -42,11 +42,11 @@ public class TankDriveClaw extends LinearOpMode {
             stbd_motor.setPower(stbd_motorpower);
 
             if(gamepad1.right_trigger != 0)
-                arm_motor.setPower(-gamepad1.right_trigger*0.25);
+                lift_motor.setPower(-gamepad1.right_trigger*0.25);
             else if(gamepad1.left_trigger != 0)
-                arm_motor.setPower(gamepad1.left_trigger*0.25);
+                lift_motor.setPower(gamepad1.left_trigger*0.25);
             else if(gamepad1.left_trigger == 0 && gamepad2.right_trigger == 0)
-                arm_motor.setPower(0);
+                lift_motor.setPower(0);
 
             if (gamepad1.left_bumper)
                 clawPosition += CLAW_SPEED;

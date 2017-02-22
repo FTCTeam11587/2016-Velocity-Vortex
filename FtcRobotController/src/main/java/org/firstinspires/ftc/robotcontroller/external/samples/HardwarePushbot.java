@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *
  * Motor channel:  Left  drive motor:        "port_motor"
  * Motor channel:  Right drive motor:        "stbd_motor"
- * Motor channel:  Manipulator drive motor:  "arm_motor"
+ * Motor channel:  Manipulator drive motor:  "lift_motor"
  * Servo channel:  Servo to open left claw:  "port_claw"
  * Servo channel:  Servo to open right claw: "stbd_claw"
  */
@@ -51,7 +51,7 @@ public class HardwarePushbot
         // Define and Initialize Motors
         leftMotor   = hwMap.dcMotor.get("port_motor");
         rightMotor  = hwMap.dcMotor.get("stbd_motor");
-        armMotor    = hwMap.dcMotor.get("arm_motor");
+        armMotor    = hwMap.dcMotor.get("lift_motor");
         leftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 

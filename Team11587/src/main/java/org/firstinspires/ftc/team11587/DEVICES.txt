@@ -7,6 +7,8 @@ stbd_motor		Motor					1				MTR_CNTRLLR_1
 port_motor		Motor					2				MTR_CNTRLLR_1
 lift_motor      Motor                   1               MTR_CNTRLLR_2
 grapple_servo   Servo                   1               SRV_CNTRLLR_1
+port_claw       Servo                   2               SRV_CNTRLLR_1
+stbd_claw       Servo                   3               SRV_CNTRLLR_1
 SONAR_Pedestal_Drive Servo				6				SRV_CNTRLLR_1
 fwd_xdcr_rx		OpticalDistanceSensor	7				DEV_IF_MOD_1
 stbd_xdcr_rx 	OpticalDistanceSensor	6				DEV_IF_MOD_1

@@ -22,7 +22,7 @@ import com.qualcomm.robotcore.hardware.ServoController;
  *
  * Motor channel:  Left  drive motor:        "port_motor"
  * Motor channel:  Right drive motor:        "stbd_motor"
- * Motor channel:  Manipulator drive motor:  "arm_motor"
+ * Motor channel:  Manipulator drive motor:  "lift_motor"
  * Servo channel:  Servo to open left claw:  "port_claw"
  * Servo channel:  Servo to open right claw: "stbd_claw"
  *
