@@ -794,7 +794,7 @@ Community outreach came up with ideas for tokens to give out at out Flagstaff to
 Attendance: Dax Bash, Dale James, Adrian Martinez, Emmet Burks, Brandon Mclaughlin, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James, Mr. Hitchcock
 
-
+The build team started ordering parts for the CAP Ball list and coming up with ideas for the pardical shooter. The community team worked on the digital storyboard and the Starry Knights business letter.
 
 \fIStardate 20170218\fP
 
@@ -803,12 +803,27 @@ Coaches: Mrs. Steckler, Mr. James, Mr. Kochendarfer, Mr. Hitchcock
 
 The build team worked on recutting the pulley system so that it fits with in the 18x18x18 box dimensions and recrating the graple to hold the CAP ball. In the mean time the Project managment team worked on updating the Engineering Notbook. 
 
+\fIStardate 20170220\fP
+
+Attendance: Emmet Burks, Josh Bryant, Dale James, Brandon Mclaughlin, Dax Bash, Gabe Steckler
+Coaches: Mr. Kochendarfe, Mrs. James, Mrs. Steckler
+
+The Build team Finished putting to getther the graple, remounted the motor over a little so there would not be as much tention on the string. They also remounted the battery to an accessible place.
+
 \fIStardate 20170221\fP
 
 Attendance: Josh Bryant, Gabe Steckler, Brandon Mclaughlin, Dax Bash, Dale James, Emmet Burks
-Coaches: Mr. Kochendarfer, Mr. James, Mrs. Steckler
+Coaches: Mr. Kochendarfer, Mr. James, Mrs. Steckler, Mr. Hitchcock
 
 The community outreach and fundraising team checked when the flags and table cloth would be done. In the mean time, build team replaced the old wheels with the new 3D printed wheels and rewired the robot. Programing worked on getting the code put together for the graple servo.
+
+\fIStardate 20170224\fP
+
+Attendance: Gabe Steckler. Emmet Burks, Josh Bryant, Brandon Mclaughlin, Dax Bash, Araya Blaylock, Adrain Martinez, Gabe steckler
+Coaches: Mrs. Hitchcock, Mr. Kochendarfer, Mrs. Steckler, Mrs. Kochendarfer, Mrs. Martinez
+
+The build tested the pulley system but there was to much tention on the sting that it broke. They had to take a trip to the store to buy some cable, inreplacment of the string. After all that, they attached the cable to the motor and the pulley system and tweaked any other parts of the robot. The Project managment team made sure we had everything ready to the leave the next morning for Flagstaff.
+
 
 .KE
 
