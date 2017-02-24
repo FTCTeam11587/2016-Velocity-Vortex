@@ -770,12 +770,24 @@ Coaches: Mrs. Steckler, Mr. and Mrs. Kochendarfer, Mr. James, Mr. Hitchcock
 
 We started the meeting by talking about how we only have a few days till Socorro and a lot of work to be done. The build team worked on using the angle iron to cut 16 inch pieces to anchor the scissor lift. They finished putting together the scissor lift and center-mounted the threaded cross brace. They also measured and drilled holes in the rails to mount the scissor lift on the robot. The Community Outreach Team updated the Team storyboard with new photos.
 
+\fIStardate 20170125\fP
+
+Today we had a short meeting. The build team drilled holes in the rails for the scissor list sliders. After that they attached the silder to the rail, which is mounted to the base of the robot. The project managmeant worked on collecting photos and editing the photos in the engineering notebook.
+
+\fIStardate 20170126\fP
+
+The build team worked on mounting the scisssor lift rails to the base of the robot. They also mounted the graple servo, and finished the final details for the graple arms. Mean while the project managment team worked on editing the engineering notebook. Fundraising started a list of places to fundraise and an estimated cost for how much we needed to fundraise. The programming team fixed the graple code, the code for the sonar sensor and figured out the generated rang of the sonar sensors.
+
 \fIStardate 20170130\fP
 
 Attendance: Emmet Burks, Dax Bash, Araya Blaylock, Dale James, Adrian Martinez, Brandon Mclaughlin, Gabe Steckler, Josh Bryant, Alyssa Kochendarfer
 Coaches: Mrs. Steckler, Mrs. and Mr. Kochenderfer, Mr. James, Mr. Hitchcock
 
 After our compution in Socorro we decited we were going to have a day to relax. We played board games, ate food and planned for our next meeting.
+
+\fIStardate 20170131\fP
+
+Community outreach came up with ideas for tokens to give out at out Flagstaff tournament. Such as rock candys, glow sticks, buttons, pencils, ect... They also came up with some costum dessign. The build team worked on coming up with new ideas for the CAP Ball. They decited the pulley system would be the best for it.
 
 \fIStardate 20170206\fP
 
@@ -790,6 +802,13 @@ Attendance: Gabe Steckler, Josh Bryant, Dale James, Brandon McLaughlin, Emmet Bu
 Coaches: Mrs. Steckler, Mr. James, Mr. Kochendarfer, Mr. Hitchcock
 
 The build team worked on recutting the pulley system so that it fits with in the 18x18x18 box dimensions and recrating the graple to hold the CAP ball. In the mean time the Project managment team worked on updating the Engineering Notbook. 
+
+\fIStardate 20170221\fP
+
+Attendance: Josh Bryant, Gabe Steckler, Brandon Mclaughlin, Dax Bash, Dale James, Emmet Burks
+Coaches: Mr. Kochendarfer, Mr. James, Mrs. Steckler
+
+The community outreach and fundraising team checked when the flags and table cloth would be done. In the mean time, build team replaced the old wheels with the new 3D printed wheels and rewired the robot. Programing worked on getting the code put together for the graple servo.
 
 .KE
 
