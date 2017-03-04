@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/res/merged/debug/menu/ftc_robot_controller.xml",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/src/main/res/menu/ftc_robot_controller.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/res/merged/debug/menu/main_menu.xml",
+        "source": "/Users/hitchcme/.android/build-cache/915438099d4607a8872cd93b6b675496eab68464/output/res/menu/main_menu.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/res/merged/debug/menu/menu_server.xml",
+        "source": "/Users/hitchcme/.android/build-cache/d963c54ccb806f351f573b37bb35ea1f36492ac3/output/res/menu/menu_server.xml"
+    }
+]

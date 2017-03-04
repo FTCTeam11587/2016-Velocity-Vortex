@@ -1,0 +1,21 @@
+<!--
+AUTODRIVE ROUTE MAP
+
+Created by Kurt Kochendarfer
+
+Load all your desired autodrive routes into this file to create encoderDrive output files to be used with a rotary encoder driven robot.  This code assumes the desired route dimensions in inches, using arena x,y pairs which are based on an arena coded in x,y inches starting from the lower left corner based on the arena diagram in the Game Manual.
+
+Routes are defined in this XML file using the following tag construct
+
+<route>
+    <name>My Awesome Route</name>
+    <alliance>Blue</alliance>
+    <description>Blue start at 0,48 -> sleep 10 seconds -> park in own alliance Corner Vortex</description>
+    <map>
+        <point x="0" y="48">
+            <comment>Initialize bot on 2nd arena tile line</comment>
+        </point>
+
+        <point>
+            <x>
+</route>

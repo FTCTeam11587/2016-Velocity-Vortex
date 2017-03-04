@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/squarebot.xml",
+        "source": "/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/res/xml/squarebot.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/k9usbbot.xml",
+        "source": "/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/res/xml/k9usbbot.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/pushbot.xml",
+        "source": "/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/res/xml/pushbot.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/pushbotsens.xml",
+        "source": "/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/res/xml/pushbotsens.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/k9legacybot.xml",
+        "source": "/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/res/xml/k9legacybot.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/device_filter.xml",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/default/res/xml/device_filter.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/default/res/xml/preferences.xml"
+    }
+]

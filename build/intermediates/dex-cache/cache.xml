@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c4eb6cd3293a75796f045e30565bbfac27cfa8c1">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_ca887d7f80e8c952b97243debfd26d7c82e3e521.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/b4c5e54bc37b74205aa1d2f753a443f75b7714c7/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9dafed45e330aec14abcce05bdb7bbdb2a2d7092">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_2d031205d8dfd3722a52c959a542072887a1afda.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/9203c44d0964b22e45afa06c63611588c2ea691d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="01999c87afe3d10ffa06f3efa66f39e61e6aba0c">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_01e8eec7f466967659af4e9bd57c91b441d8feb2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/915438099d4607a8872cd93b6b675496eab68464/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9bf02f41db1f6ec91af06ec508925c91ac5c72e9">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_fabfd64aa9fe06a76f64d91c0a81e172764fbcfd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/7e4927a11005a1dc6bda4a35442c669f085a5b3e/output/jars/libs/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ba3817622501fb5da8e6b967e42c6717fbd26b02">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/support-annotations-23.4.0_66c279471edbb6ed170364f2975de53ab6e6a8f8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/39faa2dc285f789888f04e8abc966e295523da07/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a82bee948963c3d4ed5b535c680c3183f5d1bcb6">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_174ee47edeb93af28e286b3899e60d50656c3354.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/Projects/Android_Studio/Robot_Code/opencv-java/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e1d5cfdb78b8a8201a0f22fc7ca14d95dffb3e18">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_6353d9db3c2638d36969a52b580b0974fe9d92b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/7e4927a11005a1dc6bda4a35442c669f085a5b3e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="51343b483c5a260b7203ac91d9009f27d38d8e3d">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_a71853bb295aa04e98a1c3eca3a589da6832deee.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/7e4927a11005a1dc6bda4a35442c669f085a5b3e/output/jars/libs/d2xx.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="04004e5f55992d1d8a105a4ade7be348986ed34e">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/d2xx_cfc313e04c863eb1966740c0b74c1599c882cb7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/7e4927a11005a1dc6bda4a35442c669f085a5b3e/output/jars/libs/Vuforia.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="58b9241fc73757cb6e0cdc32422a71a8e7e6d178">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/Vuforia_34586f5d8a8d9ffc51634952530f2fa866969a30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/Projects/Android_Studio/Robot_Code/ftc-visionlib/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ba3775fe11c5486b3832855e5fd47731f52343d9">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_6e7282dac52d85fa6250ac26f49aa0aada84f0aa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/0f06780b86f14e9da9894b13e9b4a2150bde3fb6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9403be210676ed196cdcc64c7391b9ae2361c174">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_faf4635fe64ae837b64f84b6bfe2db07d115e757.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/7e4927a11005a1dc6bda4a35442c669f085a5b3e/output/jars/libs/gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f6a826116ec7bc3c38197e60ff96e806e2a323b8">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/gson-2.7_1a54a43223e169856cf4324c5dc5d415929d0348.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="42c41c87fc12bbc65308fd3f55c87d2e1cdf8912">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_fea1e8ea4541fe8f0074194c42774704a1a67dc0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hitchcme/.android/build-cache/d963c54ccb806f351f573b37bb35ea1f36492ac3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bfdfb2339e516dcb78b53e85a9f32e33ee71833f">
+        <dex dex="/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/pre-dexed/release/classes_9e6120b76d22c8f94d6266fe20f85506a6ab071c.jar" />
+    </item>
+
+</items>

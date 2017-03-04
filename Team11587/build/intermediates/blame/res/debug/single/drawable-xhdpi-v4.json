@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_robotcontroller.png",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/default/res/drawable-xhdpi-v4/icon_robotcontroller.png"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/default/res/drawable-xhdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/Team11587/build/intermediates/res/merged/debug/drawable-xhdpi-v4/icon_menu.png",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/default/res/drawable-xhdpi-v4/icon_menu.png"
+    }
+]

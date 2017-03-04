@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/button_shape.xml",
+        "source": "/Users/hitchcme/.android/build-cache/2de64822b0e1e0f2cc0806c73420409345874516/output/res/drawable-hdpi-v4/button_shape.xml"
+    },
+    {
+        "merged": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/Users/hitchcme/Projects/Android_Studio/Robot_Code/FtcRobotController/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ic_launcher.png"
+    }
+]

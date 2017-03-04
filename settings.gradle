@@ -1,0 +1,4 @@
+include ':FtcRobotController'
+include ':Team11587'
+include ':opencv-java'
+include ':ftc-visionlib'

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/hitchcme/Projects/Android_Studio/Robot_Code/opencv-java/src/main/shaders"/></dataSet><dataSet config="release"><source path="/Users/hitchcme/Projects/Android_Studio/Robot_Code/opencv-java/src/release/shaders"/></dataSet></merger>
