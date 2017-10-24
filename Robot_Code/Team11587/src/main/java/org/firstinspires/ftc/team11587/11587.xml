@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Robot type="FirstInspires-FTC">
+    <DeviceInterfaceModule name="DEV_IF_MOD_1" serialNumber="AI02RM9V">
+        <OpticalDistanceSensor name="aft_xdcr_rx" port="5" />
+        <OpticalDistanceSensor name="fwd_xdcr_rx" port="7" />
+        <OpticalDistanceSensor name="port_xdcr_rx" port="4" />
+        <OpticalDistanceSensor name="stbd_xdcr_rx" port="6" />
+        <PulseWidthDevice name="xdcr_tx" port="1" />
+    </DeviceInterfaceModule>
+    <MotorController name="MTR_CNTRLLR_1" serialNumber="AH03EUH5">
+        <Motor name="port_motor" port="2" />
+        <Motor name="stbd_motor" port="1" />
+    </MotorController>
+    <MotorController name="MTR_CNTRLLR_2" serialNumber="AH03EU0K">
+        <Motor name="lift_motor" port="1" />
+    </MotorController>
+    <ServoController name="SRV_CNTRLLR_1" serialNumber="AL00VTCF">
+        <Servo name="SONAR_Pedestal_Drive" port="6" />
+        <Servo name="grapple_servo" port="1" />
+        <Servo name="port_claw" port="2" />
+        <Servo name="stbd_claw" port="3" />
+    </ServoController>
+</Robot>
